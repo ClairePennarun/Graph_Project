@@ -11,6 +11,10 @@ public class LecteurGraphes {
 		
 	}
 	
+	public ListeAdjacence getList(){
+		return liste;
+	}
+	
 	private void readSommets(BufferedReader br) throws IOException{
 		String ligne = br.readLine();
 		while(isComment(ligne)){
