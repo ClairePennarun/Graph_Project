@@ -70,10 +70,10 @@ public class Graphe {
 		int classeDepart = this.classes[iSommet];
 		int[] voisinage = this.sommets[iSommet].getVoisins();
 		for (int iVoisin : voisinage){
-			if (this.classes[iVoisin] == classeDestination) //l'arrete n'est plus interclasse
-				this.evaluation -= 1; // on enleve le poid par defaut
-			else if(this.classes[iVoisin] == classeDepart) //l'arret devient interclasse
-				this.evaluation += 1; // on ajoute le poid par defaut
+			if (this.classes[iVoisin] == classeDestination) //l'arete n'est plus interclasse
+				this.evaluation -= 1; // on enleve le poids par defaut
+			else if(this.classes[iVoisin] == classeDepart) //l'arete devient interclasse
+				this.evaluation += 1; // on ajoute le poids par defaut
 		}
 		this.classes[iSommet] = classeDestination; // on modifie la classe du sommet
 	}

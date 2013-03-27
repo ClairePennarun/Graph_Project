@@ -1,5 +1,7 @@
 package graphe;
 
+import java.util.Arrays;
+
 public class Solution {
 
 	private int[] classes;
@@ -22,5 +24,9 @@ public class Solution {
 	
 	public int getNbClasses(){
 		return this.nbClasses;
+	}
+	
+	public String toString(){
+		return Arrays.toString(classes);
 	}
 }
