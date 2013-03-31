@@ -1,15 +1,20 @@
 
 
-import graphe.GrapheMat;
-import graphe.LecteurGraphes;
-import graphe.ListeAdjacence;
+import graphe.calcul.Voisinage;
+import graphe.calcul.VoisinagePickNDrop;
+import graphe.calcul.VoisinageSwap;
+import graphe.init.GrapheMat;
+import graphe.init.LecteurGraphes;
+import graphe.init.ListeAdjacence;
+
 import java.io.*;
 
 import algo.Exhaustif;
+import algo.Gradient;
 
 public class Main { 
 
-/* prendre en entrée 
+	/* prendre en entrée 
 	=> fichier  : arg[0]
 	=> algo que l'on veut : arg[1]
 	=> nb de classes : arg[2]
@@ -19,40 +24,84 @@ exhaustif
 descente de gradiant
 recuit simulé
 tabou / agent / Hopfield / génétique
-*/
+	 */
 
 	public static void main (String args[]) throws IOException{
 
-		File file = new File("data/input.txt");
+		File file = new File(args[0]); // TODO : verifier que le fichier existe
 		LecteurGraphes lg = new LecteurGraphes();
 		GrapheMat graph = lg.lectureFichier(file);
 		ListeAdjacence list = lg.getList();
-		Exhaustif ex = new Exhaustif(list,2);
-		ex.run();
-	}
-		
-	
-		/*if (args.length != 3) {
-			System.out.printf ("La commande de lancement doit être de cette forme : \n ./graphe <fichier d'entrée> <algorithme désiré> <nombre de partitions>\n");
-		*/
+		Voisinage v; 		// instancie en fonction du parametre 4
 
-		/*if ((args[2] == (0 || 1)) 
-			System.out.println("Le nombre de partitions doit être supérieur à 1.\n");
-		
-		if (args[2] > length.graphe.sommets())
-			System.out.println("Le nombre de partitions doit être inférieur au nombre de sommets du graphe.\n");
-		
-		if (arg[1] == "ex"){
-			Exhaustif.run(graphe, args[2]);  
+
+		if (args.length < 3) {
+			System.out.println("Les arguments du programme doivent être de cette forme : \n <fichier d'entrée> <algorithme désiré> <nombre de partitions> <voisinage(sauf pour exhaustif)>\n");
+		} else {
+			if (Integer.valueOf(args[2]) > graph.getTaille())
+				System.out.println("Le nombre de partitions doit être inférieur au nombre de sommets du graphe.\n");
+
+			else {
+				if (args.length > 3){		//alors il y a un voisinage
+
+					if (args[1].equals("ex")){
+						Exhaustif ex = new Exhaustif(list,2);
+						ex.run(); 
+					}
+					else if (args[3].equals("PnD")){
+						v = new VoisinagePickNDrop();
+						if (args[1].equals("grad")){
+							Gradient gr = new Gradient(list, v, 2);
+							System.out.println("etree grad, PnD");
+							gr.run();
+						} /*else if (args[1].equals("recuit")){
+					Recuit recuit = new Recuit(list, v, 2);
+					recuit.run();
+				} else if(args[1].equals("tabou")){
+				Tabou tabou = new Tabou(???);
+				tabou.run();
+				}*/
+					}
+					else if (args[3].equals("Swap")){
+						v = new VoisinageSwap();
+						if (args[1].equals("grad")){
+							Gradient gr = new Gradient(list, v, 2);
+							System.out.println("entree grad, Swap");
+							gr.run();
+						} /*else if (args[1].equals("recuit")){
+					Recuit recuit = new Recuit(list, v, 2);
+					recuit.run();
+				} else if(args[1].equals("tabou")){
+				Tabou tabou = new Tabou(???);
+				tabou.run();
+				}*/	
+					}
+					else
+						System.out.println("Les voisinages disponibles sont Pick and Drop : PnD et Swap : Swap"); 
+				}else {
+					if (args[1].equals("ex")){
+						Exhaustif ex = new Exhaustif(list,2);
+						ex.run();
+					} else if (args[1].equals("grad") ||args[1].equals("recuit") || args[1].equals("tabou"))
+						System.out.println(" Pour cet algorithme vous devez choisir en voisinage entre : Pnd ou Swap.\n Recommencer le lancement.");
+
+					else {
+						System.out.printf ("L'algorithme entré n'est pas valable. \n Les algorithmes implémentés sont : \n exhaustif : ex , \n descente de gradient : grad , \n recuit simulé : recuit , \n tabou : tabou , \n ");
+						System.out.println("entree algo : -" + args[1] + "-");
+					}
+				}
+			} 
 		}
-
-		/* autres algorithmes
-		*/
-
-
-		/*else {
-			System.out.printf ("L'algorithme entré n'est pas valable. \n Les algorithmes implémentés sont : \n exhaustif : ex , \n descente de gradient : des , \n recuit simulé : recuit , \n tabou : tabou , \n ");
-		}*/
-	//}	
-
+	}
 }
+
+
+
+
+
+/* pour lancer le main avec des arguments : 
+ * clic-droit sur le main => run as => run configuration
+ * onglet argument 
+ * case program argument : écrires les arguments séparés par un espace
+ * */
+

@@ -1,20 +1,20 @@
 package algo;
 
-import graphe.Graphe;
-import graphe.ListeAdjacence;
-import graphe.Solution;
+import graphe.calcul.GraphePartition;
+import graphe.init.ListeAdjacence;
+import graphe.calcul.Solution;
 
 public class Exhaustif {
-	private Graphe graphe;
+	private GraphePartition graphe;
 	private int nbClasses;
 
 	public Exhaustif(ListeAdjacence l, int nbClasses){
-		this.graphe = new Graphe(l, nbClasses);
+		this.graphe = new GraphePartition(l, nbClasses);
 		this.nbClasses = nbClasses;
 	}
 	
 	public Solution run(){  
-		Graphe g = this.graphe;
+		GraphePartition g = this.graphe;
 		g.calculerEvaluation();
 		int nbSommets = g.getNbSommets();
 		
