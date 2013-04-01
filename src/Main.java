@@ -53,7 +53,7 @@ tabou / agent / Hopfield / génétique
 						v = new VoisinagePickNDrop();
 						if (args[1].equals("grad")){
 							Gradient gr = new Gradient(list, v, 2);
-							System.out.println("etree grad, PnD");
+							System.out.println("Algorithme : Gradient, Voisinage : PnD");
 							gr.run();
 						} /*else if (args[1].equals("recuit")){
 					Recuit recuit = new Recuit(list, v, 2);
@@ -67,7 +67,7 @@ tabou / agent / Hopfield / génétique
 						v = new VoisinageSwap();
 						if (args[1].equals("grad")){
 							Gradient gr = new Gradient(list, v, 2);
-							System.out.println("entree grad, Swap");
+							System.out.println("Algorithme : Gradient, Voisinage : Swap");
 							gr.run();
 						} /*else if (args[1].equals("recuit")){
 					Recuit recuit = new Recuit(list, v, 2);
@@ -84,7 +84,7 @@ tabou / agent / Hopfield / génétique
 						Exhaustif ex = new Exhaustif(list,2);
 						ex.run();
 					} else if (args[1].equals("grad") ||args[1].equals("recuit") || args[1].equals("tabou"))
-						System.out.println(" Pour cet algorithme vous devez choisir en voisinage entre : Pnd ou Swap.\n Recommencer le lancement.");
+						System.out.println(" Pour cet algorithme vous devez choisir un voisinage entre : Pnd ou Swap.\n Recommencer le lancement.");
 
 					else {
 						System.out.printf ("L'algorithme entré n'est pas valable. \n Les algorithmes implémentés sont : \n exhaustif : ex , \n descente de gradient : grad , \n recuit simulé : recuit , \n tabou : tabou , \n ");

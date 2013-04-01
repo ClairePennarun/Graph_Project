@@ -17,14 +17,21 @@ public class Gradient {
 	
 	public Solution run(){
 		// On initialise sBest (avec la solution courante)
+		graphe.calculerEvaluation();
 		Solution sBest = this.graphe.getSolution();
+		String sBestString = sBest.toString();
+		System.out.println("Solution initiale : "+ sBestString + " avec l'evaluation : " + graphe.getEval());
+		
 		// On change la solution courante pour le meilleur voisin
 		this.typeVoisinage.bestSolVoisine(this.graphe);
-			// Tant que la solution ainsi trouv�e est meilleure, on r�it�re
+			// Tant que la solution ainsi trouvee est meilleure, on reitere
 		while (sBest.getEval() < this.graphe.getEval()){
 			sBest = this.graphe.getSolution();
+			sBestString = sBest.toString();
+			System.out.println("On change pour la solution : "+ sBestString + " avec l'evaluation : " + sBest.getEval());
 			this.typeVoisinage.bestSolVoisine(this.graphe);
 		}
+		System.out.println("Solution finale : "+ sBestString + " avec l'evaluation : " + sBest.getEval());
 		return sBest;
 	}
 	
