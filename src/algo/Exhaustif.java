@@ -17,7 +17,6 @@ public class Exhaustif {
 		GraphePartition g = this.graphe;
 		g.calculerEvaluation();
 		int nbSommets = g.getNbSommets();
-		
 		Solution sOpt = g.getSolution();
 		int evalOpt = g.getEval();
 		boolean boucle = true;

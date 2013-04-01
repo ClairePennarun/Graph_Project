@@ -80,7 +80,6 @@ public class GraphePartition {
 	private void deplacerSommet(int iSommet, int classeDestination){
 		int classeDepart = this.classes[iSommet];
 		int[] voisinage = this.sommets[iSommet].getVoisins();
-		
 		for (int iVoisin : voisinage){
 			if (this.classes[iVoisin] == classeDestination) //l'arete n'est plus interclasse
 				this.evaluation -= 1; // on enleve le poids par defaut

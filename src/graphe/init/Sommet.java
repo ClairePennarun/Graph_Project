@@ -23,7 +23,7 @@ public class Sommet {
 				voisins.add(sommet);
 			}
 			else{
-				voisins.add(sommet,i);
+				voisins.add(i,sommet);
 			}
 		}
 	}
