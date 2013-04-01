@@ -32,6 +32,7 @@ tabou / agent / Hopfield / génétique
 		LecteurGraphes lg = new LecteurGraphes();
 		GrapheMat graph = lg.lectureFichier(file);
 		ListeAdjacence list = lg.getList();
+		
 		Voisinage v; 		// instancie en fonction du parametre 4
 
 

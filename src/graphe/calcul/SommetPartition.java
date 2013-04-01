@@ -24,6 +24,10 @@ public class SommetPartition {
 		return this.voisinage;
 	}
 	
+	public int nbVoisins(){
+		return this.voisinage.length;
+	}
+	
 	public boolean estVoisin(SommetPartition s){
 		return estVoisinRecursif(this.voisinage, 0, this.voisinage.length-1, s.getNum());
 	}

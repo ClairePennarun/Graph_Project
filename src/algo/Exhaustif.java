@@ -32,7 +32,6 @@ public class Exhaustif {
 			}
 			if (sommetCourant<nbSommets){
 				g.pickNdrop(sommetCourant, g.getClasse(sommetCourant)+1); // On met le sommet dans la classe suivante
-				
 				int eval = g.getEval();
 				Solution sol = g.getSolution();
 				System.out.println("la solution : " + sol.toString() + " donne l'evaluation : " + eval);

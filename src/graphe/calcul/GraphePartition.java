@@ -4,6 +4,7 @@ import graphe.init.ListeAdjacence;
 import graphe.init.Sommet;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class GraphePartition {
@@ -44,9 +45,9 @@ public class GraphePartition {
 		for (SommetPartition s : sommets){
 			for (int iVoisin : s.getVoisins())
 				if (this.classes[s.getNum()] != this.classes[iVoisin])
-					somme = somme + 1; //1 etant le poid par defaut d'une arrête
+					somme = somme + 1; //1 etant le poids par defaut d'une arête
 		}
-		this.evaluation = somme/2; // on aura compte chaque arrete interclasse 2 fois
+		this.evaluation = somme/2; // on aura compte chaque arete interclasse 2 fois
 	}
 	
 	// swap mettant a jour l'evaluation
@@ -79,12 +80,14 @@ public class GraphePartition {
 	private void deplacerSommet(int iSommet, int classeDestination){
 		int classeDepart = this.classes[iSommet];
 		int[] voisinage = this.sommets[iSommet].getVoisins();
+		
 		for (int iVoisin : voisinage){
 			if (this.classes[iVoisin] == classeDestination) //l'arete n'est plus interclasse
 				this.evaluation -= 1; // on enleve le poids par defaut
 			else if(this.classes[iVoisin] == classeDepart) //l'arete devient interclasse
 				this.evaluation += 1; // on ajoute le poids par defaut
 		}
+		
 		this.classes[iSommet] = classeDestination; // on modifie la classe du sommet
 	}
 	
@@ -113,10 +116,10 @@ public class GraphePartition {
 		int classeDepart = this.classes[iSommet];
 		int[] voisinage = this.sommets[iSommet].getVoisins();
 		for (int iVoisin : voisinage){
-			if (this.classes[iVoisin] == classeDestination) //l'arrete n'est plus interclasse
-				evalSol -= 1; // on enleve le poid par defaut
+			if (this.classes[iVoisin] == classeDestination) //l'arete n'est plus interclasse
+				evalSol -= 1; // on enleve le poids par defaut
 			else if(this.classes[iVoisin] == classeDepart) //l'arret devient interclasse
-				evalSol += 1; // on ajoute le poid par defaut
+				evalSol += 1; // on ajoute le poids par defaut
 		}
 		return evalSol;
 	}

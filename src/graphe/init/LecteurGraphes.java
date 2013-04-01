@@ -47,8 +47,9 @@ public class LecteurGraphes {
 			int sommet1 = Integer.parseInt(tab[0]);
 			int sommet2 = Integer.parseInt(tab[1]);
 			int poids = Integer.parseInt(tab[2]);
-			graphe.ajouterAreteVal(sommet1, sommet2, poids);
+			//graphe.ajouterAreteVal(sommet1, sommet2, poids);
 			liste.ajouterArete(sommet1, sommet2);
+			ligne = br.readLine();
 		}
 	}
 
