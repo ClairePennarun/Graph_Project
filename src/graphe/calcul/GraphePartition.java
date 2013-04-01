@@ -29,9 +29,10 @@ public class GraphePartition {
 		int i = 0;
 		for (Sommet s : l){
 			this.sommets[i] = new SommetPartition(s, i);
-			this.classes[i] = 0; // numero par defaut de la premiere classe (donc 1)
+			this.classes[i] = 0; // numero par defaut de la premiere classe
 			i++;
 		}
+		this.classes[0] = 1;
 	}
 	
 	// Pour construire notre solution initiale

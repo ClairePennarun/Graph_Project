@@ -18,7 +18,10 @@ public class Exhaustif {
 		g.calculerEvaluation();
 		int nbSommets = g.getNbSommets();
 		Solution sOpt = g.getSolution();
+		String sOptString = sOpt.toString();
+		System.out.println("La solution initiale est : " + sOptString + " avec l'evaluation : " + g.getEval());
 		int evalOpt = g.getEval();
+		
 		boolean boucle = true;
 		int sommetCourant;
 		
@@ -34,16 +37,16 @@ public class Exhaustif {
 				int eval = g.getEval();
 				Solution sol = g.getSolution();
 				System.out.println("la solution : " + sol.toString() + " donne l'evaluation : " + eval);
-				
 				if ((g.getEval() < evalOpt) && (g.getEval()!=0)){
 					sOpt = sol;
 					evalOpt = sOpt.getEval();
+					sOptString = sOpt.toString();
 				}
 			}
 			else //La precedente boucle a depasse le dernier sommet : on a tout teste
 				boucle = false;
 		}
-		System.out.println("La solution optimale est : " + sOpt.toString() + " avec l'evaluation : " + evalOpt);
+		System.out.println("La solution optimale est : " + sOptString + " avec l'evaluation : " + evalOpt);
 		return sOpt;
 	}
 }
