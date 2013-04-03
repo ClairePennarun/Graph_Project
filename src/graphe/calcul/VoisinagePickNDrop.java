@@ -6,9 +6,9 @@ public class VoisinagePickNDrop implements Voisinage {
 		int nbSommets = g.getNbSommets();
 		int nbClasses = g.getNbClasses();
 		// On cherche une solution voisine pour initaliser evalMin
-		// On choisi alors de pickNdroper le sommet 0
+		// On choisit alors de pickNdroper le sommet 0
 		int sommetDeSolutionMin = 0;
-		// On cherche sa classe pour �tre sur de le pickNdroper dans une nouvelle
+		// On cherche sa classe pour etre sur de le pickNdroper dans une nouvelle
 		int classeDeSolutionMin = 1;
 		int classeCourante = g.getClasse(sommetDeSolutionMin);
 		int evalCourante;
@@ -19,7 +19,7 @@ public class VoisinagePickNDrop implements Voisinage {
 		// Et on initialise evalMin
 		int evalMax = g.evalPickNdrop(sommetDeSolutionMin, classeDeSolutionMin);
 		
-		// Test de tout les voisins possibles
+		// Test de tous les voisins possibles
 		for(int i=0; i<nbSommets; i++){
 			classeCourante = g.getClasse(i);
 			for(int j=0; j<nbClasses; j++){
@@ -30,7 +30,7 @@ public class VoisinagePickNDrop implements Voisinage {
 				}
 			}
 		}	
-		// Une fois le voisin optimal trouv�, on change le sommet en question de classe.
+		// Une fois le voisin optimal trouve, on change le sommet en question de classe.
 		// Ainsi, la solution courante DEVIENT le voisin le plus optimal
 		g.pickNdrop(sommetDeSolutionMin, classeDeSolutionMin, evalMax);
 	}

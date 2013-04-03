@@ -1,10 +1,11 @@
 package graphe.init;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sommet {
 
-	public ArrayList<Integer> voisins;
+	public List<Integer> voisins;
 
 	public Sommet(){
 		this.voisins = new ArrayList<Integer>();
@@ -28,7 +29,7 @@ public class Sommet {
 		}
 	}
 
-	public ArrayList<Integer> getVoisins(){
+	public List<Integer> getVoisins(){
 		return this.voisins;
 	}
 	

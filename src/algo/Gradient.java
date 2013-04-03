@@ -5,7 +5,7 @@ import graphe.init.ListeAdjacence;
 import graphe.calcul.Solution;
 import graphe.calcul.Voisinage;
 
-public class Gradient {
+public class Gradient implements Algorithme {
 
 	private GraphePartition graphe;
 	private Voisinage typeVoisinage;

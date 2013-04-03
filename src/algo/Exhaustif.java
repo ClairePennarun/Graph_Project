@@ -4,7 +4,7 @@ import graphe.calcul.GraphePartition;
 import graphe.init.ListeAdjacence;
 import graphe.calcul.Solution;
 
-public class Exhaustif {
+public class Exhaustif implements Algorithme {
 	private GraphePartition graphe;
 	private int nbClasses;
 

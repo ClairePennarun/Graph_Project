@@ -2,6 +2,7 @@ package graphe.calcul;
 
 import graphe.init.Sommet;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class SommetPartition {
@@ -12,7 +13,7 @@ public class SommetPartition {
 	public SommetPartition(Sommet s, int numero) {
 		this.numero = numero;
 		this.voisinage = new int[s.nbVoisins()];
-		ArrayList<Integer> voisinageAdj = s.getVoisins();
+		List<Integer> voisinageAdj = s.getVoisins();
 		int i = 0;
 		for (int v : voisinageAdj){
 			this.voisinage[i] = v;
