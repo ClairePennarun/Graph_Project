@@ -25,8 +25,7 @@ public class RecuitSimule {
 		int sommet1 = (int) (Math.random() * nbSommet);
 		int sommet2 = (int) (Math.random() * nbSommet);
 		int classe1 = graphe.getClasse(sommet1);
-		int classe2 = graphe.getClasse(sommet2);
-				
+		int classe2 = graphe.getClasse(sommet2);		
 		
 		while( classe1 == classe2){
 			sommet2 = (int) (Math.random() * nbSommet);
@@ -44,41 +43,59 @@ public class RecuitSimule {
 	public Solution run(){ 
 		GraphePartition g = this.graphe;
 		g.calculerEvaluation();
-
+		
+		Solution sOpt = g.getSolution();
 		Solution sCourante = g.getSolution();
+		int evalOpt = g.getEval();
+		String sOptString = sOpt.toString();
+		System.out.println("Solution initiale : "+ sOptString + " avec l'evaluation : " + graphe.getEval());
 		int evalCourante = g.getEval();
 		double tempCourante = this.temperatureInit;
 		double raison = (Math.random() *(0.9-0.7)) + 0.7 ; // doit etre compris entre 0.7 et 0.9
 		double tempMin = 0.01;
-		Solution sOpt = g.getSolution();
-		int evalOpt = g.getEval();
+		
 
 		boolean changement = true; // indique si sOpt à changé
 		int k = 0; // nombre de fois que la température descent sans que sOpt change
-		int solSup = 0; // nombre de fois ou l'on a tiré une solution plus couteuse
-		int solSupAcc = 0; // nombre de fois ou l'on a acepté une solution plus couteuse
-		int tourWhile2 = 0; // nombre de parcours de la boucle while 2
 		
-		while((k >= 5) || (tempCourante <= tempMin)){ // || (nbTour > nbTourMax))
+		// on arrète lorque :
+		//on a descendu de températre 5 fois sans que la solution optimale change 
+		//ou quand la tempéature deviens trop basse
+		while((k <= 5) && (tempCourante >= tempMin)){ // || (nbTour > nbTourMax))
+			System.out.println("température courante : " + tempCourante + " " + tempMin);
 			
-			while((solSup < 100 * profondeur) || (solSupAcc < 10 * profondeur) || (tourWhile2 < profondeur * profondeur)){ 
-				
+			int solSup = 0; // nombre de fois ou l'on a tiré une solution plus couteuse
+			int solSupAcc = 0; // nombre de fois ou l'on a acepté une solution plus couteuse
+			int tourWhile2 = 0; // nombre de parcours de la boucle while 2
+			
+			//on arrète lorsque :
+			// on a trouvé 10*n solutions moins bonne que l'actuelle
+			// on a accepté n solution de moins bonne qualité 
+			// on a fait n² tours
+			while((solSup < 10 * profondeur) && (solSupAcc < profondeur) && (tourWhile2 < profondeur * profondeur)){
+				System.out.println("solSup : " + solSup + " < " + 100 * profondeur );
+				System.out.println("solSupAcc : " + solSupAcc + " < " + 10 * profondeur);
+				System.out.println("tourWhile2 : " + tourWhile2 + "< " + profondeur * profondeur);
+				/* Il faut creer un nouveau graphePartition avec la nouvelle solution. 
+				Si c'est bon, il remplace l'ancien */
 				GraphePartition voisinAleatoire = new GraphePartition (this.graphe.getSommets(), this.graphe.getClasses(), this.graphe.getNbClasses(), this.graphe.getEval());
 				Solution solAleatoire = solAleatoire(voisinAleatoire);
 				voisinAleatoire.calculerEvaluation();
-				/* Il faut creer un nouveau graphePartition avec la nouvelle solution. 
-				Si c'est bon, il remplace l'ancien */
+				System.out.println("Solution tirée : "+ solAleatoire.toString() + " avec l'évaluation : " + voisinAleatoire.getEval());
 				
 				int evalAleatoire = solAleatoire.getEval();
 				if (evalCourante > evalAleatoire){
 					sCourante = solAleatoire;
 					evalCourante = sCourante.getEval();
 					if (evalOpt > evalCourante){
+						System.out.println("La solution est meilleure\n" + 
+								"éval ancienne solution : " + evalOpt + " eval nouvelle solution" + evalCourante);
 						evalOpt = evalCourante;
 						sOpt = sCourante;
 						changement = true;
 					}
 					else{
+						System.out.println("La solution est moins bonne");
 						changement =false;
 						solSup++;
 					}
@@ -90,6 +107,7 @@ public class RecuitSimule {
 					double q = Math.exp(-deltaF/ tempCourante);
 					if (q <= p){
 						sCourante = solAleatoire;
+						System.out.println("Métrolpolis => changement de solution courante");
 						solSupAcc++;
 					}	
 				} 
@@ -104,6 +122,7 @@ public class RecuitSimule {
 				k = 0;
 			
 		}
+		System.out.println("solution opt : " + sOpt.toString() + "éval : " + sOpt.getEval());
 		return sOpt;
 	}
 	

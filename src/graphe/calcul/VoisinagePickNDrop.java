@@ -9,12 +9,11 @@ public class VoisinagePickNDrop implements Voisinage {
 		// On choisit alors de pickNdroper le sommet 0
 		int sommetDeSolutionMin = 0;
 		// On cherche sa classe pour etre sur de le pickNdroper dans une nouvelle
-		int classeDeSolutionMin = 1;
 		int classeCourante = g.getClasse(sommetDeSolutionMin);
+		int classeDeSolutionMin = 0;		
 		int evalCourante;
-		while (classeDeSolutionMin == classeCourante){
+		if (classeDeSolutionMin == classeCourante){
 			classeDeSolutionMin++;
-			assert(classeDeSolutionMin != nbClasses);
 		}
 		// Et on initialise evalMin
 		int evalMax = g.evalPickNdrop(sommetDeSolutionMin, classeDeSolutionMin);
