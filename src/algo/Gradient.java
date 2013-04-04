@@ -25,7 +25,7 @@ public class Gradient implements Algorithme {
 		// On change la solution courante pour le meilleur voisin
 		this.typeVoisinage.bestSolVoisine(this.graphe);
 			// Tant que la solution ainsi trouvee est meilleure, on reitere
-		while (sBest.getEval() < this.graphe.getEval()){
+		while (this.graphe.getEval() < sBest.getEval()){
 			sBest = this.graphe.getSolution();
 			sBestString = sBest.toString();
 			System.out.println("On change pour la solution : "+ sBestString + " avec l'evaluation : " + sBest.getEval());

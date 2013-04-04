@@ -11,7 +11,7 @@ import java.io.*;
 
 import algo.Exhaustif;
 import algo.Gradient;
-import algo.RecuitSimule;
+//import algo.RecuitSimule;
 
 public class Main { 
 
@@ -57,7 +57,7 @@ tabou / agent / Hopfield / génétique
 							Gradient gr = new Gradient(list, v, nbClasses);
 							System.out.println("Algorithme : Gradient, Voisinage : PnD");
 							gr.run();
-						} else if (args[1].equals("recuit")){
+						} /*else if (args[1].equals("recuit")){
 							if (args.length > 5){
 								System.out.println("Pour l'algorithme du recuit, " +
 										"vous devez entrez comme parametres suplémentaires la température initiale " +
@@ -66,7 +66,7 @@ tabou / agent / Hopfield / génétique
 								RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]), Integer.valueOf(args[5]));
 								recuit.run();
 							}
-						} /*else if(args[1].equals("tabou")){
+						}*/ /*else if(args[1].equals("tabou")){
 				Tabou tabou = new Tabou(???);
 				tabou.run();
 				}*/
