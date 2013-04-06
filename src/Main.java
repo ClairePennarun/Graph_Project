@@ -131,6 +131,6 @@ tabou / agent / Hopfield / génétique
 /* pour lancer le main avec des arguments : 
  * clic-droit sur le main => run as => run configuration
  * onglet argument 
- * case program argument : écrires les arguments séparés par un espace
+ * case program argument : écrire les arguments séparés par un espace
  * */
 

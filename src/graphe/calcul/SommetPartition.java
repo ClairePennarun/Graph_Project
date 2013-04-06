@@ -3,7 +3,6 @@ package graphe.calcul;
 import graphe.init.Sommet;
 
 import java.util.List;
-import java.util.ArrayList;
 
 public class SommetPartition {
 

@@ -4,8 +4,6 @@ import graphe.init.ListeAdjacence;
 import graphe.init.Sommet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public class GraphePartition {
 	

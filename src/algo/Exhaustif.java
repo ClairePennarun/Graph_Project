@@ -13,7 +13,10 @@ public class Exhaustif implements Algorithme {
 		this.nbClasses = nbClasses;
 	}
 	
-	public Solution run(){  
+	public Solution run(){
+		
+		long startTime = System.currentTimeMillis();
+		
 		GraphePartition g = this.graphe;
 		g.calculerEvaluation();
 		int nbSommets = g.getNbSommets();
@@ -47,8 +50,9 @@ public class Exhaustif implements Algorithme {
 				boucle = false;
 		}
 		System.out.println("La solution optimale est : " + sOptString + " avec l'evaluation : " + evalOpt);
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println("Temps d'exécution de l'algo Exhaustif : " + (endTime-startTime));
 		return sOpt;
 	}
 }
-
-// parcours en profondeur

@@ -33,6 +33,9 @@ public class Tabou implements Algorithme{
 	}
 	
 	public Solution run(){
+		
+		long startTime = System.currentTimeMillis();
+		
 		// on initialise sBest avec la solution courante
 		graphe.calculerEvaluation();
 		Solution sBest = this.graphe.getSolution();
@@ -62,6 +65,10 @@ public class Tabou implements Algorithme{
 			}
 		}
 		System.out.println("Solution finale : "+ sBestString + " avec l'evaluation : " + bestEval);
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println("Temps d'exécution de l'algo Tabou : " + (endTime-startTime));
+		
 		return sBest;
 	}
 }
