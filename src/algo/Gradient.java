@@ -22,8 +22,7 @@ public class Gradient implements Algorithme {
 		// On initialise sBest (avec la solution courante)
 		graphe.calculerEvaluation();
 		Solution sBest = this.graphe.getSolution();
-		String sBestString = sBest.toString();
-		System.out.println("Solution initiale : "+ sBestString + " avec l'evaluation : " + graphe.getEval());
+		System.out.println("Solution initiale : "+ sBest + " avec l'evaluation : " + graphe.getEval());
 		
 		// On change la solution courante pour le meilleur voisin
 		this.typeVoisinage.bestSolVoisine(this.graphe);
@@ -31,12 +30,11 @@ public class Gradient implements Algorithme {
 		// Tant que la solution ainsi trouvee est meilleure, on reitere
 		while (this.graphe.getEval() < sBest.getEval()){
 			sBest = this.graphe.getSolution();
-			sBestString = sBest.toString();
-			System.out.println("On change pour la solution : "+ sBestString + " avec l'evaluation : " + sBest.getEval());
+			System.out.println("On change pour la solution : "+ sBest+ " avec l'evaluation : " + sBest.getEval());
 			this.typeVoisinage.bestSolVoisine(this.graphe);
 		}
 		
-		System.out.println("Solution finale : "+ sBestString + " avec l'evaluation : " + sBest.getEval());
+		System.out.println("Solution finale : "+ sBest + " avec l'evaluation : " + sBest.getEval());
 		
 		long endTime = System.currentTimeMillis();
 		System.out.println("Temps d'exécution de l'algo de descente de gradient : " + (endTime-startTime));

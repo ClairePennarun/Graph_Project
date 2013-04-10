@@ -128,7 +128,7 @@ public class GraphePartition {
 	}
 	
 	public Solution getSolution() {
-		return new Solution(this.classes, this.nbClasses, this.evaluation);
+		return new Solution(this.classes.clone(), this.nbClasses, this.evaluation);
 	}
 	
 	public int getNbSommets() {

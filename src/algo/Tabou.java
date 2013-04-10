@@ -41,7 +41,7 @@ public class Tabou implements Algorithme{
 		Solution sBest = this.graphe.getSolution();
 		int bestEval = sBest.getEval();
 		String sBestString = sBest.toString();
-		System.out.println("Solution initiale : "+ sBestString + " avec l'evaluation : " + graphe.getEval());
+		System.out.println("Solution initiale : "+ sBest + " avec l'evaluation : " + graphe.getEval());
 		
 		for(int j = 1; j < puiss(this.graphe.getNbSommets(),2); j++){
 			
@@ -61,10 +61,10 @@ public class Tabou implements Algorithme{
 			if(eval!=0 && eval < bestEval){
 				sBest = this.graphe.getSolution();
 				sBestString = sBest.toString();
-				System.out.println("On change pour la solution : "+ sBestString + " avec l'evaluation : " + eval);
+				System.out.println("On change pour la solution : "+ sBest + " avec l'evaluation : " + eval);
 			}
 		}
-		System.out.println("Solution finale : "+ sBestString + " avec l'evaluation : " + bestEval);
+		System.out.println("Solution finale : "+ sBest + " avec l'evaluation : " + bestEval);
 		
 		long endTime = System.currentTimeMillis();
 		System.out.println("Temps d'exécution de l'algo Tabou : " + (endTime-startTime));
