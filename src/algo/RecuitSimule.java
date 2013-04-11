@@ -26,7 +26,7 @@ public class RecuitSimule {
 		int sommet2 = (int) (Math.random() * nbSommet);
 		int classe1 = graphe.getClasse(sommet1);
 		int classe2 = graphe.getClasse(sommet2);		
-		
+
 		while( classe1 == classe2){
 			sommet2 = (int) (Math.random() * nbSommet);
 			classe2 = graphe.getClasse(sommet2);
@@ -35,7 +35,7 @@ public class RecuitSimule {
 			graphe.pickNdrop(sommet1, classe2);
 		else
 			graphe.swap(sommet1, sommet2);
-		
+
 		return graphe.getSolution();
 	}
 
@@ -44,7 +44,7 @@ public class RecuitSimule {
 		long startTime= System.currentTimeMillis();
 		GraphePartition g = this.graphe;
 		g.calculerEvaluation();
-		
+
 		Solution sOpt = g.getSolution();
 		Solution sCourante = g.getSolution();
 		int evalOpt = g.getEval();
@@ -54,80 +54,77 @@ public class RecuitSimule {
 		double tempCourante = this.temperatureInit;
 		double raison = (Math.random() *(0.9-0.7)) + 0.7 ; // doit etre compris entre 0.7 et 0.9
 		double tempMin = 0.01;
-		
+
 
 		boolean changement = true; // indique si sOpt à changé
 		int k = 0; // nombre de fois où la température descent sans que sOpt change
-		
+
 		// on arrète lorque :
 		//on a descendu de températre 5 fois sans que la solution optimale change 
 		//ou quand la tempéature deviens trop basse
 		while((k <= 5) && (tempCourante >= tempMin)){ // || (nbTour > nbTourMax))
-			System.out.println("température courante : " + tempCourante + " " + tempMin);
-			System.out.println("valeur k :" + k);
-			
+
 			int nbSolSup = 0; // nombre de fois ou l'on a tiré une solution plus couteuse
 			int nbSolSupAcc = 0; // nombre de fois ou l'on a accepté une solution plus couteuse
 			int nbTourWhile2 = 0; // nombre de parcours de la boucle while 2
-			
+
 			//on arrète lorsque :
-			// on a trouvé 10*n solutions moins bonne que l'actuelle
-			// on a accepté n solution de moins bonne qualité 
-			// on a fait n² tours
-			while((nbSolSup < 10 * profondeur) && (nbSolSupAcc < profondeur) && (nbTourWhile2 < profondeur * profondeur)){
-				System.out.println("solSup : " + nbSolSup + " < " + 100 * profondeur );
-				System.out.println("solSupAcc : " + nbSolSupAcc + " < " + 10 * profondeur);
-				System.out.println("tourWhile2 : " + nbTourWhile2 + "< " + profondeur * profondeur);
+			// on a trouvé 100*n solutions moins bonne que l'actuelle
+			// on a accepté 10*n solution de moins bonne qualité 
+			// on a fait n² tours  
+			while((nbSolSup < 100 * profondeur) && (nbSolSupAcc < 10* profondeur) && (nbTourWhile2 < profondeur * profondeur)){
+
 				/* Il faut creer un nouveau graphePartition avec la nouvelle solution. 
 				Si c'est bon, il remplace l'ancien */
 				GraphePartition voisinAleatoire = new GraphePartition (this.graphe.getSommets(), this.graphe.getClasses(), this.graphe.getNbClasses(), this.graphe.getEval());
 				Solution solAleatoire = solAleatoire(voisinAleatoire);
 				voisinAleatoire.calculerEvaluation();
-				System.out.println("Solution tirée : "+ solAleatoire.toString() + " avec l'évaluation : " + voisinAleatoire.getEval());
-				
 				int evalAleatoire = solAleatoire.getEval();
+				
 				if (evalCourante > evalAleatoire){
 					sCourante = solAleatoire;
+					evalCourante = evalAleatoire;
 					evalCourante = sCourante.getEval();
 					if (evalOpt > evalCourante){
-						System.out.println("La solution est meilleure\n" + 
-								"éval ancienne solution : " + evalOpt + " eval nouvelle solution" + evalCourante);
 						evalOpt = evalCourante;
 						sOpt = sCourante;
 						changement = true;
 					}
-					else{
-						System.out.println("La solution est moins bonne");
+					else
 						changement =false;
-						nbSolSup++;
-					}
 				}
 				else{
+					if (evalCourante < evalAleatoire){
+						nbSolSup++;
+					}
 					// Metropolis
 					double p = Math.random();
 					double deltaF = Math.abs(evalCourante - evalAleatoire);
 					double q = Math.exp(-deltaF/ tempCourante);
 					if (q <= p){
 						sCourante = solAleatoire;
-						System.out.println("Métrolpolis => changement de solution courante");
+						evalCourante = evalAleatoire;
 						nbSolSupAcc++;
-					}	
+						changement = true;
+					}
+					else{
+						changement = false;
+					}
 				} 
-				nbTourWhile2 ++;
 			}
-			
+
 			//modification tempCourante
 			tempCourante = tempCourante * raison ;
 			if (changement == false)
 				k+= 1;
 			else
 				k = 0;
-			
+
 		}
 		System.out.println("solution opt : " + sOpt + "éval : " + sOpt.getEval());
 		long nTime = System.currentTimeMillis();
 		System.out.println("temps d'exe : " + (nTime - startTime));
 		return sOpt;
 	}
-	
+
 }
