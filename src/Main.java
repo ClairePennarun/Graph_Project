@@ -34,7 +34,8 @@ tabou */
 		LecteurGraphes lg = new LecteurGraphes();
 		GrapheMat graph = lg.lectureFichier(file);
 		ListeAdjacence list = lg.getList();
-
+		int nbAretes = lg.getNbAretes();
+		
 		Voisinage v; 		// instancie en fonction du parametre 4
 
 
@@ -67,7 +68,7 @@ tabou */
 										"ainsi que la taille du problème. \nRecommencer le lancement.");
 							}else {
 								System.out.println("Algorithme : Recuit");
-								RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]), Integer.valueOf(args[5]));
+								RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]), nbAretes);
 								recuit.run();
 							}
 						}
@@ -98,7 +99,7 @@ tabou */
 										"ainsi que la taille du problème. \nRecommencer le lancement.");
 							}else {
 								System.out.println("Algorithme : Recuit");
-								RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]), Integer.valueOf(args[5]));
+								RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]), nbAretes);
 								recuit.run();
 							}
 						} else if(args[1].equals("tabou")){

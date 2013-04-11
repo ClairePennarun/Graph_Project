@@ -57,7 +57,7 @@ public class RecuitSimule {
 		
 
 		boolean changement = true; // indique si sOpt à changé
-		int k = 0; // nombre de fois que la température descent sans que sOpt change
+		int k = 0; // nombre de fois où la température descent sans que sOpt change
 		
 		// on arrète lorque :
 		//on a descendu de températre 5 fois sans que la solution optimale change 
@@ -66,18 +66,18 @@ public class RecuitSimule {
 			System.out.println("température courante : " + tempCourante + " " + tempMin);
 			System.out.println("valeur k :" + k);
 			
-			int solSup = 0; // nombre de fois ou l'on a tiré une solution plus couteuse
-			int solSupAcc = 0; // nombre de fois ou l'on a accepté une solution plus couteuse
-			int tourWhile2 = 0; // nombre de parcours de la boucle while 2
+			int nbSolSup = 0; // nombre de fois ou l'on a tiré une solution plus couteuse
+			int nbSolSupAcc = 0; // nombre de fois ou l'on a accepté une solution plus couteuse
+			int nbTourWhile2 = 0; // nombre de parcours de la boucle while 2
 			
 			//on arrète lorsque :
 			// on a trouvé 10*n solutions moins bonne que l'actuelle
 			// on a accepté n solution de moins bonne qualité 
 			// on a fait n² tours
-			while((solSup < 10 * profondeur) && (solSupAcc < profondeur) && (tourWhile2 < profondeur * profondeur)){
-				System.out.println("solSup : " + solSup + " < " + 100 * profondeur );
-				System.out.println("solSupAcc : " + solSupAcc + " < " + 10 * profondeur);
-				System.out.println("tourWhile2 : " + tourWhile2 + "< " + profondeur * profondeur);
+			while((nbSolSup < 10 * profondeur) && (nbSolSupAcc < profondeur) && (nbTourWhile2 < profondeur * profondeur)){
+				System.out.println("solSup : " + nbSolSup + " < " + 100 * profondeur );
+				System.out.println("solSupAcc : " + nbSolSupAcc + " < " + 10 * profondeur);
+				System.out.println("tourWhile2 : " + nbTourWhile2 + "< " + profondeur * profondeur);
 				/* Il faut creer un nouveau graphePartition avec la nouvelle solution. 
 				Si c'est bon, il remplace l'ancien */
 				GraphePartition voisinAleatoire = new GraphePartition (this.graphe.getSommets(), this.graphe.getClasses(), this.graphe.getNbClasses(), this.graphe.getEval());
@@ -99,7 +99,7 @@ public class RecuitSimule {
 					else{
 						System.out.println("La solution est moins bonne");
 						changement =false;
-						solSup++;
+						nbSolSup++;
 					}
 				}
 				else{
@@ -110,10 +110,10 @@ public class RecuitSimule {
 					if (q <= p){
 						sCourante = solAleatoire;
 						System.out.println("Métrolpolis => changement de solution courante");
-						solSupAcc++;
+						nbSolSupAcc++;
 					}	
 				} 
-				tourWhile2 ++;
+				nbTourWhile2 ++;
 			}
 			
 			//modification tempCourante
