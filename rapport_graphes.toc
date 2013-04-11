@@ -1,0 +1,27 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Mode d'emploi du programme}{2}
+\contentsline {section}{\numberline {2}Choix g\IeC {\'e}n\IeC {\'e}raux}{2}
+\contentsline {subsection}{\numberline {2.1}Choix des algorithmes impl\IeC {\'e}ment\IeC {\'e}s}{2}
+\contentsline {subsection}{\numberline {2.2}Langage de programmation}{2}
+\contentsline {subsection}{\numberline {2.3}Structures de donn\IeC {\'e}es}{2}
+\contentsline {subsection}{\numberline {2.4}Voisinage}{2}
+\contentsline {subsection}{\numberline {2.5}Solution initiale}{2}
+\contentsline {subsection}{\numberline {2.6}Evaluation}{2}
+\contentsline {section}{\numberline {3}Algorithme exhaustif - Enum\IeC {\'e}ration explicite}{2}
+\contentsline {subsection}{\numberline {3.1}Description}{2}
+\contentsline {subsection}{\numberline {3.2}Param\IeC {\`e}tres}{2}
+\contentsline {subsection}{\numberline {3.3}R\IeC {\'e}sultats}{2}
+\contentsline {section}{\numberline {4}Descente de gradient}{2}
+\contentsline {subsection}{\numberline {4.1}Description}{2}
+\contentsline {subsection}{\numberline {4.2}Param\IeC {\`e}tres}{2}
+\contentsline {subsection}{\numberline {4.3}R\IeC {\'e}sultats}{2}
+\contentsline {section}{\numberline {5}Recuit simul\IeC {\'e}}{2}
+\contentsline {subsection}{\numberline {5.1}Description}{2}
+\contentsline {subsection}{\numberline {5.2}Param\IeC {\`e}tres}{2}
+\contentsline {subsection}{\numberline {5.3}R\IeC {\'e}sultats}{2}
+\contentsline {section}{\numberline {6}Algorithme Tabou}{2}
+\contentsline {subsection}{\numberline {6.1}Param\IeC {\`e}tres}{2}
+\contentsline {subsection}{\numberline {6.2}R\IeC {\'e}sultats}{2}
+\contentsline {section}{\numberline {7}Tests}{2}
+\contentsline {section}{\numberline {8}M\IeC {\'e}thode de travail}{2}
+\contentsline {section}{\numberline {9}Conclusion}{2}
