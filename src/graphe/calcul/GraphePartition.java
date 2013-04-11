@@ -5,6 +5,7 @@ import graphe.init.Sommet;
 
 import java.util.ArrayList;
 
+
 public class GraphePartition {
 	
 	private SommetPartition[] sommets;

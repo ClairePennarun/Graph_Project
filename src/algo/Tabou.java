@@ -24,14 +24,6 @@ public class Tabou implements Algorithme{
 		this.nbTabou = nbTabou;
 	}
 	
-	private static int puiss(int a, int k){
-		int res = 1;
-		for(int i=1; i <= k; i++){
-			res = res * a;
-		}
-		return res;
-	}
-	
 	public Solution run(){
 		
 		long startTime = System.currentTimeMillis();
@@ -43,7 +35,7 @@ public class Tabou implements Algorithme{
 		String sBestString = sBest.toString();
 		System.out.println("Solution initiale : "+ sBest + " avec l'evaluation : " + graphe.getEval());
 		
-		for(int j = 1; j < puiss(this.graphe.getNbSommets(),2); j++){
+		for(int j = 1; j < Math.pow(this.graphe.getNbSommets(),2); j++){
 			
 			bestEval = sBest.getEval();
 			this.typeVoisinage.bestSolVoisineTabou(this.graphe, this.tabTabou);
