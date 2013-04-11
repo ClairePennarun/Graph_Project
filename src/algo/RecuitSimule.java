@@ -41,6 +41,7 @@ public class RecuitSimule {
 
 
 	public Solution run(){ 
+		long startTime= System.currentTimeMillis();
 		GraphePartition g = this.graphe;
 		g.calculerEvaluation();
 		
@@ -63,9 +64,10 @@ public class RecuitSimule {
 		//ou quand la tempéature deviens trop basse
 		while((k <= 5) && (tempCourante >= tempMin)){ // || (nbTour > nbTourMax))
 			System.out.println("température courante : " + tempCourante + " " + tempMin);
+			System.out.println("valeur k :" + k);
 			
 			int solSup = 0; // nombre de fois ou l'on a tiré une solution plus couteuse
-			int solSupAcc = 0; // nombre de fois ou l'on a acepté une solution plus couteuse
+			int solSupAcc = 0; // nombre de fois ou l'on a accepté une solution plus couteuse
 			int tourWhile2 = 0; // nombre de parcours de la boucle while 2
 			
 			//on arrète lorsque :
@@ -122,7 +124,9 @@ public class RecuitSimule {
 				k = 0;
 			
 		}
-		System.out.println("solution opt : " + sOpt.toString() + "éval : " + sOpt.getEval());
+		System.out.println("solution opt : " + sOpt + "éval : " + sOpt.getEval());
+		long nTime = System.currentTimeMillis();
+		System.out.println("temps d'exe : " + (nTime - startTime));
 		return sOpt;
 	}
 	

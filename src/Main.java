@@ -25,8 +25,7 @@ algo :
 exhaustif
 descente de gradiant
 recuit simulé
-tabou / agent / Hopfield / génétique
-	 */
+tabou */
 
 	public static void main (String args[]) throws IOException{
 
