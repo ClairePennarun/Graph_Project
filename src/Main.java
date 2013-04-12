@@ -27,7 +27,7 @@ public class Main {
 	 * => algo que l'on veut : arg[1]
 	 * => nb de classes : arg[2]
 	 * => voisinage : arg[3]
-	 * => temperature initiale : arg[4]
+	 * => temperature initiale (pour le recuit) ou taille tableau tabou (pour le tabou): arg[4]
 
 	 * Pour lancer le main avec des arguments depuis Eclipse :  
 	 * clic-droit sur le main -> run as -> run configuration
