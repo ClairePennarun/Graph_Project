@@ -33,7 +33,7 @@ public class VoisinageSwap implements Voisinage {
 
 		// Une fois le voisin optimal trouve, on swap le couple de sommets
 		// Ainsi, la solution courante DEVIENT le voisin le plus optimal
-		g.swap(sommet1DeSolutionMin, sommet2DeSolutionMin, evalMax);
+		g.swap(sommet1DeSolutionMin, sommet2DeSolutionMin);
 	}
 	
 	public void bestSolVoisineTabou(GraphePartition g, List<Mouvement> tabTabou) {
@@ -59,7 +59,7 @@ public class VoisinageSwap implements Voisinage {
 		
 		// Une fois le voisin optimal trouve, on swap le couple de sommets
 		// Ainsi, la solution courante DEVIENT le voisin le plus optimal
-		g.swap(sommet1DeSolutionMin, sommet2DeSolutionMin, evalMax);
+		g.swap(sommet1DeSolutionMin, sommet2DeSolutionMin);
 		tabTabou.add(new Mouvement(sommet1DeSolutionMin, sommet2DeSolutionMin, -1));
 	}
 

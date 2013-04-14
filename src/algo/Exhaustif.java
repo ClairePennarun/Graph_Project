@@ -18,11 +18,10 @@ public class Exhaustif implements Algorithme {
 		long startTime = System.currentTimeMillis();
 		
 		GraphePartition g = this.graphe;
-		g.calculerEvaluation();
+		//g.calculerEvaluation();
 		int nbSommets = g.getNbSommets();
-		Solution sOpt = g.getSolution();
-		String sOptString = sOpt.toString();
-		System.out.println("La solution initiale est : " + sOptString + " avec l'evaluation : " + g.getEval());
+		Solution sOpt = g.setSolutionExhaustif();
+		System.out.println("La solution initiale est : " + sOpt + " avec l'evaluation : " + g.getEval());
 		int evalOpt = g.getEval();
 		
 		boolean boucle = true;
@@ -37,22 +36,21 @@ public class Exhaustif implements Algorithme {
 			}
 			if (sommetCourant<nbSommets){
 				g.pickNdrop(sommetCourant, g.getClasse(sommetCourant)+1); // On met le sommet dans la classe suivante
-				int eval = g.getEval();
+				int evalG = g.getEval();
 				Solution sol = g.getSolution();
-				System.out.println("la solution : " + sol.toString() + " donne l'evaluation : " + eval);
-				if ((g.getEval() < evalOpt) && (g.getEval()!=0)){
+				System.out.println("la solution : " + sol.toString() + " donne l'evaluation : " + evalG);				
+				if ((evalG < evalOpt) && (evalG!=0)){
 					sOpt = sol;
 					evalOpt = sOpt.getEval();
-					sOptString = sOpt.toString();
 				}
 			}
 			else //La precedente boucle a depasse le dernier sommet : on a tout teste
 				boucle = false;
 		}
-		System.out.println("La solution optimale est : " + sOptString + " avec l'evaluation : " + evalOpt);
+		System.out.println("La solution optimale est : " + sOpt + " avec l'evaluation : " + evalOpt);
 		
 		long endTime = System.currentTimeMillis();
-		System.out.println("Temps d'exécution de l'algo Exhaustif : " + (endTime-startTime));
+		System.out.println("Temps d'exécution de l'algo Exhaustif : " + (endTime-startTime) + " ms." );
 		return sOpt;
 	}
 }

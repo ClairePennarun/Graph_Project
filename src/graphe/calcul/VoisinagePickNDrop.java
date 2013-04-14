@@ -18,22 +18,24 @@ public class VoisinagePickNDrop implements Voisinage {
 			classeDeSolutionMin++;
 		}
 		// Et on initialise evalMin
-		int evalMax = g.evalPickNdrop(sommetDeSolutionMin, classeDeSolutionMin);
+		int evalMin = g.evalPickNdrop(sommetDeSolutionMin, classeDeSolutionMin);
 
 		// Test de tous les voisins possibles
 		for(int i=0; i<nbSommets; i++){
 			classeCourante = g.getClasse(i);
 			for(int j=0; j<nbClasses; j++){
-				if ((classeCourante != j) && ((evalCourante = g.evalPickNdrop(i, j)) < evalMax)){
+				evalCourante = g.evalPickNdrop(i, j);
+				if ((classeCourante != j) && (evalCourante < evalMin)){
+					System.out.println("solution acceptée : " + evalCourante + " solution minimale courante : " +evalMin);
 					sommetDeSolutionMin = i;
 					classeDeSolutionMin = j;
-					evalMax = evalCourante;
+					evalMin = evalCourante;
 				}
 			}
 		}	
 		// Une fois le voisin optimal trouve, on change le sommet en question de classe.
 		// Ainsi, la solution courante DEVIENT le voisin le plus optimal
-		g.pickNdrop(sommetDeSolutionMin, classeDeSolutionMin, evalMax);
+		g.pickNdrop(sommetDeSolutionMin, classeDeSolutionMin);
 	}
 
 	public void bestSolVoisineTabou(GraphePartition g, List<Mouvement> tabTabou) {
@@ -43,12 +45,11 @@ public class VoisinagePickNDrop implements Voisinage {
 		// On choisit alors de pickNdroper le sommet 0
 		int sommetDeSolutionMin = 0;
 		// On cherche sa classe pour etre sur de le pickNdroper dans une nouvelle
-		int classeDeSolutionMin = 1;
+		int classeDeSolutionMin = 0;
 		int classeCourante = g.getClasse(sommetDeSolutionMin);
 		int evalCourante;
-		while (classeDeSolutionMin == classeCourante){
+		if (classeDeSolutionMin == classeCourante){
 			classeDeSolutionMin++;
-			assert(classeDeSolutionMin != nbClasses);
 		}
 		// Et on initialise evalMin
 		int evalMin = g.evalPickNdrop(sommetDeSolutionMin, classeDeSolutionMin);
@@ -68,7 +69,7 @@ public class VoisinagePickNDrop implements Voisinage {
 		}
 		// Une fois le voisin optimal trouve, on change le sommet en question de classe.
 		// Ainsi, la solution courante DEVIENT le voisin le plus optimal
-		g.pickNdrop(sommetDeSolutionMin, classeDeSolutionMin, evalMin);
+		g.pickNdrop(sommetDeSolutionMin, classeDeSolutionMin);
 		tabTabou.add(new Mouvement(sommetDeSolutionMin, -1, classeDeSolutionMin));
 	}
 }

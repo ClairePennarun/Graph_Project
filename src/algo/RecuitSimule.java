@@ -43,9 +43,8 @@ public class RecuitSimule {
 	public Solution run(){ 
 		long startTime= System.currentTimeMillis();
 		GraphePartition g = this.graphe;
-		g.calculerEvaluation();
-
-		Solution sOpt = g.getSolution();
+		Solution sOpt = this.graphe.setSolutionAleatoire();
+		
 		Solution sCourante = g.getSolution();
 		int evalOpt = g.getEval();
 		String sOptString = sOpt.toString();
@@ -76,9 +75,14 @@ public class RecuitSimule {
 
 				/* Il faut creer un nouveau graphePartition avec la nouvelle solution. 
 				Si c'est bon, il remplace l'ancien */
+				
 				GraphePartition voisinAleatoire = new GraphePartition (this.graphe.getSommets(), this.graphe.getClasses(), this.graphe.getNbClasses(), this.graphe.getEval());
-				Solution solAleatoire = solAleatoire(voisinAleatoire);
+				Solution solAleatoire =	solAleatoire(voisinAleatoire);
 				voisinAleatoire.calculerEvaluation();
+				
+				//nouvelle solution aleatoire
+				// éval nouvelle solution
+				
 				int evalAleatoire = solAleatoire.getEval();
 				
 				if (evalCourante > evalAleatoire){

@@ -3,7 +3,6 @@
 import graphe.calcul.Voisinage;
 import graphe.calcul.VoisinagePickNDrop;
 import graphe.calcul.VoisinageSwap;
-import graphe.init.GrapheMat;
 import graphe.init.LecteurGraphes;
 import graphe.init.ListeAdjacence;
 
@@ -39,28 +38,25 @@ public class Main {
 	public static void main (String args[]) throws IOException{
 
 		File file = new File(args[0]);
-		// TODO : verifier que le fichier existe
 		if (!file.exists())
 			System.out.println("Le fichier n'existe pas. Verifiez l'orthographe ou creez un nouveau fichier");
 		else {
 			LecteurGraphes lg = new LecteurGraphes();
-			GrapheMat graph = lg.lectureFichier(file);
-			ListeAdjacence list = lg.getList();
+			ListeAdjacence list = lg.lectureFichier(file);
 			int nbAretes = lg.getNbAretes();
 			int nbClasses = Integer.valueOf(args[2]);
 			Voisinage v; 		// instancie en fonction du parametre 4
 
 			if (args.length < 3) {
 				System.out.println("Les arguments du programme doivent être de cette forme " +
-			": \n <fichier d'entrée> <algorithme désiré> <nombre de partitions> <voisinage(sauf pour exhaustif)>\n");
+						": \n <fichier d'entrée> <algorithme désiré> <nombre de partitions> <voisinage(sauf pour exhaustif)>\n");
 			} 
 			else {
-				if (Integer.valueOf(args[2]) > graph.getTaille())
+				if (Integer.valueOf(args[2]) > list.getTaille())
 					System.out.println("Le nombre de partitions doit être inférieur au nombre de sommets du graphe.\n");
 
 				else {
 					if (args.length > 3){		//alors il y a un voisinage
-
 
 						if (args[1].equals("ex")){
 							System.out.println("Algorithme : Exhaustif");
@@ -81,9 +77,14 @@ public class Main {
 											"vous devez entrer comme parametres suplémentaires la température initiale. " +
 											"\nRecommencer le lancement.");
 								} else {
-									Gradient gr = new Gradient(list, v, nbClasses);
-									System.out.println("Algorithme : Gradient, Voisinage : PnD");
-									gr.run();
+									if(Double.valueOf(args[4]) < 0.1){
+										System.out.println("La température initiale de l'algorithme Recuit Simulé "+ 
+												"doit être supérieure à 0.1");
+									}else {
+										RecuitSimule gr = new RecuitSimule(list, v, Integer.valueOf(args[2]), Double.valueOf(args[4]), 20);
+										System.out.println("Algorithme : Gradient, Voisinage : PnD");
+										gr.run();
+									}
 								}
 							} else if(args[1].equals("tabou")){
 								if (args.length < 4){
@@ -92,8 +93,12 @@ public class Main {
 											"de la liste des mouvements tabous. \nRecommencer le lancement.");
 								}
 								else{
-									Tabou tabou = new Tabou(list, v, nbClasses, Integer.valueOf(args[4]) );
-									tabou.run();
+									if (Integer.valueOf(args[4]) < 1)
+										System.out.println("La taille du tableau des mouvements interdits doit être supérieure à 0");
+									else {
+										Tabou tabou = new Tabou(list, v, nbClasses, Integer.valueOf(args[4]) );
+										tabou.run();
+									}
 								}
 							}
 						}
@@ -110,9 +115,14 @@ public class Main {
 									System.out.println("Pour l'algorithme du recuit, " +
 											"Vous devez entrez comme parametres suplémentaires la température initiale. \nRecommencer le lancement.");
 								}else {
-									System.out.println("Algorithme : Recuit");
-									RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]), nbAretes);
-									recuit.run();
+									if(Double.valueOf(args[4]) < 0.1)
+										System.out.println("La température initiale de l'algorithme Recuit Simulé "+ 
+												"doit être supérieure à 0.1");
+									else {
+										System.out.println("Algorithme : Recuit");
+										RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]), nbAretes);
+										recuit.run();
+									}
 								}
 							} else if(args[1].equals("tabou")){
 								if (args.length < 4){
@@ -120,9 +130,13 @@ public class Main {
 											"vous devez entrez comme parametre suplémentaire " +
 											"la taille de la liste des mouvements tabous . \nRecommencer le lancement.");
 								}else {
-									System.out.println("Algorithme : Tabou");
-									Tabou tabou = new Tabou(list, v, nbClasses, Integer.valueOf(args[4]));
-									tabou.run();
+									if (Integer.valueOf(args[4]) < 1)
+										System.out.println("La taille du tableau des mouvements interdits doit être supérieure à 0");
+									else{
+										System.out.println("Algorithme : Tabou");
+										Tabou tabou = new Tabou(list, v, nbClasses, Integer.valueOf(args[4]));
+										tabou.run();
+									}
 								}
 							}
 						}

@@ -36,8 +36,7 @@ public class Tabou implements Algorithme{
 		long startTime = System.currentTimeMillis();
 		
 		// on initialise sBest avec la solution courante
-		graphe.calculerEvaluation();
-		Solution sBest = this.graphe.getSolution();
+		Solution sBest = this.graphe.setSolutionAleatoire();
 		int bestEval = sBest.getEval();
 		System.out.println("Solution initiale : "+ sBest + " avec l'evaluation : " + graphe.getEval());
 
