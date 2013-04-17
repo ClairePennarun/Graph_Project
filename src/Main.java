@@ -95,7 +95,7 @@ public class Main {
 		} else if (args[1].equals("recuit")){
 			if (args.length < 6){
 				System.out.println("Pour l'algorithme du recuit, " +
-						"Vous devez entrez comme parametres suplémentaires la température initiale. \nRecommencer le lancement.");
+						"Vous devez entrer comme parametre suplémentaire la température initiale. \nRecommencer le lancement.");
 				return;
 			}
 			if(Double.valueOf(args[5]) < 0.1){
@@ -110,11 +110,11 @@ public class Main {
 		} else if(args[1].equals("tabou")){
 			if (args.length < 6){
 				System.out.println("Pour l'algorithme Tabou, " +
-						"vous devez entrez comme parametre suplémentaire " +
-						"la taille de la liste des mouvements tabous . \nRecommencer le lancement.");
+						"vous devez entrer comme parametre suplémentaire " +
+						"la taille de la liste des mouvements tabous. \nRecommencer le lancement.");
 				return;
 			}
-			if (Integer.valueOf(args[5]) < 1){
+			if (Integer.valueOf(args[4]) < 1){
 				System.out.println("La taille du tableau des mouvements interdits doit être supérieure à 0");
 				return;
 			}

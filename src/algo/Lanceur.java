@@ -81,8 +81,8 @@ public class Lanceur {
 		System.out.println("Temps total d'execution : " + min + " minutes " + sec + 
 				" secondes " + ms + " millisecondes");
 		System.out.println("Evaluation moyenne " + evalMoyenne);
-		System.out.println("Meilleur solution finale : " + sOpt);
-		System.out.println("Meileur evaluation finale : " + evalOpt);
+		System.out.println("Meilleure solution finale : " + sOpt);
+		System.out.println("Meilleure evaluation finale : " + evalOpt);
 		
 		
 	}
