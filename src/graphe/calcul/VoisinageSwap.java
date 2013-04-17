@@ -63,4 +63,15 @@ public class VoisinageSwap implements Voisinage {
 		tabTabou.add(new Mouvement(sommet1DeSolutionMin, sommet2DeSolutionMin, -1));
 	}
 
+	public Solution getSolutionVoisineAleatoire(GraphePartition g) {
+		int nbSommets = g.getNbSommets();
+		// On cherche une solution aléatoire
+		// On choisit alors deux sommets au hasard
+		int sommet1 = (int) (Math.random()*nbSommets);
+		int sommet2 = (int) (Math.random()*(nbSommets-1));
+		if (sommet2 >= sommet1)
+			sommet2++;
+		return g.getSolSwap(sommet1, sommet2);
+	}
+	
 }

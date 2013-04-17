@@ -4,16 +4,19 @@ import graphe.calcul.GraphePartition;
 import graphe.init.ListeAdjacence;
 import graphe.calcul.Solution;
 
-public class Exhaustif implements Algorithme {
+public class Exhaustif implements Algorithme, Runnable {
 	private GraphePartition graphe;
 	private int nbClasses;
+	
+	private Solution solutionOpt;
+	private int evalOpt;
 
 	public Exhaustif(ListeAdjacence l, int nbClasses){
 		this.graphe = new GraphePartition(l, nbClasses);
 		this.nbClasses = nbClasses;
 	}
 	
-	public Solution run(){
+	public void run(){
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -47,10 +50,20 @@ public class Exhaustif implements Algorithme {
 			else //La precedente boucle a depasse le dernier sommet : on a tout teste
 				boucle = false;
 		}
-		System.out.println("La solution optimale est : " + sOpt + " avec l'evaluation : " + evalOpt);
+		System.out.println("Solution optimale est : " + sOpt + ", Evaluation : " + evalOpt);
 		
 		long endTime = System.currentTimeMillis();
-		System.out.println("Temps d'exécution de l'algo Exhaustif : " + (endTime-startTime) + " ms." );
-		return sOpt;
+		System.out.println("Temps d'exécution : " + (endTime-startTime) + " ms.");
+		
+		this.solutionOpt = sOpt;
+		this.evalOpt = evalOpt;
+	}
+	
+	public Solution getBestSol(){
+		return this.solutionOpt;
+	}
+	
+	public int getBestEval(){
+		return this.evalOpt;
 	}
 }

@@ -48,7 +48,7 @@ public class GraphePartition {
 		return this.getSolution();
 	}
 
-	//----------------------- SOLUTION ALEATOIRE INITIALE (public) ---------------------------
+	//----------------------- SOLUTION ALEATOIRE (public) ---------------------------
 
 	public Solution setSolutionAleatoire(){
 		int nbSom = this.nbSommets;
@@ -126,7 +126,13 @@ public class GraphePartition {
 		return (int) (Math.random()*(b-a)+a);
 	}
 
-
+	//----------------------- SET SOLUTION ---------------------------
+	
+	public void setSolution(Solution s){
+		this.classes = s.getClasses();
+		this.tailleClasses = s.getTailleClasses();
+		this.evalSansPenaliteClasse = s.getEvalSansPenalite();
+	}
 
 
 	//----------------------- CALCULS INITIAUX DE L'EVAL (private) ---------------------------
@@ -194,14 +200,6 @@ public class GraphePartition {
 		this.deplacerSommet(iSommet2, classe1);
 	}
 
-	// swap plus rapide si on connait deja la nouvelle evaluation
-	/*public void swap(int iSommet1, int iSommet2, int evalDejaCalculee){
-		int classe1 = this.classes[iSommet1];
-		int classe2 = this.classes[iSommet2];
-		this.deplacerSommet(iSommet1, classe2, evalDejaCalculee);
-		this.deplacerSommet(iSommet2, classe1, evalDejaCalculee);
-	}*/
-
 	// renvoit l'evaluation de la solution prevue si ce swap avait lieu
 	public int evalSwap(int iSommet1, int iSommet2){
 		int classe1 = this.classes[iSommet1];
@@ -213,25 +211,40 @@ public class GraphePartition {
 		// n'a jamais changé.
 		return calculEval(evalSol, ecartMoyen);
 	}
+	
+	public Solution getSolSwap(int iSommet1, int iSommet2){
+		int classe1 = this.classes[iSommet1];
+		int classe2 = this.classes[iSommet2];
+		this.deplacerSommet(iSommet1, classe2);
+		this.deplacerSommet(iSommet2, classe1);
+		Solution s = this.getSolution();
+		this.deplacerSommet(iSommet1, classe1);
+		this.deplacerSommet(iSommet2, classe2);
+		return s;
+	}
 
 	//--------------------------- PICKNDROP (public) ---------------------------
 
 	// pickNdrop mettant a jour l'evaluation
-	public void pickNdrop(int iSommet, int classe){
-		this.deplacerSommet(iSommet, classe);
+	public void pickNdrop(int iSommet, int classeDestination){
+		this.deplacerSommet(iSommet, classeDestination);
 	}
 
-	// pickNdrop plus rapide si on connait deja la nouvelle evaluation
-	/*public void pickNdrop(int iSommet, int classe, int evalDejaCalculee){
-		this.deplacerSommet(iSommet, classe, evalDejaCalculee);
-	}*/
-
 	// renvoit l'evaluation de la solution prevue si ce pickNdrop avait lieu
-	public int evalPickNdrop(int iSommet, int classeDest){
+	public int evalPickNdrop(int iSommet, int classeDestination){
 		int classeDepart = getClasses()[iSommet];
-		int evalSol = this.evalDeplacerSommet(iSommet, classeDepart, classeDest, this.evalSansPenaliteClasse);
-		double ecartMoyen = this.predictionEcartMoyen(iSommet, classeDest);
+		int evalSol = this.evalDeplacerSommet(iSommet, classeDepart, 
+											  classeDestination, this.evalSansPenaliteClasse);
+		double ecartMoyen = this.predictionEcartMoyen(iSommet, classeDestination);
 		return calculEval(evalSol, ecartMoyen);
+	}
+	
+	public Solution getSolPickNdrop(int iSommet, int classeDestination){
+		int classeDepart = this.classes[iSommet];
+		this.deplacerSommet(iSommet, classeDestination);
+		Solution s = this.getSolution();
+		this.deplacerSommet(iSommet, classeDepart);
+		return s;
 	}
 
 	//------------------------- DEPLACER SOMMET (privé) ---------------------------
@@ -244,16 +257,6 @@ public class GraphePartition {
 		this.setSommetClasse(iSommet, classeDestination);
 		this.evalSansPenaliteClasse = this.evalDeplacerSommet(iSommet, classeDepart, classeDestination, this.evalSansPenaliteClasse);
 		}
-
-	// deplacerSommet plus rapide si on connait deja la nouvelle evaluation
-	/*private void deplacerSommet(int iSommet, int classeDestination, int evalDejaCalculee){
-		this.setSommetClasse(iSommet, classeDestination);
-		this.tailleClasses[this.classes[iSommet]]--;
-		this.tailleClasses[classeDestination]++;
-		this.setSommetClasse(iSommet, classeDestination);
-		this.evalSansPenaliteClasse = evalDejaCalculee;
-		System.out.println("evalSansPenalité " + this.evalSansPenaliteClasse);
-	}*/
 
 	// renvoit l'evaluation de la solution prevue si ce deplacerSommet avait lieu
 	private int evalDeplacerSommet(int iSommet, int classeDepart, int classeDestination, int evalCourante){
@@ -280,7 +283,8 @@ public class GraphePartition {
 	}
 
 	public Solution getSolution() {
-		return new Solution(this.classes.clone(), this.nbClasses, this.getEval());
+		return new Solution(this.classes.clone(), this.tailleClasses.clone(),
+							this.nbClasses, this.evalSansPenaliteClasse, this.getEval());
 	}
 
 	public int getNbSommets() {

@@ -12,7 +12,7 @@ public class VoisinagePickNDrop implements Voisinage {
 		int sommetDeSolutionMin = 0;
 		// On cherche sa classe pour etre sur de le pickNdroper dans une nouvelle
 		int classeCourante = g.getClasse(sommetDeSolutionMin);
-		int classeDeSolutionMin = 0;		
+		int classeDeSolutionMin = 0;
 		int evalCourante;
 		if (classeDeSolutionMin == classeCourante){
 			classeDeSolutionMin++;
@@ -71,5 +71,20 @@ public class VoisinagePickNDrop implements Voisinage {
 		// Ainsi, la solution courante DEVIENT le voisin le plus optimal
 		g.pickNdrop(sommetDeSolutionMin, classeDeSolutionMin);
 		tabTabou.add(new Mouvement(sommetDeSolutionMin, -1, classeDeSolutionMin));
+	}
+	
+	public Solution getSolutionVoisineAleatoire(GraphePartition g) {
+		int nbSommets = g.getNbSommets();
+		int nbClasses = g.getNbClasses();
+		// On cherche une solution aléatoire
+		// On choisit alors un sommet au hasard
+		int sommetAChanger = (int) (Math.random()*nbSommets);
+		int classeCourante = g.getClasse(sommetAChanger);
+		// On cherche une classe au hasard qui n'est pas la sienne
+		int classeHasard = (int) (Math.random()*(nbClasses-1));
+		if (classeHasard >= classeCourante){
+			classeHasard++;
+		}
+		return g.getSolPickNdrop(sommetAChanger, classeHasard);
 	}
 }

@@ -4,6 +4,8 @@ import graphe.calcul.Solution;
 
 public interface Algorithme {
 	
-	public Solution run();
+	public void run();
+	public Solution getBestSol();	
+	public int getBestEval();
 
 }
