@@ -39,41 +39,248 @@
 \end{titlepage}
 
 \tableofcontents
+\newpage
+
+\part{Présentation du programme}
+\section{But}
+
+Ce programme permet d’utiliser différents algorithmes d’heuristique pour la résolution d’un problème de partitionnement d’un graphe en un nombre donné de classes de sommets. Ce programme permet ainsi de faire des tests de rapidité et de comparer la vitesse des algorithmes en fonction du nombre de sommets du graphe et du nombre de classes.
 
 \section{Mode d'emploi du programme}
 
-\section{Choix généraux}
+Le programme doit être utilisé sur des fichiers de la forme suivante :
 
-\subsection{Choix des algorithmes implémentés}
-\subsection{Langage de programmation}
-\subsection{Structures de données}
-\subsection{Voisinage}
-\subsection{Solution initiale}
-\subsection{Evaluation}
+\# nbSommets nbAretes
 
-\section{Algorithme exhaustif - Enumération explicite}
-\subsection{Description}
-\subsection{Paramètres}
-\subsection{Résultats}
+4 4
 
-\section{Descente de gradient}
-\subsection{Description}
-\subsection{Paramètres}
-\subsection{Résultats}
+\# dmin dmax
 
-\section{Recuit simulé}
-\subsection{Description}
-\subsection{Paramètres}
-\subsection{Résultats}
+1 3
 
-\section{Algorithme Tabou}
-\subsection{Paramètres}
-\subsection{Résultats}
+\# source but valeur
+
+1 2 1
+
+1 3 1
+
+2 3 1
+
+3 4 1
+
+\# sommet degre
+
+1 2
+
+2 2
+
+3 3
+
+4 1
+
+La dernière partie du fichier (qui donne les degrés de chaque sommet) n’est pas nécessaire car elle n’est pas utilisée par notre programme.
+\bigskip
+
+Notre programme se lance avec les arguments suivants :
+
+   $<$fichier$>$ $<$algorithme$>$ $<$nbClasse$>$ $<$option1$>$ $<$option2$>$
+
+\bigskip
+   Les deux derniers arguments ne sont nécessaires que dans certains cas, mais ne font pas planter le programme si ils sont présents.
+
+	\begin{itemize}
+   \item $<$fichier$>$ représente le fichier sur lequel on veut lancer le programme, chaque fichier représentant un graphe.
+
+  \item  $<$algorithme$>$ représente l'algorithme que l'on veut utiliser : "ex" pour l'algorithme d'exhaustion, "grad" pour l'algorithme de descente de gradient, "recuit" pour l'algorithme du recuit simulé, “tabou” pour l’algorithme tabou.
+
+   \item $<$nbClasse$>$ représente le nombre de classes de sommets voulu.
+
+   \item $<$option1$>$ représente le voisinage que l’on veut utiliser : “PnD” pour le voisinage Pick and Drop, “Swap” pour le voisinage swap. Cet argument n’est pas nécessaire pour lancer l’algorithme exhaustif mais obligatoire pour les autres.
+
+   \item $<$option2$>$ Est lié à l’algorithme :
+		\begin{itemize}
+		\item pour l’algorithme du Recuit Simulé, $<$option2$>$ est la température initiale (c’est un double)
+		\item pour l’algorithme Tabou, cet argument est la taille du tableau des mouvements tabous (int supérieur à 0).
+    	\item pour les autres algorithmes, cet argument est inutile.
+    	\end{itemize}
+	\end{itemize}
+	
+\newpage	
+	
+\part{Choix généraux}
+
+\section{Choix des algorithmes implémentés}
+Nous avons implémenté quatre algorithmes :
+	\begin{itemize}
+    \item Algorithme exhaustif
+    \item Algorithme avec descente de gradient
+	\item Algorithme de recuit simulé
+	\item Algorithme Tabou
+	\end{itemize}
+Les trois premiers algorithmes étaient obligatoires, et nous avons choisi comme quatrième algorithme l’algorithme Tabou, car la gestion d’un tableau de mouvements interdits nous paraissait intéressante.
+Les trois derniers algorithmes sont lancés plusieurs fois sur plusieurs solutions initiales. Nous détaillons plus loin cette fonctionnalité.
+
+\section{Langage de programmation}
+    Nous avons choisi de programmer en Java, car c’est un langage que nous connaissons et qu’un langage objet nous paraissait pertinent pour gérer des objets comme des solutions ou des graphes. De plus, Java nous permet d’utiliser les fonctions liées à ses bibliothèques qui sont déjà optimisées. Nous savions donc que si un algorithme s’exécutait dans un temps supérieur à la normale, ce serait de la faute de l’algorithme et non des fonctions Java.
+
+\section{Structures de données}
+Pour stocker le graphe en mémoire, nous avons choisi d’utiliser une liste d’adjacence qui est remplie à la lecture du fichier par le programme. Cette liste est ensuite traitée par le programme pour créer un premier partitionnement (stocké dans l’objet GraphePartition), qui est la base de notre programme et sur lequel toutes les méthodes seront appliquées. Cet objet GraphePartition représente un graphe partitionné et contient notamment le numéro de classe attribué à chaque sommet, le nombre de classes prévues et l’évaluation de la solution courante.
+
+\section{Voisinages implémentés}
+Nous avons décidé d’implémenter deux voisinages, le Pick’n'Drop et le Swap. Ainsi l’utilisateur pourra choisir entre eux.
+    Nous n’avons pas implémenté le voisinage par Sweep car il revient à effectuer plusieurs Swap d’affilée.
+
+\section{Solution initiale}
+\section{Evaluation}
+
+\newpage
+
+\part{Algorithme exhaustif - Enumération explicite}
+
+% A COMPLETER
+\section{Description}
+Cet algorithme va examiner toutes les solutions possibles. Nous avons choisi d'effectuer un parcours en profondeur.
+
+\section{Paramètres}
+Il n’est donc pas nécessaire de choisir un voisinage. La solution initiale est une solution avec tous les sommets dans la première classe (0).
+
+\section{Tests effectués}
+
+\subsection{Graphe à 5 sommets}
+
+\begin{tabular}{|c|c|c|c|}
+	\hline 
+	nb de classes & 2 & 3 & 4 \\
+	\hline
+	temps (ms) & 17 & 28 & 101 \\
+	\hline
+\end{tabular}
+
+\subsection{Graphe à 10 sommets}
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	nb de classes & 2 & 3 & 4 & 5 \\
+	\hline
+	temps (s) & 0.113 & 1 & 10 & 75 \\
+	\hline
+\end{tabular}
+
+\subsection{Graphe à 15 sommets}
+
+\begin{tabular}{|c|c|c |}
+	\hline 
+	nb de classes & 2 & 3 \\
+	\hline
+	temps (s) & 0.152 & 60 \\
+	\hline
+\end{tabular}
+
+\bigskip
+Graphe à 20 sommets / 2 classes : 17s
+
+Graphe à 22 sommets / 2 classes : 46s
+
+\section{Résultats}
+C'est un algorithme qui devient très rapidement long, mais qui donne toujours la meilleure solution pour les petits graphes.
+
+Il est utilisable quelque soit le nombre de classes jusqu’à 10 sommets et pour 2 classes jusqu’à 22 sommets.
+
+\subsection{Comparaison avec le temps théorique}
+
+\newpage
+
+\part{Descente de gradient}
+\section{Description}
+Cet algorithme part d’une solution initiale aléatoire et tourne tant qu’une solution meilleure a été trouvée dans son voisinage.
+
+\section{Paramètres}
+Cet algorithme dépend du type de voisinage de la solution. On cherche à chaque tour de boucle la meilleure solution voisine. Si celle-ci est meilleure que la solution courante, elle devient solution courante. Sinon, l’algorithme s’arrête.
+
+Meilleure solution voisine : Afin de trouver la meilleure solution voisine nous examinons toutes
+les solutions voisines de la solution courante et retenons la meilleure.
 
 \section{Tests}
+\section{Résultats}
 
-\section{Méthode de travail}
+\newpage
 
-\section{Conclusion}
+\part{Recuit simulé}
+
+\section{Description}
+Cet algorithme est basé sur la physique. On utilise la température comme paramètre. Pour chaque baisse de température, on cherche une solution courante optimale. A la température minimale, la solution trouvée doit être optimale.
+
+\section{Paramètres}
+Nous laissons à l’utilisateur le choix de la température initiale, c’est un double qui doit être supérieure à la température minimale.
+
+\section{Choix d'implémentation}
+
+\paragraph{Taille du problème}
+Dans cet algorithme nous utilisons N, la taille du problème. Nous avons décidé de prendre le nombre d’arètes comme taille  A COMPLETER (pk)
+
+\paragraph{Solution initiale} Comme pour les autres algorithmes, la solution initiale est aléatoire.
+
+\paragraph{Température initiale} Elle est donnée au choix à l’utilisateur. Celle-ci est un double qui doit être supérieure à la température minimale, $0.1^\circ$ . Sachant que la baisse de température est assez rapide (voir suite) la température doit être assez conséquente, supérieure à $20^\circ$ pour que l’algorithme tourne suffisamment longtemps.
+
+\paragraph{Choix condition 1} Afin de sortir de la boucle, l’algorithme doit répondre à l’une des deux conditions suivantes :
+	\begin{itemize}
+    \item soit on a atteint la température minimale, fixée à $0.1^\circ$
+    \item soit la température a changé 5 fois et la solution courante n’a pas changé.
+    \end{itemize}
+
+Nous pensons que ces deux conditions sont importantes car ... A COMPLETER
+
+\paragraph{Choix condition 2} Afin de sortir de cette deuxième boucle, l’algorithme doit répondre à l’une des trois conditions suivantes :
+	\begin{itemize}
+	\item soit on a fait N*N tours de boucle
+	\item soit on a tiré 10*N solutions dont l’évaluation est plus grande que la solution courante
+	\item soit on a accepté 10*N solutions dont l’évaluation est plus grande que la solution courante
+	\end{itemize}
+
+
+A COMPLETER
+
+\paragraph{Choix de la solution aléatoire} POLO
+\paragraph{Choix de la fonction g} La fonction g est la fonction de chute de la température. Celle-ci est simple : on multiplie la température actuelle par la raison r. Au début de l’algorithme, r est choisie au hasard entre 0.7 et 0.9. A COMPLETER (dire pk)
+
+\section{Tests effectués}
+\section{Résultats}
+
+\newpage
+
+\part{Algorithme Tabou}
+\section{Description}
+Cet algorithme est une heuristique qui utilise un tableau de mouvements interdits (ou tabous) pour pouvoir sortir des minima locaux. On stocke les mouvements interdits plutôt que les solutions interdites par souci d’économie de la mémoire.
+
+\section{Paramètres}
+Le tableau de mouvements interdits (ou tableau tabou) est un tableau d’objets de type Mouvement. Sa taille est fixée par l’utilisateur à l’appel de l’algorithme.
+
+Un mouvement est un objet qui contient plusieurs champs : deux champs représentant des sommets, un champ représentant une classe et un champ représentant le timestamp associé à ce mouvement. Cette représentation permet de gérer des mouvements de type Pick’n’Drop (en instanciant seulement un des deux sommets et le numéro de la classe) et des mouvements de type swap (en instanciant les champs correspondant aux deux sommets à échanger).
+Le timestamp de chaque mouvement, qui correspond à la durée de présence du mouvement dans le tableau des mouvements tabous, est incrémenté à chaque tour de boucle et le mouvement est retiré du tableau quand son timestamp atteint la valeur de la taille du tableau.
+
+\section{Tests effectués}
+Tests avec un tableau tabou de taille 5 et un partitionnement en deux classes :
+
+20 sommets : 24 ms
+
+50 sommets : 62 ms
+
+100 sommets : 384 ms
+
+500 sommets : 31 s
+
+1000 sommets : 191 s
+
+\section{Résultats}
+
+\newpage
+
+\part{Méthode de travail}
+\section{Utilisation de git}
+Pour travailler sur ce projet, nous avons utilisé le logiciel de gestion de versions Git et sa plateforme d’hébergement web GitHub. Nous avons travaillé en mettant en place des branches de travail, qui étaient ensuite intégrées au code principal. Nous avons également utilisé le système des “issues” de GitHub, qui nous ont permis de lister les tâches à effectuer et donc d’avoir un suivi global du projet.
+
+\section{Séparation des t$\hat a$ches}
+
+\part{Conclusion}
 		
 \end{document}

@@ -1,14 +1,15 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  11 APR 2013 10:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  17 APR 2013 15:40
 entering extended mode
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **rapport_graphes.tex
 (./rapport_graphes.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
-(/usr/share/texmf-texlive/tex/latex/base/article.cls
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/size12.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -23,14 +24,14 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
-Package: babel 2008/07/06 v3.8l The Babel package
+(/var/lib/texmf/tex/generic/babel/babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
 
-(/usr/share/texmf-texlive/tex/generic/babel/frenchb.ldf
-Language: frenchb 2009/03/16 v2.3d French support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel/frenchb.ldf
+Language: frenchb 2010/08/21 v2.5a French support from the babel system
 
-(/usr/share/texmf-texlive/tex/generic/babel/babel.def
-File: babel.def 2008/07/06 v3.8l Babel common definitions
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
@@ -40,10 +41,10 @@ Package babel Warning: No hyphenation patterns were loaded for
 (babel)                I will use the patterns loaded for \language=0 instead.
 
 \l@french = a dialect from \language0
-Package babel Info: Making : an active character on input line 120.
-Package babel Info: Making ; an active character on input line 121.
-Package babel Info: Making ! an active character on input line 122.
-Package babel Info: Making ? an active character on input line 123.
+Package babel Info: Making : an active character on input line 234.
+Package babel Info: Making ; an active character on input line 235.
+Package babel Info: Making ! an active character on input line 236.
+Package babel Info: Making ? an active character on input line 237.
 \FB@Mht=\dimen104
 \std@mcc=\count88
 \dec@mcc=\count89
@@ -51,25 +52,25 @@ Package babel Info: Making ? an active character on input line 123.
 *************************************
 * Local config file frenchb.cfg used
 *
-(/usr/share/texmf-texlive/tex/generic/babel/frenchb.cfg)))
-(/usr/share/texmf-texlive/tex/latex/carlisle/scalefnt.sty)
-(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/frenchb.cfg)))
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-(/usr/share/texmf-texlive/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-(/usr/share/texmf-texlive/tex/latex/base/t1enc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -219,7 +220,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-(/usr/share/texmf-texlive/tex/latex/base/ot1enc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -250,7 +251,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-(/usr/share/texmf-texlive/tex/latex/base/omsenc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -274,45 +275,52 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/etc/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
 \Gread@gobject=\count90
 ))
 \Gin@req@height=\dimen106
 \Gin@req@width=\dimen107
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks17
 \ex@=\dimen108
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen109
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count91
@@ -353,14 +361,14 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 )
 (./rapport_graphes.aux)
@@ -387,7 +395,7 @@ Package frenchb.ldf Warning: OT1 encoding should not be used for French.
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
 (frenchb.ldf)                of your document, on input line 14.
 
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count103
 \scratchdimen=\dimen117
@@ -398,41 +406,103 @@ Package frenchb.ldf Warning: OT1 encoding should not be used for French.
 \MPscratchCnt=\count106
 \MPscratchDim=\dimen118
 \MPnumerator=\count107
+\makeMPintoPDFobject=\count108
 \everyMPtoPDFconversion=\toks23
-) [1
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./rapport_graphes.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 4.
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+LaTeX Font Info:    Try loading font information for U+msb on input line 16.
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-))
+) [1])
 \tf@toc=\write3
 \openout3 = `rapport_graphes.toc'.
 
- [1]
-Overfull \vbox (127.29462pt too high) has occurred while \output is active []
+ [2]
+Overfull \hbox (3.50648pt too wide) in paragraph at lines 47--48
+[]\OT1/cmr/m/n/12 Ce pro-gramme per-met d'u-tiliser diff^^Serents al-go-rithmes
+ d'heuris-tique pour la r^^Sesolution
+ []
 
+[3] [4] [5] [6] [7] [8] [9] [10] [11]
+Overfull \hbox (0.30765pt too wide) in paragraph at lines 258--260
+[]\OT1/cmr/m/n/12 Un mou-ve-ment est un ob-jet qui con-tient plusieurs champs :
+ deux champs repr^^Sesentant
+ []
 
-[2] (./rapport_graphes.aux) ) 
+[12] [13] (./rapport_graphes.aux) ) 
 Here is how much of TeX's memory you used:
- 2666 strings out of 495061
- 31984 string characters out of 1182620
- 93710 words of memory out of 3000000
- 5824 multiletter control sequences out of 15000+50000
- 10102 words of font info for 38 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 27i,4n,24p,232b,198s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on rapport_graphes.pdf (3 pages, 47828 bytes).
+ 3283 strings out of 495059
+ 42665 string characters out of 3182030
+ 104035 words of memory out of 3000000
+ 6408 multiletter control sequences out of 15000+200000
+ 12064 words of font info for 46 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 38i,6n,24p,607b,227s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b>
+Output written on rapport_graphes.pdf (14 pages, 81508 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
+ 70 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

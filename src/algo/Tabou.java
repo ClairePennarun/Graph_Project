@@ -65,7 +65,8 @@ public class Tabou implements Algorithme, Runnable {
 		}
 		System.out.println("Solution optimale : "+ sOpt + ", Evaluation : " + evalOpt);
 		long endTime = System.currentTimeMillis();
-		System.out.println("Temps d'exécution  : " + (endTime-startTime) + " ms.");
+		System.out.println("Temps d'exécution : " + (endTime-startTime) + "ms = " + 
+				(endTime-startTime)/1000 + "s = " + ((endTime-startTime)/1000)/60 + "min");
 		
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;
