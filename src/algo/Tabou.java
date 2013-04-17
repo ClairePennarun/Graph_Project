@@ -62,7 +62,8 @@ public class Tabou implements Algorithme{
 		}
 		System.out.println("Solution finale : "+ sBest + " avec l'evaluation : " + bestEval);
 		long endTime = System.currentTimeMillis();
-		System.out.println("Temps d'exécution de l'algo Tabou : " + (endTime-startTime));
+		System.out.println("Temps d'exécution de l'algo Tabou : " + (endTime-startTime) + "ms = " + 
+		(endTime-startTime)/1000 + "s = " + ((endTime-startTime)/1000)/60 + "min");
 		return sBest;
 	}
 }
