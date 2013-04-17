@@ -39,7 +39,12 @@ public class Gradient implements Algorithme, Runnable {
 
 		System.out.println("Solution optimale : "+ sOpt + ", Evaluation : " + sOpt.getEval());
 		long endTime = System.currentTimeMillis();
-		System.out.println("Temps d'exécution : " + (endTime-startTime) + " ms.");
+		int tempsTotal = (int) (endTime-startTime);
+		int min = (tempsTotal/1000)/60;
+		int sec = (tempsTotal - min*1000*60)/1000;
+		int ms = tempsTotal - sec*1000;
+		System.out.println("Temps d'execution : " + min + " minutes " + sec + 
+				"secondes " + ms + "milli-secondes");
 		
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;

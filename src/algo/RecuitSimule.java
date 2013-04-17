@@ -3,7 +3,6 @@ package algo;
 import graphe.calcul.GraphePartition;
 import graphe.calcul.Solution;
 import graphe.calcul.Voisinage;
-import graphe.calcul.VoisinagePickNDrop;
 import graphe.init.ListeAdjacence;
 
 public class RecuitSimule implements Algorithme, Runnable {
@@ -104,8 +103,13 @@ public class RecuitSimule implements Algorithme, Runnable {
 
 		}
 		System.out.println("Solution optimale : " + sOpt + ", Evaluation : " + sOpt.getEval());
-		long nTime = System.currentTimeMillis();
-		System.out.println("Temps d'exécution : " + (nTime - startTime) + " ms.");
+		long endTime = System.currentTimeMillis();
+		int tempsTotal = (int) (endTime-startTime);
+		int min = (tempsTotal/1000)/60;
+		int sec = (tempsTotal - min*1000*60)/1000;
+		int ms = tempsTotal - sec*1000;
+		System.out.println("Temps total d'execution : " + min + " minutes " + sec + 
+				"secondes " + ms + "milli-secondes");
 		
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;

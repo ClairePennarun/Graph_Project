@@ -156,15 +156,14 @@ public class GraphePartition {
 
 	// Donne l'écart moyen de la taille des classes, en pourcentage
 	private double pourcentageEcartMoyen(){
-		double tailleMoyenne = 0;
-		for(int n : this.tailleClasses)
-			tailleMoyenne += n;
-		tailleMoyenne = tailleMoyenne / this.tailleClasses.length;
 		double ecartMoyen = 0;
-		for(int n : this.tailleClasses)
-			ecartMoyen += Math.abs(tailleMoyenne-n);
-		ecartMoyen = ecartMoyen / this.nbClasses;
-		return (ecartMoyen/this.nbSommets);
+		int n = 0;
+		for(int i = 0; i<this.tailleClasses.length; i++)
+			for(int j = i+1; j<this.tailleClasses.length; j++){
+				ecartMoyen += Math.abs(this.tailleClasses[i]-this.tailleClasses[j]);
+				n++;
+			}
+		return (ecartMoyen / n) / this.nbSommets;
 	}
 
 	// Donne une prédiction du prochain ecart moyen (après ce déplacement)
