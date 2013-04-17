@@ -31,6 +31,7 @@ public class RecuitSimule implements Algorithme, Runnable {
 		Solution sCourante = g.getSolution();
 		String sOptString = sOpt.toString();
 		System.out.println("Solution initiale : "+ sOptString + " avec l'evaluation : " + graphe.getEval());
+		
 		int evalCourante = g.getEval();
 		double tempCourante = this.temperatureInit;
 		double raison = (Math.random() *(0.9-0.7)) + 0.7 ; // doit etre compris entre 0.7 et 0.9
@@ -102,17 +103,17 @@ public class RecuitSimule implements Algorithme, Runnable {
 				k++;
 
 		}
-		System.out.println("Solution optimale : " + sOpt + ", Evaluation : " + sOpt.getEval());
 		long endTime = System.currentTimeMillis();
 		int tempsTotal = (int) (endTime-startTime);
 		int min = (tempsTotal/1000)/60;
 		int sec = (tempsTotal - min*1000*60)/1000;
 		int ms = tempsTotal - sec*1000;
-		System.out.println("Temps total d'execution : " + min + " minutes " + sec + 
-				"secondes " + ms + "milli-secondes");
+		System.out.println("Solution optimale est : " + sOpt + ", Evaluation : " + evalOpt + "\n" + 
+		"Temps total d'execution : " + min + " minutes " + sec + " secondes " + ms + " millisecondes");
 		
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;
+
 	}
 	
 	public Solution getBestSol(){

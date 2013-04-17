@@ -39,8 +39,10 @@ public class Lanceur {
 		long startTime = System.currentTimeMillis();
 		for(int i=0; i<nbTours; i++){
 			algo = this.nouvelAlgo(nomAlgo, param);
+			algoList.add(algo);
 			Thread t = new Thread((Runnable) algo);
 			threadList.add(t);
+		
 			t.run();
 		}
 		for(Thread t : threadList)
@@ -77,7 +79,7 @@ public class Lanceur {
 		int sec = (tempsTotal - min*1000*60)/1000;
 		int ms = tempsTotal - sec*1000;
 		System.out.println("Temps total d'execution : " + min + " minutes " + sec + 
-				"secondes " + ms + "milli-secondes");
+				" secondes " + ms + " millisecondes");
 		System.out.println("Evaluation moyenne " + evalMoyenne);
 		System.out.println("Meilleur solution finale : " + sOpt);
 		System.out.println("Meileur evaluation finale : " + evalOpt);
@@ -89,10 +91,10 @@ public class Lanceur {
 		ListeAdjacence l = this.liste;
 		Voisinage v = this.typeVoisinage;
 		int nbClasses = this.nbClasses;
-		if (algo.equals("RecuitSimule")){
+		if (algo.equals("recuit")){
 			return new RecuitSimule(l, v, nbClasses, param);
 		}
-		else if (algo.equals("Tabou")){
+		else if (algo.equals("tabou")){
 			return new Tabou(l, v, nbClasses, (int) param);
 		}
 		else{

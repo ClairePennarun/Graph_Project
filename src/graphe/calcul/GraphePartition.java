@@ -189,6 +189,7 @@ public class GraphePartition {
 		// Si l'écart moyen est de 12%, on ajoutera alors 24% à l'évaluation;
 	}
 
+
 	//--------------------------------- SWAP (public) -------------------------------
 
 	// swap mettant a jour l'evaluation

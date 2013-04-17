@@ -50,15 +50,14 @@ public class Exhaustif implements Algorithme, Runnable {
 			else //La precedente boucle a depasse le dernier sommet : on a tout teste
 				boucle = false;
 		}
-		System.out.println("Solution optimale est : " + sOpt + ", Evaluation : " + evalOpt);
 		
 		long endTime = System.currentTimeMillis();
 		int tempsTotal = (int) (endTime-startTime);
 		int min = (tempsTotal/1000)/60;
 		int sec = (tempsTotal - min*1000*60)/1000;
 		int ms = tempsTotal - sec*1000;
-		System.out.println("Temps d'execution : " + min + " minutes " + sec + 
-				"secondes " + ms + "milli-secondes");
+		System.out.println("Solution optimale est : " + sOpt + ", Evaluation : " + evalOpt + "\n" + 
+		"Temps total d'execution : " + min + " minutes " + sec + " secondes " + ms + " millisecondes");
 		
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;

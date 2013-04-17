@@ -26,7 +26,6 @@ public class VoisinagePickNDrop implements Voisinage {
 			for(int j=0; j<nbClasses; j++){
 				evalCourante = g.evalPickNdrop(i, j);
 				if ((classeCourante != j) && (evalCourante < evalMin)){
-					System.out.println("solution acceptée : " + evalCourante + " solution minimale courante : " +evalMin);
 					sommetDeSolutionMin = i;
 					classeDeSolutionMin = j;
 					evalMin = evalCourante;
