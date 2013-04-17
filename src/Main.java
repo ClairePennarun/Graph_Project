@@ -81,7 +81,7 @@ public class Main {
 										System.out.println("La température initiale de l'algorithme Recuit Simulé "+ 
 												"doit être supérieure à 0.1");
 									}else {
-										RecuitSimule gr = new RecuitSimule(list, v, Integer.valueOf(args[2]), Double.valueOf(args[4]), 20);
+										RecuitSimule gr = new RecuitSimule(list, v, Integer.valueOf(args[2]), Double.valueOf(args[4]));
 										System.out.println("Algorithme : Gradient, Voisinage : PnD");
 										gr.run();
 									}
@@ -120,7 +120,7 @@ public class Main {
 												"doit être supérieure à 0.1");
 									else {
 										System.out.println("Algorithme : Recuit");
-										RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]), nbAretes);
+										RecuitSimule recuit = new RecuitSimule(list, v, nbClasses, Double.valueOf(args[4]));
 										recuit.run();
 									}
 								}
