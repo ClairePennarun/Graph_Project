@@ -66,7 +66,6 @@ public class Lanceur {
 			sCourante = algo.getBestSol();
 			evalCourante = algo.getBestEval();
 			evalMoyenne += evalCourante;
-			tempsMoyen += algo.getTemps();
 			if (evalCourante < evalOpt){
 				sOpt = sCourante;
 				evalOpt = evalCourante;
@@ -74,10 +73,10 @@ public class Lanceur {
 		}
 		
 		evalMoyenne = evalMoyenne / nbTours;
-		tempsMoyen = tempsMoyen / nbTours;
 		
 		System.out.println("-----------------------------------------------------------------------");
 		int tempsTotal = (int) (endTime-startTime);
+		tempsTotal = tempsTotal / nbTours;
 		System.out.println("Temps total d'execution : " + algo.convertirTemps(tempsTotal));
 		System.out.println("Temps moyen d'execution : " + algo.convertirTemps((int) tempsMoyen));
 		System.out.println("Evaluation moyenne " + evalMoyenne);
