@@ -47,10 +47,12 @@ public class Lanceur {
 			t.start();
 		}
 		for(Thread t : threadList)
-			while(t.isAlive())
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {}
+			try {
+				t.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		long endTime = System.currentTimeMillis();
 		
 		algo = algoList.get(0);
