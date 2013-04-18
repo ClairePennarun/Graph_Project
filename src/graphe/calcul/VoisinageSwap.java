@@ -35,7 +35,7 @@ public class VoisinageSwap implements Voisinage {
 		// Ainsi, la solution courante DEVIENT le voisin le plus optimal
 		g.swap(sommet1DeSolutionMin, sommet2DeSolutionMin);
 	}
-	
+
 	public void bestSolVoisineTabou(GraphePartition g, List<Mouvement> tabTabou) {
 		int nbSommets = g.getNbSommets();
 		// On cherche une solution voisine pour initaliser evalMin
@@ -46,17 +46,17 @@ public class VoisinageSwap implements Voisinage {
 		int evalCourante;
 		// Et on initialise evalMin
 		int evalMax = g.evalSwap(sommet1DeSolutionMin, sommet2DeSolutionMin);
-		
+
 		// Test de tous les couples de voisins possibles
 		for(int i=0; i<nbSommets; i++)
 			for(int j = i+1; j<nbSommets; j++){
 				if (((evalCourante = g.evalSwap(i, j)) > evalMax) && (!tabTabou.contains(new Mouvement(i,-1,j)))){
-						sommet1DeSolutionMin = i;
-						sommet2DeSolutionMin = j;
-						evalMax = evalCourante;
+					sommet1DeSolutionMin = i;
+					sommet2DeSolutionMin = j;
+					evalMax = evalCourante;
 				}
-		}
-		
+			}
+
 		// Une fois le voisin optimal trouve, on swap le couple de sommets
 		// Ainsi, la solution courante DEVIENT le voisin le plus optimal
 		g.swap(sommet1DeSolutionMin, sommet2DeSolutionMin);
@@ -69,9 +69,14 @@ public class VoisinageSwap implements Voisinage {
 		// On choisit alors deux sommets au hasard
 		int sommet1 = (int) (Math.random()*nbSommets);
 		int sommet2 = (int) (Math.random()*(nbSommets-1));
-		if (sommet2 >= sommet1)
-			sommet2++;
+		int classe1 = g.getClasse(sommet1);
+		int classe2 = g.getClasse(sommet2);
+		while (classe1 == classe2){
+			sommet2 = (int) (Math.random()*(nbSommets-1));
+			classe2 = g.getClasse(sommet2);
+		}
+
 		return g.getSolSwap(sommet1, sommet2);
 	}
-	
+
 }
