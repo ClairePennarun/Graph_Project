@@ -44,7 +44,7 @@ public class Lanceur {
 			Thread t = new Thread((Runnable) algo);
 			threadList.add(t);
 		
-			t.start();
+			t.run();
 		}
 		for(Thread t : threadList)
 			while(t.isAlive())

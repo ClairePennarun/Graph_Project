@@ -9,25 +9,25 @@ import java.io.*;
 import algo.Exhaustif;
 import algo.Lanceur;
 
-public class Main { 
+public class Main {
 
-	/* Liste des algo : 
+	/* Liste des algo :
 	 * exhaustif
 	 * descente de gradiant
 	 * recuit simulé
-	 * tabou 
+	 * tabou
 
-	 * Liste des parametres : 
-	 * => fichier  : arg[0]
+	 * Liste des parametres :
+	 * => fichier : arg[0]
 	 * => algo que l'on veut : arg[1]
 	 * => nb de classes : arg[2]
 	 * => voisinage : arg[3]
 	 * => nombre de fois que l'on veut faire tourner l'algo : arg[4]
 	 * => temperature initiale (pour le recuit) ou taille tableau tabou (pour le tabou): arg[5]
 
-	 * Pour lancer le main avec des arguments depuis Eclipse :  
+	 * Pour lancer le main avec des arguments depuis Eclipse :
 	 * clic-droit sur le main -> run as -> run configuration
-	 * onglet argument 
+	 * onglet argument
 	 * case program argument : écrire les arguments séparés par un espace
 	 */
 
@@ -49,7 +49,7 @@ public class Main {
 			System.out.println("Les arguments du programme doivent être de cette forme " +
 					": \n <fichier d'entrée> <algorithme désiré> <nombre de partitions> <voisinage(sauf pour exhaustif)>\n");
 			return;
-		} 
+		}
 
 		if (Integer.valueOf(args[2]) > list.getTaille()){
 			System.out.println("Le nombre de partitions doit être inférieur au nombre de sommets du graphe.\n");
@@ -64,12 +64,12 @@ public class Main {
 			return;
 		}
 
-		if (args.length > 3){		//alors il y a un voisinage
+		if (args.length > 3){	//alors il y a un voisinage
 
 			if ((args[3].equals("PnD")) || (args[3].equals("Swap"))){
 				lancementParVoisinage(args, list);
 			} else
-				System.out.println("Les voisinages disponibles sont Pick and Drop : PnD et Swap : Swap"); 
+				System.out.println("Les voisinages disponibles sont Pick and Drop : PnD et Swap : Swap");
 		} else {
 			if (args[1].equals("grad") ||args[1].equals("recuit") || args[1].equals("tabou"))
 				System.out.println(" Pour cet algorithme vous devez choisir un voisinage entre : Pnd ou Swap.\n Recommencer le lancement.");
@@ -86,7 +86,7 @@ public class Main {
 		else	
 			v = new VoisinagePickNDrop();
 
-		Lanceur l = new Lanceur (list, v, nbClasses); 
+		Lanceur l = new Lanceur (list, v, nbClasses);
 
 		if (args[1].equals("gradient")){
 			System.out.println("Algorithme : Gradient");
@@ -99,7 +99,7 @@ public class Main {
 				return;
 			}
 			if(Double.valueOf(args[5]) < 0.1){
-				System.out.println("La température initiale de l'algorithme Recuit Simulé "+ 
+				System.out.println("La température initiale de l'algorithme Recuit Simulé "+
 						"doit être supérieure à 0.1");
 				return ;
 			}
@@ -124,9 +124,6 @@ public class Main {
 			System.out.printf ("L'algorithme entré n'est pas valable. \n Les algorithmes implémentés sont : \n exhaustif : ex , \n descente de gradient : gradient , \n recuit simulé : recuit , \n tabou : tabou , \n ");
 	}
 }
-
-
-
 
 
 

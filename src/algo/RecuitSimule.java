@@ -98,11 +98,11 @@ public class RecuitSimule extends Algorithme implements Runnable {
 
 		}
 		long endTime = System.currentTimeMillis();
-
 		this.temps = (int) (endTime-startTime);
 		super.afficherResultat(sInitiale, sOpt, endTime-startTime);
-		
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;
+
 	}
+
 }
