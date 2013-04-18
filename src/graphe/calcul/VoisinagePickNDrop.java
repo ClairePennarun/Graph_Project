@@ -80,10 +80,9 @@ public class VoisinagePickNDrop implements Voisinage {
 		int sommetAChanger = (int) (Math.random()*nbSommets);
 		int classeCourante = g.getClasse(sommetAChanger);
 		// On cherche une classe au hasard qui n'est pas la sienne
-		int classeHasard = (int) (Math.random()*(nbClasses-1));
-		while (classeHasard == classeCourante){
-			classeHasard = (int) (Math.random()*(nbClasses-1));
-		}
+		int classeHasard = (int) (Math.random()*(nbClasses));
+		while (classeHasard == classeCourante)
+			classeHasard = (int) (Math.random()*(nbClasses));
 		return g.getSolPickNdrop(sommetAChanger, classeHasard);
 	}
 }
