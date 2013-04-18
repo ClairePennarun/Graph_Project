@@ -29,6 +29,7 @@ public class Lanceur {
 		int evalOpt;
 		int evalCourante;
 		double evalMoyenne = 0;
+		double tempsMoyen = 0;
 		List<Algorithme> algoList = new ArrayList<Algorithme>();
 		List<Thread> threadList = new ArrayList<Thread>();
 		Algorithme algo;
@@ -38,13 +39,12 @@ public class Lanceur {
 
 		long startTime = System.currentTimeMillis();
 		for(int i=0; i<nbTours; i++){
-			System.out.println("Tour " + i +":");
 			algo = this.nouvelAlgo(nomAlgo, param);
 			algoList.add(algo);
 			Thread t = new Thread((Runnable) algo);
 			threadList.add(t);
 		
-			t.run();
+			t.start();
 		}
 		for(Thread t : threadList)
 			while(t.isAlive())
@@ -65,7 +65,8 @@ public class Lanceur {
 			algo = algoList.get(i);
 			sCourante = algo.getBestSol();
 			evalCourante = algo.getBestEval();
-			evalMoyenne += evalCourante;		
+			evalMoyenne += evalCourante;
+			tempsMoyen += algo.getTemps();
 			if (evalCourante < evalOpt){
 				sOpt = sCourante;
 				evalOpt = evalCourante;
@@ -73,14 +74,12 @@ public class Lanceur {
 		}
 		
 		evalMoyenne = evalMoyenne / nbTours;
+		tempsMoyen = tempsMoyen / nbTours;
 		
 		System.out.println("-----------------------------------------------------------------------");
 		int tempsTotal = (int) (endTime-startTime);
-		int min = (tempsTotal/1000)/60;
-		int sec = (tempsTotal - min*1000*60)/1000;
-		int ms = tempsTotal - sec*1000 - min*1000*60;
-		System.out.println("Temps total d'execution : " + min + " minutes " + sec + 
-				" secondes " + ms + " millisecondes");
+		System.out.println("Temps total d'execution : " + algo.convertirTemps(tempsTotal));
+		System.out.println("Temps moyen d'execution : " + algo.convertirTemps((int) tempsMoyen));
 		System.out.println("Evaluation moyenne " + evalMoyenne);
 		System.out.println("Meilleure solution finale : " + sOpt);
 		System.out.println("Meilleure evaluation finale : " + evalOpt);

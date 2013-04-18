@@ -10,15 +10,12 @@ import graphe.calcul.Solution;
 import graphe.calcul.Voisinage;
 import graphe.init.ListeAdjacence;
 
-public class Tabou implements Algorithme, Runnable {
+public class Tabou extends Algorithme implements Runnable {
 
 	private GraphePartition graphe;
 	private Voisinage typeVoisinage;
 	private List<Mouvement> tabTabou;
 	private int nbTabou;
-	
-	private Solution solutionOpt;
-	private int evalOpt;
 
 	public Tabou(ListeAdjacence l, Voisinage typeVoisinage, int nbClasses, int nbTabou){
 		this.graphe = new GraphePartition(l, nbClasses);
@@ -40,8 +37,9 @@ public class Tabou implements Algorithme, Runnable {
 		
 		// on initialise sBest avec la solution courante
 		Solution sOpt = this.graphe.setSolutionAleatoire();
+		Solution sInitiale = sOpt;
+		
 		int evalOpt = sOpt.getEval();
-		System.out.println("Solution initiale : "+ sOpt + " avec l'evaluation : " + graphe.getEval());
 
 		for(int j = 1; j < puiss(this.graphe.getNbSommets(),2); j++){
 			evalOpt = sOpt.getEval();
@@ -64,22 +62,10 @@ public class Tabou implements Algorithme, Runnable {
 		}
 		
 		long endTime = System.currentTimeMillis();
-		int tempsTotal = (int) (endTime-startTime);
-		int min = (tempsTotal/1000)/60;
-		int sec = (tempsTotal - min*1000*60)/1000;
-		int ms = tempsTotal - sec*1000 - min*1000*60;
-		System.out.println("Solution optimale est : " + sOpt + ", Evaluation : " + evalOpt + "\n" + 
-		"Temps total d'execution : " + min + " minutes " + sec + " secondes " + ms + " millisecondes");
+		this.temps = (int) (endTime-startTime);
+		super.afficherResultat(sInitiale, sOpt, endTime-startTime);
 		
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;
-	}
-	
-	public Solution getBestSol(){
-		return this.solutionOpt;
-	}
-	
-	public int getBestEval(){
-		return this.evalOpt;
 	}
 }

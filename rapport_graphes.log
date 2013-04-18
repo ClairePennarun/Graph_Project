@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  17 APR 2013 15:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  18 APR 2013 14:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -24,7 +24,7 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/var/lib/texmf/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2008/07/08 v3.8m The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/frenchb.ldf
@@ -479,17 +479,17 @@ Overfull \hbox (3.50648pt too wide) in paragraph at lines 47--48
  []
 
 [3] [4] [5] [6] [7] [8] [9] [10] [11]
-Overfull \hbox (0.30765pt too wide) in paragraph at lines 258--260
+Overfull \hbox (0.30765pt too wide) in paragraph at lines 256--258
 []\OT1/cmr/m/n/12 Un mou-ve-ment est un ob-jet qui con-tient plusieurs champs :
  deux champs repr^^Sesentant
  []
 
 [12] [13] (./rapport_graphes.aux) ) 
 Here is how much of TeX's memory you used:
- 3283 strings out of 495059
- 42665 string characters out of 3182030
+ 3281 strings out of 495059
+ 42655 string characters out of 3182030
  104035 words of memory out of 3000000
- 6408 multiletter control sequences out of 15000+200000
+ 6407 multiletter control sequences out of 15000+200000
  12064 words of font info for 46 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,6n,24p,607b,227s stack positions out of 5000i,500n,10000p,200000b,50000s

@@ -4,12 +4,9 @@ import graphe.calcul.GraphePartition;
 import graphe.init.ListeAdjacence;
 import graphe.calcul.Solution;
 
-public class Exhaustif implements Algorithme, Runnable {
+public class Exhaustif extends Algorithme implements Runnable {
 	private GraphePartition graphe;
 	private int nbClasses;
-	
-	private Solution solutionOpt;
-	private int evalOpt;
 
 	public Exhaustif(ListeAdjacence l, int nbClasses){
 		this.graphe = new GraphePartition(l, nbClasses);
@@ -24,7 +21,8 @@ public class Exhaustif implements Algorithme, Runnable {
 		//g.calculerEvaluation();
 		int nbSommets = g.getNbSommets();
 		Solution sOpt = g.setSolutionExhaustif();
-		System.out.println("La solution initiale est : " + sOpt + " avec l'evaluation : " + g.getEval());
+		Solution sInitiale = sOpt;
+		
 		int evalOpt = g.getEval();
 		
 		boolean boucle = true;
@@ -52,22 +50,8 @@ public class Exhaustif implements Algorithme, Runnable {
 		}
 		
 		long endTime = System.currentTimeMillis();
-		int tempsTotal = (int) (endTime-startTime);
-		int min = (tempsTotal/1000)/60;
-		int sec = (tempsTotal - min*1000*60)/1000;
-		int ms = tempsTotal - sec*1000 - min*1000*60;
-		System.out.println("Solution optimale est : " + sOpt + ", Evaluation : " + evalOpt + "\n" + 
-		"Temps total d'execution : " + min + " minutes " + sec + " secondes " + ms + " millisecondes");
-		
+		super.afficherResultat(sInitiale, sOpt, endTime-startTime);
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;
-	}
-	
-	public Solution getBestSol(){
-		return this.solutionOpt;
-	}
-	
-	public int getBestEval(){
-		return this.evalOpt;
 	}
 }

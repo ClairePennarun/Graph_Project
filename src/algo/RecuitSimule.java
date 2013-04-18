@@ -5,15 +5,12 @@ import graphe.calcul.Solution;
 import graphe.calcul.Voisinage;
 import graphe.init.ListeAdjacence;
 
-public class RecuitSimule implements Algorithme, Runnable {
+public class RecuitSimule extends Algorithme implements Runnable {
 
 	private GraphePartition graphe;
 	private double temperatureInit;
 	private Voisinage typeVoisinage;
 	private int profondeur;
-	
-	private Solution solutionOpt;
-	private int evalOpt;
 
 	public RecuitSimule(ListeAdjacence l, Voisinage v, int nbClasses, double temp){
 		this.graphe = new GraphePartition(l, nbClasses);
@@ -28,9 +25,8 @@ public class RecuitSimule implements Algorithme, Runnable {
 		Solution sOpt = this.graphe.setSolutionAleatoire();
 		int evalOpt = g.getEval();
 		
-		Solution sCourante = g.getSolution();
-		String sOptString = sOpt.toString();
-		System.out.println("Solution initiale : "+ sOptString + " avec l'evaluation : " + graphe.getEval());
+		Solution sInitiale = sOpt;
+		Solution sCourante = sOpt;
 		
 		int evalCourante = g.getEval();
 		double tempCourante = this.temperatureInit;
@@ -43,11 +39,11 @@ public class RecuitSimule implements Algorithme, Runnable {
 		int evalAleatoire;
 
 		boolean changement = true; // indique si sOpt à changé
-		int k = 0; // nombre de fois où la température descent sans que sOpt change
+		int k = 0; // nombre de fois où la température descend sans que sOpt change
 
-		// on arrète lorque :
+		// on arrête lorsque :
 		// on a descendu de températre 5 fois sans que la solution optimale change 
-		// ou quand la tempéature deviens trop basse
+		// ou quand la tempéature devient trop basse
 		while((k <= 5) && (tempCourante >= tempMin)){ // || (nbTour > nbTourMax))
 
 			nbSolSup = 0; // nombre de fois ou l'on a tiré une solution plus couteuse
@@ -55,14 +51,12 @@ public class RecuitSimule implements Algorithme, Runnable {
 			nbTourWhile2 = 0; // nombre de parcours de la boucle while 2
 			changement = false;
 
-			//on arrète lorsque :
+			// on arrête lorsque :
 			// on a trouvé 100*n solutions moins bonne que l'actuelle
 			// on a accepté 10*n solution de moins bonne qualité 
 			// on a fait n² tours
 			while((nbSolSup < 100 * profondeur) && (nbSolSupAcc < 10 * profondeur) && (nbTourWhile2 < profondeur * profondeur)){
-				
-				// Nouvelle solution aleatoire
-				// Eval nouvelle solution
+
 				solAleatoire =	this.typeVoisinage.getSolutionVoisineAleatoire(this.graphe);
 				evalAleatoire = solAleatoire.getEval();
 				
@@ -95,7 +89,7 @@ public class RecuitSimule implements Algorithme, Runnable {
 				nbTourWhile2++;
 			}
 
-			//modification tempCourante
+			// modification tempCourante
 			tempCourante = tempCourante * raison ;
 			if (changement)
 				k = 0;
@@ -104,24 +98,11 @@ public class RecuitSimule implements Algorithme, Runnable {
 
 		}
 		long endTime = System.currentTimeMillis();
-		int tempsTotal = (int) (endTime-startTime);
-		int min = (tempsTotal/1000)/60;
-		int sec = (tempsTotal - min*1000*60)/1000;
-		int ms = tempsTotal - sec*1000 - min*1000*60;
-		System.out.println("Solution optimale est : " + sOpt + ", Evaluation : " + evalOpt + "\n" + 
-		"Temps total d'execution : " + min + " minutes " + sec + " secondes " + ms + " millisecondes");
+
+		this.temps = (int) (endTime-startTime);
+		super.afficherResultat(sInitiale, sOpt, endTime-startTime);
 		
 		this.solutionOpt = sOpt;
 		this.evalOpt = evalOpt;
-
 	}
-	
-	public Solution getBestSol(){
-		return this.solutionOpt;
-	}
-	
-	public int getBestEval(){
-		return this.evalOpt;
-	}
-
 }
