@@ -76,7 +76,7 @@ public class Lanceur {
 		
 		System.out.println("-----------------------------------------------------------------------");
 		int tempsTotal = (int) (endTime-startTime);
-		tempsTotal = tempsTotal / nbTours;
+		tempsMoyen = tempsTotal / nbTours;
 		System.out.println("Temps total d'execution : " + algo.convertirTemps(tempsTotal));
 		System.out.println("Temps moyen d'execution : " + algo.convertirTemps((int) tempsMoyen));
 		System.out.println("Evaluation moyenne " + evalMoyenne);
