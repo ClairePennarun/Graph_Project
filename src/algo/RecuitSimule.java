@@ -24,7 +24,6 @@ public class RecuitSimule extends Algorithme implements Runnable {
 		GraphePartition g = this.graphe;
 		Solution sOpt = this.graphe.setSolutionAleatoire();
 		int evalOpt = g.getEval();
-		System.out.println("sol init : " + evalOpt);
 		
 		Solution sInitiale = sOpt;
 		Solution sCourante = sOpt;
