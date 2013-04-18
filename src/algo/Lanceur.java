@@ -49,6 +49,7 @@ public class Lanceur {
 		for(Thread t : threadList)
 			try {
 				t.join();
+
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

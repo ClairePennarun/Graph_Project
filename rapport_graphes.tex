@@ -41,6 +41,8 @@
 \tableofcontents
 \newpage
 
+% A COMPLETER : tableaux / conclusions recuit
+
 \part{Présentation du programme}
 \section{But}
 
@@ -218,20 +220,37 @@ Il est utilisable quelque soit le nombre de classes jusqu’à 10 sommets et pou
 
 \part{Descente de gradient}
 \section{Description}
-Cet algorithme part d’une solution initiale aléatoire et tourne tant qu’une solution meilleure a été trouvée dans son voisinage.
+Cet algorithme part d’une solution initiale aléatoire et tourne tant qu’une solution meilleure a été trouvée dans son voisinage. On cherche à chaque tour de boucle la meilleure solution voisine. Si celle-ci est meilleure que la solution courante, elle devient solution courante. Sinon, l’algorithme s’arrête.
 
 \section{Paramètres}
-Cet algorithme dépend du type de voisinage de la solution. On cherche à chaque tour de boucle la meilleure solution voisine. Si celle-ci est meilleure que la solution courante, elle devient solution courante. Sinon, l’algorithme s’arrête.
-
-Meilleure solution voisine : Afin de trouver la meilleure solution voisine nous examinons toutes les solutions voisines de la solution courante et retenons la meilleure.
+Cet algorithme dépend du type de voisinage de la solution. 
 
 \section{Tests}
 
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 	\hline 
-	nb de classes & 2 & 3 & 4 & 5 \\
+	nb de classes & nb de Sommets & nb de lancers & tps moyen & tps total & eval min & ecart moyen \\
 	\hline
-	temps (s) & 0.113 & 1 & 10 & 75 \\
+	2 & 20 & 20 & 150 ms & 3 s 17 ms & 140 & 7.5 \\
+	\hline
+	2 &  50  &  50  &     ms   &    s    ms   &     &     \\
+	\hline
+	2 &  100  &  100  &     ms   &   s    ms    &     &     \\
+	\hline
+	2 &  500  &  500  &      ms  &    s    ms   &     &     \\
+	\hline
+	2 &  1000  &  1000  &    ms    &   s    ms    &     &     \\
+	\hline
+	\hline
+	5 &  20  &  20  &     ms   &   s    ms    &     &     \\
+	\hline
+	5 &  50  &  50  &     ms   &   s     ms   &     &     \\
+	\hline
+	5 &  100  & 100   &     ms   &   s    ms    &     &     \\
+	\hline
+	5 & 500   & 500   &     ms   &   s     ms   &     &     \\
+	\hline
+	5 &  1000  &  1000  &     ms   &   s    ms    &     &     \\
 	\hline
 \end{tabular}
 
@@ -248,12 +267,12 @@ Nous avons testé l’algorithme de gradient avec beaucoup plus de lancements qu
 Cet algorithme est basé sur la physique. On utilise la température comme paramètre. Pour chaque baisse de température, on cherche une solution courante optimale. A la température minimale, la solution trouvée doit être optimale.
 
 \section{Paramètres}
-Nous laissons à l’utilisateur le choix de la température initiale, c’est un double qui doit être supérieure à la température minimale.
+Cet algorithme dépend du voisinage. De plus, nous laissons à l’utilisateur le choix de la température initiale, c’est un double qui doit être supérieure à la température minimale.
 
 \section{Choix d'implémentation}
 
 \paragraph{Taille du problème}
-Dans cet algorithme nous utilisons N, la taille du problème. Nous avons décidé de prendre le nombre d’arètes comme taille  A COMPLETER (pk)
+Dans cet algorithme nous utilisons N, la taille du problème. Nous avons décidé de prendre le nombre d’arètes comme taille. Le nombre d’arêtes majore le nombre de sommets car nous sommes sur des graphes simples. Donc le nombre d’arêtes est plus représentatif des problèmes appliqués aux graphes simples.
 
 \paragraph{Solution initiale} Comme pour les autres algorithmes, la solution initiale est aléatoire.
 
@@ -265,7 +284,7 @@ Dans cet algorithme nous utilisons N, la taille du problème. Nous avons décid�
     \item soit la température a changé 5 fois et la solution courante n’a pas changé.
     \end{itemize}
 
-Nous pensons que ces deux conditions sont importantes car ... A COMPLETER
+Nous pensons que ces deux conditions sont importantes car cela permet d'arrêter plus rapidement l'algorithme, et donc d’optimiser les temps d’exécution. Si l’utilisateur choisit une température extrêmement élevée par rapport au problème, la condition sur k permet tout de même une réponse rapide.
 
 \paragraph{Choix condition 2} Afin de sortir de cette deuxième boucle, l’algorithme doit répondre à l’une des trois conditions suivantes :
 	\begin{itemize}
@@ -273,15 +292,113 @@ Nous pensons que ces deux conditions sont importantes car ... A COMPLETER
 	\item soit on a tiré 10*N solutions dont l’évaluation est plus grande que la solution courante
 	\item soit on a accepté 10*N solutions dont l’évaluation est plus grande que la solution courante
 	\end{itemize}
+Ces trois conditions nous paraissaient nécessaires dans le cas des grands graphes. Dans les petits graphes la boucle s'arrête quasi-systématiquement après accomplissement de la première condition, dans le cas des grands graphes, l’une des deux conditions est prévalente, ce qui est du à la croissance moins rapide de la borne maximale.
 
 
-A COMPLETER
-
-\paragraph{Choix de la solution aléatoire} POLO
-\paragraph{Choix de la fonction g} La fonction g est la fonction de chute de la température. Celle-ci est simple : on multiplie la température actuelle par la raison r. Au début de l’algorithme, r est choisie au hasard entre 0.7 et 0.9. A COMPLETER (dire pk)
+\paragraph{Choix de la solution voisine} La solution voisine doit être aléatoire. On effectue simplement un mouvement du voisinage en cours.
+\paragraph{Choix de la fonction g} La fonction g est la fonction de chute de la température. Celle-ci est simple : on multiplie la température actuelle par la raison r. Au début de l’algorithme, r est choisie au hasard entre 0.7 et 0.9 pour que l’algorithme de Métropolis puisse accepter suffisamment de solutions supérieures pour pouvoir sortir d’un minimum local. 
 
 \section{Tests effectués}
+Voici quelques tests effectués. Afin de les comparer nous utilisons un test témoin, le premier puis nous faisons varier un paramètre à la fois.
+
+Température initiale : $20^\circ$C
+Voisinage : PnD
+Nombre de classes : 2
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	20 & 20 &  ms &  s  ms &  &  \\
+	\hline
+	 50  &  50  &     ms   &    s    ms   &     &     \\
+	\hline
+	 100  &  75  &     ms   &   s    ms    &     &     \\
+	\hline
+	 500  &  100  &      ms  &    s    ms   &     &     \\
+	\hline
+\end{tabular}
+\bigskip
+
+En changeant le voisinage :
+Température initiale : $20^\circ$C
+Voisinage : Swap
+Nombre de classes : 2
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	20 & 20 &  ms &  s  ms &  &  \\
+	\hline
+	 50  &  50  &     ms   &    s    ms   &     &     \\
+	\hline
+	 100  &  75  &     ms   &   s    ms    &     &     \\
+	\hline
+	 500  &  100  &      ms  &    s    ms   &     &     \\
+	\hline
+\end{tabular}
+\bigskip
+
+En changeant le voisinage :
+Température initiale : $40^\circ$C
+Voisinage : PnD
+Nombre de classes : 2
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	20 & 20 &  ms &  s  ms &  &  \\
+	\hline
+	 50  &  50  &     ms   &    s    ms   &     &     \\
+	\hline
+	 100  &  75  &     ms   &   s    ms    &     &     \\
+	\hline
+	 500  &  100  &      ms  &    s    ms   &     &     \\
+	\hline
+\end{tabular}
+\bigskip
+
+Changement du nombre de classes
+Température initiale : $20^\circ$ ,nombre de sommets : 20 Voisinage : PnD
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	nb classes & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	0 &  ms &  s  ms &  &  \\
+	\hline
+	50  &     ms   &    s    ms   &     &     \\
+	\hline
+	75  &     ms   &   s    ms    &     &     \\
+	\hline
+	100  &      ms  &    s    ms   &     &     \\
+	\hline
+\end{tabular}
+
+\bigskip
+
+Changement du nombre de classes
+Température initiale : $20^\circ$ ,nombre de sommets : 50 Voisinage : PnD
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	nb classes & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	0 &  ms &  s  ms &  &  \\
+	\hline
+	50  &     ms   &    s    ms   &     &     \\
+	\hline
+	75  &     ms   &   s    ms    &     &     \\
+	\hline
+	100  &      ms  &    s    ms   &     &     \\
+	\hline
+\end{tabular}
+
 \section{Résultats}
+
+% A COMPLETER AVEC LA CONCLUSION
 
 \newpage
 
@@ -298,15 +415,84 @@ Le timestamp de chaque mouvement, qui correspond à la durée de présence du mo
 \section{Tests effectués}
 Tests avec un tableau tabou de taille 5 et un partitionnement en deux classes :
 
-20 sommets : 24 ms
 
-50 sommets : 62 ms
 
-100 sommets : 384 ms
 
-500 sommets : 31 s
 
-1000 sommets : 191 s
+Taille du tableau Tabou : 5
+Voisinage : PnD
+Nombre de classes : 2
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	20 & 20 & 31 ms &  75 ms & 1.2 & 140\\
+	\hline
+	 50  &  50  &  49   ms   &  283  ms   &   7.74  &   291  \\
+	\hline
+	 100  &  75  &  3 s 27 ms   &  4 s  401  ms    &   16.49  &   935  \\
+	\hline
+	 500  &  100  &  10 min 55 s 624 ms  &  11 min 6 s  733  ms   &   39.78  &  2952   \\
+	\hline
+\end{tabular}
+\bigskip
+
+Taille du tableau Tabou : 8
+Voisinage : PnD
+Nombre de classes : 2
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	20 & 20 & 73 ms & 131 ms & 1.05 & 140 \\
+	\hline
+	 50  &  50  &   89  ms   &  365  ms   &  8.6   &   291  \\
+	\hline
+	 100  &  75  &  4 s 89   ms   &  4 s  856  ms    &  13.84   &   937  \\
+	\hline
+	 500  &  100  &   min s  ms  &  min  s  ms   &    &   \\
+	\hline
+\end{tabular}
+\bigskip
+
+Taille du tableau Tabou : 5
+Voisinage : PnD
+Nombre de classes : 5
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	20 & 20 & 105 ms & 180 ms & 2.1 & 172 \\
+	\hline
+	 50  &  50  &   907  ms   &  1  s  262  ms   &   10.5  &   443  \\
+	\hline
+	 100  &  75  & 22 s 524  ms   &  24 s  351  ms    &  24.84   &   1519  \\
+	\hline
+	 500  &  100  &   s   ms  &    s    ms   &     &     \\
+	\hline
+\end{tabular}
+\bigskip
+
+Taille du tableau Tabou : 5
+Voisinage : Swap
+Nombre de classes : 5
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
+	\hline
+	20 & 20 &  ms &  s  ms &  &  \\
+	\hline
+	 50  &  50  &   8 s 401  ms   &  9  s 591   ms   &  82.92   &   336  \\
+	\hline
+	 100  &  75  & 6 min 58 s 772    ms  & 7 min 8 s 746   ms   &  196.68   &   1092 \\
+	\hline
+	 500  &  100  &    &   &   &  \\
+	\hline
+\end{tabular}
 
 \section{Résultats}
 
@@ -315,9 +501,6 @@ Tests avec un tableau tabou de taille 5 et un partitionnement en deux classes :
 \part{Méthode de travail}
 \section{Utilisation de git}
 Pour travailler sur ce projet, nous avons utilisé le logiciel de gestion de versions Git et sa plateforme d’hébergement web GitHub. Nous avons travaillé en mettant en place des branches de travail, qui étaient ensuite intégrées au code principal. Nous avons également utilisé le système des “issues” de GitHub, qui nous ont permis de lister les tâches à effectuer et donc d’avoir un suivi global du projet.
-
-\section{Séparation des t$\hat a$ches}
-
 
 \part{Conclusion}
 		
