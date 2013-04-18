@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  18 APR 2013 21:01
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  18 APR 2013 21:28
 entering extended mode
  %&-line parsing enabled.
 **rapport_graphes.tex
@@ -436,6 +436,11 @@ Overfull \hbox (21.13066pt too wide) in paragraph at lines 426--440
 [][]
  []
 
+
+Overfull \hbox (21.13066pt too wide) in paragraph at lines 445--459
+[][]
+ []
+
 [14]
 Overfull \hbox (9.38078pt too wide) in paragraph at lines 483--496
 [][] 
@@ -455,7 +460,7 @@ Here is how much of TeX's memory you used:
 m/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb
 ></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share
 /texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on rapport_graphes.pdf (17 pages, 97006 bytes).
+Output written on rapport_graphes.pdf (17 pages, 97005 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
