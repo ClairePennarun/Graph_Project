@@ -38,6 +38,7 @@ public class Lanceur {
 
 		long startTime = System.currentTimeMillis();
 		for(int i=0; i<nbTours; i++){
+			System.out.println("Tour " + i +":");
 			algo = this.nouvelAlgo(nomAlgo, param);
 			algoList.add(algo);
 			Thread t = new Thread((Runnable) algo);
@@ -60,7 +61,7 @@ public class Lanceur {
 		evalMoyenne += evalCourante;
 
 		// Lecture des résultats
-		for(int i=1; i<nbTours; i++){
+		for(int i=1; i<=nbTours; i++){
 			algo = algoList.get(i);
 			sCourante = algo.getBestSol();
 			evalCourante = algo.getBestEval();
@@ -77,7 +78,7 @@ public class Lanceur {
 		int tempsTotal = (int) (endTime-startTime);
 		int min = (tempsTotal/1000)/60;
 		int sec = (tempsTotal - min*1000*60)/1000;
-		int ms = tempsTotal - sec*1000;
+		int ms = tempsTotal - sec*1000 - min*1000*60;
 		System.out.println("Temps total d'execution : " + min + " minutes " + sec + 
 				" secondes " + ms + " millisecondes");
 		System.out.println("Evaluation moyenne " + evalMoyenne);
