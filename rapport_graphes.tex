@@ -83,7 +83,7 @@ La dernière partie du fichier (qui donne les degrés de chaque sommet) n’est 
 
 Notre programme se lance avec les arguments suivants :
 
-   $<$fichier$>$ $<$algorithme$>$ $<$nbClasse$>$ $<$option1$>$ $<$option2$>$
+   $<$fichier$>$ $<$algorithme$>$ $<$nbClasse$>$ $<$nbLancements$>$ $<$option1$>$ $<$option2$>$
 
 \bigskip
    Les deux derniers arguments ne sont nécessaires que dans certains cas, mais ne font pas planter le programme si ils sont présents.
@@ -94,6 +94,8 @@ Notre programme se lance avec les arguments suivants :
   \item  $<$algorithme$>$ représente l'algorithme que l'on veut utiliser : "ex" pour l'algorithme d'exhaustion, "grad" pour l'algorithme de descente de gradient, "recuit" pour l'algorithme du recuit simulé, “tabou” pour l’algorithme tabou.
 
    \item $<$nbClasse$>$ représente le nombre de classes de sommets voulu.
+
+	\item $<$nbLancements$>$ représente le nombre de lancements voulus de l'algorithme choisi (avec les mêmes paramètres).
 
    \item $<$option1$>$ représente le voisinage que l’on veut utiliser : “PnD” pour le voisinage Pick and Drop, “Swap” pour le voisinage swap. Cet argument n’est pas nécessaire pour lancer l’algorithme exhaustif mais obligatoire pour les autres.
 
@@ -131,7 +133,34 @@ Nous avons décidé d’implémenter deux voisinages, le Pick’n'Drop et le Swa
     Nous n’avons pas implémenté le voisinage par Sweep car il revient à effectuer plusieurs Swap d’affilée.
 
 \section{Solution initiale}
+
+Pour la solution initiale, chaque sommet du graphe est placé dans l’une des classes aléatoirement. Nous avons implémenté deux fonctions différentes suivant le voisinage utilisé : pour le voisinage Pick'n'Drop, on choisit un écart maximal pour le nombre de sommets par classe. Pour le voisinage Swap, la répartition des sommets dans les classes est totalement aléatoire.
+
 \section{Evaluation}
+
+La fonction d’évaluation se présente en deux étapes.
+
+\begin{enumerate}
+\item  Calcul de I1 : La première évaluation est le nombre d’arètes interclasses, cette étape ne sera effectuée qu’une seule fois. L’évaluation sera ensuite mise à jour pour chaque sommet déplacé.
+
+\item Calcul de I2 : La deuxième évaluation applique un malus dépendant de la taille des classes. Elle consiste à calculer l’écart moyen du cardinal des classes (en pourcentage du nombre de sommets), et de le multiplier ensuite par I1 (en ayant au préalable ajouté 100 pour empêcher les multiplication par 0) plus 1. Cette étape est faite à chaque demande d’évaluation.
+\end{enumerate}
+
+Exemple : Pour un graphe G de 1000 sommets ayant une solution avec trois classes de taille 320, 335, 345.
+Pour 712 arêtes interclasses, la première évaluation sera I1 = 712.
+Calculs de l’écart moyen : ((345-335)+(345-320)+(335-320))/3 = 13.33.
+En pourcentage cela donne : e =13.33/1000 = 0.013.
+L’évaluation finale sera donc : I2 = (100 + I1) * (1+e) = (100 + 712)*1.013 = 822.556.
+NB: Pour donner plus ou moins d’influence dans l’équilibre de la taille des classes, nous multiplions par un coefficient a fixé. Ainsi on aura : I2 = (I1 + 100) * (1+e*a)
+
+\section{Lanceur}
+
+Ce module prend en paramètre le graphe initial, le type de voisinage et le nombre de classes désirées. Il implémente une fonction run() qui prend en paramètre le nom d’un algorithme, un nombre de tours n et les arguments de l’algorithme.
+Il lance alors n fois l’algorithme en parallèle (avec un système de multi-threading), et indique les résultats de chacun des lancers, l’évaluation moyenne, la meilleure des solutions et son évaluation.
+
+\section{Tests}
+
+Nos tests ont été effectués sur les machines du Cremi, ce sont des machines 4 coeurs.
 
 \newpage
 
@@ -185,8 +214,6 @@ C'est un algorithme qui devient très rapidement long, mais qui donne toujours l
 
 Il est utilisable quelque soit le nombre de classes jusqu’à 10 sommets et pour 2 classes jusqu’à 22 sommets.
 
-\subsection{Comparaison avec le temps théorique}
-
 \newpage
 
 \part{Descente de gradient}
@@ -199,7 +226,19 @@ Cet algorithme dépend du type de voisinage de la solution. On cherche à chaque
 Meilleure solution voisine : Afin de trouver la meilleure solution voisine nous examinons toutes les solutions voisines de la solution courante et retenons la meilleure.
 
 \section{Tests}
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	nb de classes & 2 & 3 & 4 & 5 \\
+	\hline
+	temps (s) & 0.113 & 1 & 10 & 75 \\
+	\hline
+\end{tabular}
+
 \section{Résultats}
+
+Nous avons testé l’algorithme de gradient avec beaucoup plus de lancements que les deux algorithmes suivants (recuit simulé et tabou), car il était beaucoup plus rapide. En effet, il ne cherche pas à sortir des minima.
+% A COMPLETER
 
 \newpage
 
