@@ -68,11 +68,11 @@ public class VoisinageSwap implements Voisinage {
 		// On cherche une solution aléatoire
 		// On choisit alors deux sommets au hasard
 		int sommet1 = (int) (Math.random()*nbSommets);
-		int sommet2 = (int) (Math.random()*(nbSommets-1));
+		int sommet2 = (int) (Math.random()*(nbSommets));
 		int classe1 = g.getClasse(sommet1);
 		int classe2 = g.getClasse(sommet2);
 		while (classe1 == classe2){
-			sommet2 = (int) (Math.random()*(nbSommets-1));
+			sommet2 = (int) (Math.random()*(nbSommets));
 			classe2 = g.getClasse(sommet2);
 		}
 
