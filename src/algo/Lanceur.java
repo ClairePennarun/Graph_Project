@@ -28,11 +28,12 @@ public class Lanceur {
 		Solution sCourante;
 		int evalOpt;
 		int evalCourante;
+		int tempsTotalReel = 0;
 		double evalMoyenne = 0;
 		double tempsMoyen = 0;
 		List<Algorithme> algoList = new ArrayList<Algorithme>();
 		List<Thread> threadList = new ArrayList<Thread>();
-		Algorithme algo;
+		Algorithme algo= null;
 
 		System.out.println("Début des " + nbTours + " lancements de l'algorithme " + nomAlgo + " :");
 		System.out.println("-----------------------------------------------------------------------");
@@ -43,7 +44,6 @@ public class Lanceur {
 			algoList.add(algo);
 			Thread t = new Thread((Runnable) algo);
 			threadList.add(t);
-		
 			t.start();
 		}
 		for(Thread t : threadList)
@@ -72,13 +72,14 @@ public class Lanceur {
 				sOpt = sCourante;
 				evalOpt = evalCourante;
 			}
+			tempsTotalReel += algo.temps;
 		}
 		
 		evalMoyenne = evalMoyenne / nbTours;
 		
 		System.out.println("-----------------------------------------------------------------------");
 		int tempsTotal = (int) (endTime-startTime);
-		tempsMoyen = tempsTotal / nbTours;
+		tempsMoyen = tempsTotalReel / nbTours;
 		System.out.println("Temps total d'execution : " + algo.convertirTemps(tempsTotal));
 		System.out.println("Temps moyen d'execution : " + algo.convertirTemps((int) tempsMoyen));
 		System.out.println("Evaluation moyenne " + evalMoyenne);
