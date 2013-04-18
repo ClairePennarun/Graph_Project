@@ -124,7 +124,3 @@ public class Main {
 			System.out.printf ("L'algorithme entré n'est pas valable. \n Les algorithmes implémentés sont : \n exhaustif : ex , \n descente de gradient : gradient , \n recuit simulé : recuit , \n tabou : tabou , \n ");
 	}
 }
-
-
-
-

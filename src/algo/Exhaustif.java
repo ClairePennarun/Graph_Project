@@ -47,8 +47,7 @@ public class Exhaustif extends Algorithme implements Runnable {
 			}
 			else //La precedente boucle a depasse le dernier sommet : on a tout teste
 				boucle = false;
-		}
-		
+		}		
 		long endTime = System.currentTimeMillis();
 		super.afficherResultat(sInitiale, sOpt, endTime-startTime);
 		this.solutionOpt = sOpt;
