@@ -61,7 +61,7 @@ public class Lanceur {
 		evalMoyenne += evalCourante;
 
 		// Lecture des résultats
-		for(int i=1; i<=nbTours; i++){
+		for(int i=1; i<nbTours; i++){
 			algo = algoList.get(i);
 			sCourante = algo.getBestSol();
 			evalCourante = algo.getBestEval();
