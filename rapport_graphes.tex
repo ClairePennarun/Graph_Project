@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{framed}
 
 \addtolength{\hoffset}{-1cm}
 \addtolength{\textwidth}{2cm} 
@@ -53,6 +54,11 @@ Ce programme permet d’utiliser différents algorithmes d’heuristique pour la
 
 Le programme doit être utilisé sur des fichiers de la forme suivante :
 
+\bigskip 
+
+\fbox{
+\begin{minipage}{0.7\textwidth}
+
 \# nbSommets nbAretes
 
 4 4
@@ -80,6 +86,10 @@ Le programme doit être utilisé sur des fichiers de la forme suivante :
 3 3
 
 4 1
+\end{minipage}
+}
+
+\bigskip
 
 La dernière partie du fichier (qui donne les degrés de chaque sommet) n’est pas nécessaire car elle n’est pas utilisée par notre programme.
 \bigskip
