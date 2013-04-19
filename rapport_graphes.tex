@@ -238,34 +238,34 @@ Cet algorithme dépend du type de voisinage de la solution.
 
 \begin{tabular}{|c|c|c|c|c|c|c|}
 	\hline 
-	nb de classes & nb de Sommets & nb de lancers & tps moyen & tps total & eval min & ecart moyen \\
+	classes & sommets & lancers & tps moyen & tps total & eval min & ecart moyen \\
 	\hline
-	2 & 20 & 20 & 150 ms & 3 s 17 ms & 140 & 7.5 \\
+	2 & 20 & 20 & 1 ms & 13 ms & 140 & 7.95 \\
 	\hline
-	2 &  50  &  50  &     ms   &    s    ms   &     &     \\
+	2 &  50  &  50  &  1   ms   &  44 ms   &  321  & 21.86 \\
 	\hline
-	2 &  100  &  100  &     ms   &   s    ms    &     &     \\
+	2 &  100  &  100  & 1  ms   &  115 ms    &  1010   & 63.94  \\
 	\hline
-	2 &  500  &  500  &      ms  &    s    ms   &     &     \\
+	2 &  500  &  500  &   3 ms  &  1  s  84  ms   & 3522  & 242.06\\
 	\hline
-	2 &  1000  &  1000  &    ms    &   s    ms    &     &     \\
+	2 &  1000  &  1000  &  6  ms & 4  s 953 ms & 4705 & 277.671 \\
 	\hline
 	\hline
-	5 &  20  &  20  &     ms   &   s    ms    &     &     \\
+	5 &  20  &  20  & 4 ms &  32 ms    &  140   & 7.5 \\
 	\hline
-	5 &  50  &  50  &     ms   &   s     ms   &     &     \\
+	5 &  50  &  50  & 3 ms &  64 ms   & 308 & 33.2 \\
 	\hline
-	5 &  100  & 100   &     ms   &   s    ms    &     &     \\
+	5 &  100  & 100   & 2  ms   &  148 ms    & 1641 & 56.16 \\
 	\hline
-	5 & 500   & 500   &     ms   &   s     ms   &     &     \\
+	5 & 500 & 500 & 22 ms   &  2 s 332 ms   &   5811  & 186.864 \\
 	\hline
-	5 &  1000  &  1000  &     ms   &   s    ms    &     &     \\
+	5 &  1000  &  1000  & 58 ms &  8 s 148 ms & 7718 & 230.805 \\
 	\hline
 \end{tabular}
 
 \subsection{Résultats}
 
-Nous avons testé l’algorithme de gradient avec beaucoup plus de lancements que les deux algorithmes suivants (recuit simulé et tabou), car il était beaucoup plus rapide. En effet, il ne cherche pas à sortir des minima.
+Nous avons testé l’algorithme de gradient avec beaucoup plus de lancements que les deux algorithmes suivants (recuit simulé et tabou), car il ne cherche pas à sortir des minima.
 % A COMPLETER
 
 \newpage
