@@ -38,11 +38,11 @@
 \contentsline {paragraph}{Choix de la fonction g}{12}
 \contentsline {subsection}{\numberline {5.4}Tests effectu\IeC {\'e}s}{12}
 \contentsline {subsection}{\numberline {5.5}R\IeC {\'e}sultats}{13}
-\contentsline {section}{\numberline {6}Algorithme Tabou}{14}
-\contentsline {subsection}{\numberline {6.1}Description}{14}
-\contentsline {subsection}{\numberline {6.2}Param\IeC {\`e}tres}{14}
-\contentsline {subsection}{\numberline {6.3}Tests effectu\IeC {\'e}s}{14}
-\contentsline {subsection}{\numberline {6.4}R\IeC {\'e}sultats}{15}
-\contentsline {section}{\numberline {7}M\IeC {\'e}thode de travail}{17}
-\contentsline {subsection}{\numberline {7.1}Utilisation de git}{17}
-\contentsline {section}{\numberline {8}Conclusion}{17}
+\contentsline {section}{\numberline {6}Algorithme Tabou}{15}
+\contentsline {subsection}{\numberline {6.1}Description}{15}
+\contentsline {subsection}{\numberline {6.2}Param\IeC {\`e}tres}{15}
+\contentsline {subsection}{\numberline {6.3}Tests effectu\IeC {\'e}s}{15}
+\contentsline {subsection}{\numberline {6.4}R\IeC {\'e}sultats}{16}
+\contentsline {section}{\numberline {7}M\IeC {\'e}thode de travail}{18}
+\contentsline {subsection}{\numberline {7.1}Utilisation de git}{18}
+\contentsline {section}{\numberline {8}Conclusion}{18}
