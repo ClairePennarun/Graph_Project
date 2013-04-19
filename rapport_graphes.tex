@@ -102,7 +102,7 @@ Notre programme se lance avec les arguments suivants : ~\\
 \begin{easylist}[itemize]
 \ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,Style2*=$\circ$ ,Style3*=$\bullet$ ,Style4*=\tiny$\blacksquare$)
 & \textit{$<$fichier$>$} : Le chemin du fichier sur lequel on veut travailler. Chaque fichier représentant un graphe.
-& \textit{$<$algorithme$>$} : L'algorithme que l'on veut utiliser : "ex" pour l'algorithme exhaustif, "grad" pour l'algorithme de descente de gradient, "recuit" pour l'algorithme du recuit simulé et “tabou” pour l’algorithme tabou.
+& \textit{$<$algorithme$>$} : L'algorithme que l'on veut utiliser : "ex" pour l'algorithme exhaustif, "gradient" pour l'algorithme de descente de gradient, "recuit" pour l'algorithme du recuit simulé et “tabou” pour l’algorithme tabou.
 & \textit{$<$nbClasse$>$} : Le nombre de classes voulu pour le partitionnement.
 & \textit{$<$nbLancements$>$} : Le nombre de lancements l'algorithme choisi (avec les mêmes paramètres).
 & \textit{$<$option1$>$} : Représente le voisinage que l’on veut utiliser : “PnD” pour le voisinage Pick and Drop, “Swap” pour le voisinage swap. Cet argument n’est pas nécessaire pour lancer l’algorithme exhaustif mais obligatoire pour les autres.
@@ -189,12 +189,12 @@ Il lance alors n fois algorithme en parallèle, et indiquera à la fin :
 & Le temps moyen d'exécution d'un algorithme.
 \end{easylist}
 ~\\
-NB: Les temps relatifs à chacun des algorithmes (et par conséquents le temps moyen) sont altérés. En effet, le multi-threading rend le calcul du temps faux (entre le début de l'algorithme et sa fin, d'autre processus on eu la main).
-Pour un meilleur temps moyen approximatif, nous avons divisé le temps total par le nombre d'algorithme lancés.
+NB: Les temps relatifs à chacun des algorithmes (et par conséquent le temps moyen) sont altérés. En effet, le multi-threading rend le calcul du temps faux (entre le début de l'algorithme et sa fin, d'autres processus ont eu la main).
+Pour un meilleur temps moyen approximatif, nous avons divisé le temps total par le nombre d'algorithmes lancés.
 
 \subsection{Tests}
 
-Nous avons choisis de tester (principalement) le PnD et de comparer avec quelques résultats du swap. Nous avons fait varier les nombres de sommets, les nombres de classes et effectué une annalyse critique des résultats. Nos tests ont été effectués sur les machines du Cremi, ce sont des machines 4 coeurs.
+Nous avons choisis de tester (principalement) le PnD et de comparer avec quelques résultats du swap. Nous avons fait varier les nombres de sommets, les nombres de classes et effectué une analyse critique des résultats. Nos tests ont été effectués sur les machines du Cremi, ce sont des machines 4 coeurs.
 
 \newpage
 
