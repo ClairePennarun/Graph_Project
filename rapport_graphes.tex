@@ -100,7 +100,7 @@ Notre programme se lance avec les arguments suivants : ~\\
 ~\par Les deux derniers arguments ne sont nécessaires que dans certains cas, mais ne font pas planter le programme si ils sont présents.
 
 \begin{easylist}[itemize]
-73	\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,Style2*=$\circ$ ,Style3*=$\bullet$ ,Style4*=\tiny$\blacksquare$)
+\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,Style2*=$\circ$ ,Style3*=$\bullet$ ,Style4*=\tiny$\blacksquare$)
 & \textit{$<$fichier$>$} : Le chemin du fichier sur lequel on veut travailler. Chaque fichier représentant un graphe.
 & \textit{$<$algorithme$>$} : L'algorithme que l'on veut utiliser : "ex" pour l'algorithme exhaustif, "grad" pour l'algorithme de descente de gradient, "recuit" pour l'algorithme du recuit simulé et “tabou” pour l’algorithme tabou.
 & \textit{$<$nbClasse$>$} : Le nombre de classes voulu pour le partitionnement.
@@ -138,33 +138,63 @@ Nous avons décidé d’implémenter deux voisinages, le Pick’n'Drop et le Swa
 
 \subsection{Solution initiale}
 
-Pour la solution initiale, chaque sommet du graphe est placé dans l’une des classes aléatoirement. Nous avons implémenté deux fonctions différentes suivant le voisinage utilisé : pour le voisinage Pick'n'Drop, on choisit un écart maximal pour le nombre de sommets par classe. Pour le voisinage Swap, la répartition des sommets dans les classes est totalement aléatoire.
+Pour la solution initiale, chaque sommet du graphe est placé dans l’une des classes aléatoirement. Nous avons implémenté deux fonctions différentes suivant le voisinage utilisé : pour le voisinage Swap, on choisit un écart maximal pour le nombre de sommets par classe. Pour le voisinage Pick'n'Drop, la répartition des sommets dans les classes est totalement aléatoire.
 
 \subsection{Evaluation}
 
-La fonction d’évaluation se présente en deux étapes.
-
+La fonction d’évaluation se présente en deux étapes. Notre démarche à été de calculer une première évaluation simpliste (on ajoute 1 par arrête interclasse) puis d'appliquer un malus correspondant au respect de l'égalité des classes.
+~\par Pour une première évaluation de x, si l'écart moyen des classes est de 13\%, on ajoutera a x ces 13\%. Ainsi :
 \begin{enumerate}
-\item  Calcul de I1 : La première évaluation est le nombre d’arètes interclasses, cette étape ne sera effectuée qu’une seule fois. L’évaluation sera ensuite mise à jour pour chaque sommet déplacé.
+\item  Calcul de I1 : La première évaluation est le nombre arêtes interclasses, cette étape ne sera effectuée qu’une seule fois. \textit{Cette évaluation sera ensuite mise à jour pour chaque sommet déplacé pour économiser du temps.}
 
-\item Calcul de I2 : La deuxième évaluation applique un malus dépendant de la taille des classes. Elle consiste à calculer l’écart moyen du cardinal des classes (en pourcentage du nombre de sommets), et de le multiplier ensuite par I1 (en ayant au préalable ajouté 100 pour empêcher les multiplication par 0) plus 1. Cette étape est faite à chaque demande d’évaluation.
+\item Calcul de I2 : La deuxième évaluation est calculée en fonction de I1 et de e, l’écart moyen du cardinal des classes (en pourcentage du nombre de sommets). On aura I2 = (100 + I1)*(1 + e*a). Nous avons ajouté 100 pour minorer l'évaluation, et ne pas avoir I2 = I1 quand I1 = 0. Le coefficient a sera réglé pour donner plus ou moins d'importance à l'égalité des classes (un a grand fera un grand malus). \textit{Cette évaluation sera recalculée en fonction de I1 à chaque fois que l'utilisateur la demandera.}
 \end{enumerate}
 
-Exemple : Pour un graphe G de 1000 sommets ayant une solution avec trois classes de taille 320, 335, 345.
-Pour 712 arêtes interclasses, la première évaluation sera I1 = 712.
-Calculs de l’écart moyen : ((345-335)+(345-320)+(335-320))/3 = 13.33.
-En pourcentage cela donne : e =13.33/1000 = 0.013.
-L’évaluation finale sera donc : I2 = (100 + I1) * (1+e) = (100 + 712)*1.013 = 822.556.
-NB: Pour donner plus ou moins d’influence dans l’équilibre de la taille des classes, nous multiplions par un coefficient a fixé. Ainsi on aura : I2 = (I1 + 100) * (1+e*a)
+Exemple : Pour un graphe G de 1000 sommets ayant une solution avec trois classes de taille 320, 335, 345 et 712 arêtes interclasses (on suppose a = 1):
+\begin{easylist}[itemize]
+\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,Style2*=$\circ$ ,Style3*=$\bullet$ ,Style4*=\tiny$\blacksquare$)
+& I1 : Pour 712 arêtes interclasses, la première évaluation sera I1 = 712
+& I2 :
+&& Ecart moyen : E = ((345-335)+(345-320)+(335-320))/3 = 13.33.
+&& Ecart moyen en pourcentage : e = E / nbSommet = 13.33/1000 = 0.013 (1.3\%)
+&& Calcul final : I2 = (100 + I1)*(1+e) = (100 + 712)*1.013 = 822.556
+\end{easylist}
 
 \subsection{Lanceur}
 
-Ce module prend en paramètre le graphe initial, le type de voisinage et le nombre de classes désirées. Il implémente une fonction run() qui prend en paramètre le nom d’un algorithme, un nombre de tours n et les arguments de l’algorithme.
-Il lance alors n fois l’algorithme en parallèle (avec un système de multi-threading), et indique les résultats de chacun des lancers, l’évaluation moyenne, la meilleure des solutions et son évaluation.
+Ce module sert à lancer en boucle un algorithme, en utilisant le multi-threading.
+Quand il est instancié, il aura comme paramètres : 
+\begin{itemize}
+\item Le graphe initial (sur lequel travailler)
+\item Le type de voisinage (PnD ou swap)
+\item Le nombre de classes désirées
+\end{itemize}
+NB: On peut noter que ces paramètres sont les mêmes que ceux pour instancier un algorithme, le lanceur en aura besoin puisque qu'il créera des algorithmes en boucle.
+~\par Ensuite, on utilisera la fonction run() du lanceur pour démarrer les test. Cette dernière à plusieurs arguments :
+\begin{itemize}
+\item Un string représentant le nom de l'algorithme à tester
+\item Le nombre de lancements à effectuer
+\item L'argument optionnel de l'algorithme. \textit{NB: Cet argument  est optionnel pour run(), et il sera ignoré s'il doit lancer la descente de gradient (qui n'a pas besoin d'argument)}
+\end{itemize}
+Il lance alors n fois algorithme en parallèle, et indiquera à la fin : 
+\begin{easylist}[itemize]
+\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,Style2*=$\circ$ ,Style3*=$\bullet$ ,Style4*=\tiny$\blacksquare$)
+& Chacun des algorithmes lancé avec :
+&& Leur solution initiale, et leur évaluation
+&& Leur temps d'exécution.
+&& Leur solution finale, et leur évaluation
+& La meilleur solution trouvée (et son évaluation)
+& L'évaluation moyenne
+& Le temps total d'exécution
+& Le temps moyen d'exécution d'un algorithme.
+\end{easylist}
+~\\
+NB: Les temps relatifs à chacun des algorithmes (et par conséquents le temps moyen) sont altérés. En effet, le multi-threading rend le calcul du temps faux (entre le début de l'algorithme et sa fin, d'autre processus on eu la main).
+Pour un meilleur temps moyen approximatif, nous avons divisé le temps total par le nombre d'algorithme lancés.
 
 \subsection{Tests}
 
-Nos tests ont été effectués sur les machines du Cremi, ce sont des machines 4 coeurs.
+Nous avons choisis de tester (principalement) le PnD et de comparer avec quelques résultats du swap. Nous avons fait varier les nombres de sommets, les nombres de classes et effectué une annalyse critique des résultats. Nos tests ont été effectués sur les machines du Cremi, ce sont des machines 4 coeurs.
 
 \newpage
 
