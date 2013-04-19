@@ -43,8 +43,6 @@
 \tableofcontents
 \newpage
 
-% A COMPLETER : tableaux / conclusions recuit
-
 \section{Présentation du programme}
 
 \subsection{But}
@@ -222,7 +220,7 @@ Il n’est pas nécessaire de choisir un voisinage. La solution initiale est une
 	\hline 
 	nb de classes & 2 & 3 & 4 \\
 	\hline
-	temps (ms) & 17 & 28 & 101 \\
+	temps (ms) & 4 & 16 & 65 \\
 	\hline
 \end{tabular}
 
@@ -232,24 +230,18 @@ Il n’est pas nécessaire de choisir un voisinage. La solution initiale est une
 	\hline 
 	nb de classes & 2 & 3 & 4 & 5 \\
 	\hline
-	temps (s) & 0.113 & 1 & 10 & 75 \\
-	\hline
-\end{tabular}
-
-\subsubsection{Graphe à 15 sommets}
-
-\begin{tabular}{|c|c|c |}
-	\hline 
-	nb de classes & 2 & 3 \\
-	\hline
-	temps (s) & 0.152 & 60 \\
+	temps & 55ms & 2s 773ms & 50s 800ms & 7min 54s \\
 	\hline
 \end{tabular}
 
 \subsubsection{Autres graphes}
-Graphe à 20 sommets / 2 classes : 17s
+Graphe à 15 sommets / 2 classes : 1s 843ms
 
-Graphe à 22 sommets / 2 classes : 46s
+Graphe à 20 sommets / 2 classes : 1min 12s
+
+Graphe à 22 sommets / 2 classes : 2min 30s
+
+Graphe à 23 sommets / 2 classes : 10min 50s
 
 \subsection{Résultats}
 C'est un algorithme qui devient très rapidement long, mais qui donne toujours la meilleure solution. Il est donc préférable de l'utiliser sur des petits graphes.
@@ -298,6 +290,7 @@ Cet algorithme dépend du type de voisinage de la solution.
 
 Nous pouvons constater que la convergence de l'algorithme est extrêmement rapide. En revanche, la qualité des résultats trouvé est moindre. C'est pourquoi il faut, pour un nombre de sommet donnée, faire beaucoup de lancement. Malgrès cela, la rapidité et la faible efficacité restent des caractéristiques de la recherche de gradient.
 
+
 \newpage
 
 \section{Recuit simulé}
@@ -312,9 +305,7 @@ Cet algorithme dépend du voisinage. De plus, nous laissons à l’utilisateur l
 \paragraph{Taille du problème}
 Dans cet algorithme nous utilisons N, la taille du problème. Nous avons décidé de prendre le nombre d'arêtes comme taille. Le nombre d’arêtes minore le nombre de sommets car nous sommes sur des graphes simples. En revanche, le nombre de sommet de minore pas le nombre d'arête. Nous pensons donc que le nombre d’arêtes est plus représentatif des problèmes appliqués aux graphes simples.
 
-\paragraph{Solution initiale} Comme pour les autres algorithmes, la solution initiale est aléatoire.
-
-\paragraph{Température initiale} Elle est donnée au choix à l’utilisateur. Celle-ci est un double qui doit être supérieure à la température minimale, $0.1^\circ$ . Sachant que la baisse de température est assez rapide (voir suite) la température doit être assez conséquente, supérieure à $20^\circ$ pour que l’algorithme tourne suffisamment longtemps.
+\paragraph{Température initiale} Elle est donnée au choix à l’utilisateur. Celle-ci est un double qui doit être supérieure à la température minimale, $0.1^\circ$ . Sachant que la baisse de température est assez rapide (voir suite) la température doit être assez conséquente, soit supérieure à $20^\circ$, pour que l’algorithme tourne suffisamment longtemps.
 
 \paragraph{Choix condition 1} Afin de sortir de la boucle, l’algorithme doit répondre à l’une des deux conditions suivantes :
 	\begin{itemize}
@@ -330,14 +321,14 @@ Nous pensons que ces deux conditions sont importantes car cela permet d'arrêter
 	\item soit on a tiré 10*N solutions dont l’évaluation est plus grande que la solution courante
 	\item soit on a accepté 10*N solutions dont l’évaluation est plus grande que la solution courante
 	\end{itemize}
-Ces trois conditions nous paraissaient nécessaires dans le cas des grands graphes. Dans les petits graphes la boucle s'arrête quasi-systématiquement après accomplissement de la première condition, dans le cas des grands graphes, l’une des deux conditions est prévalente, ce qui est du à la croissance moins rapide de la borne maximale.
+Ces trois conditions nous paraissaient nécessaires dans le cas des grands graphes. Dans les petits graphes la boucle s'arrête quasi-systématiquement après accomplissement de la première condition, dans le cas des grands graphes, l’une des deux conditions suivantes est prévalente, ce qui est du à la croissance moins rapide de la borne maximale.
 
 
 \paragraph{Choix de la solution voisine} La solution voisine doit être aléatoire. On effectue simplement un mouvement du voisinage en cours.
 \paragraph{Choix de la fonction g} La fonction g est la fonction de chute de la température. Celle-ci est simple : on multiplie la température actuelle par la raison r. Au début de l’algorithme, r est choisie au hasard entre 0.7 et 0.9 pour que l’algorithme de Métropolis puisse accepter suffisamment de solutions supérieures pour pouvoir sortir d’un minimum local. 
 
 \subsection{Tests effectués}
-Voici quelques tests effectués. Afin de les comparer nous utilisons un test témoin, le premier puis nous faisons varier un paramètre à la fois.
+Voici quelques tests effectués. Afin de les comparer nous utilisons un test témoin, puis nous faisons varier un paramètre à la fois.
 
 \bigskip
 Température initiale : $20^\circ$C
