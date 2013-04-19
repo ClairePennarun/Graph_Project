@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage[ampersand]{easylist}
 
 \addtolength{\hoffset}{-1cm}
 \addtolength{\textwidth}{2cm} 
@@ -47,12 +48,16 @@
 
 \subsection{But}
 
-Ce programme permet d’utiliser différents algorithmes d’heuristique pour la résolution d’un problème de partitionnement d’un graphe en un nombre donné de classes de sommets. Ce programme permet ainsi de faire des tests de rapidité et de comparer la vitesse des algorithmes en fonction du nombre de sommets du graphe et du nombre de classes.
+Le but de notre projet est d'implémenter plusieurs algorithmes d’heuristiques pour la résolution du problème de partitionnement d’un graphe. Il faudra séparer en un nombre donné de classes de sommets en coupant en minimum d'arêtes et en ayant au maximum des classes de tailles équivalentes. 
+~\par Ce programme permet ainsi de faire des tests de rapidité et de comparer la vitesse des algorithmes en fonction du nombre de sommets du graphe et du nombre de classes.
 
 \subsection{Mode d'emploi du programme}
 
 Le programme doit être utilisé sur des fichiers de la forme suivante :
+~\\
 
+\fbox{
+\begin{minipage}{0.7\textwidth}
 \# nbSommets nbAretes
 
 4 4
@@ -80,36 +85,32 @@ Le programme doit être utilisé sur des fichiers de la forme suivante :
 3 3
 
 4 1
+\end{minipage}
+}
+~\\
+~\\
 
 La dernière partie du fichier (qui donne les degrés de chaque sommet) n’est pas nécessaire car elle n’est pas utilisée par notre programme.
-\bigskip
+~\par
 
-Notre programme se lance avec les arguments suivants :
+Notre programme se lance avec les arguments suivants : ~\\
+\textit{$<$fichier$>$ $<$algorithme$>$ $<$nbClasse$>$ $<$nbLancements$>$ $<$option1$>$ $<$option2$>$}
+~\par
+~\par Les deux derniers arguments ne sont nécessaires que dans certains cas, mais ne font pas planter le programme si ils sont présents.
 
-   $<$fichier$>$ $<$algorithme$>$ $<$nbClasse$>$ $<$nbLancements$>$ $<$option1$>$ $<$option2$>$
+\begin{easylist}[itemize]
+73	\ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,Style2*=$\circ$ ,Style3*=$\bullet$ ,Style4*=\tiny$\blacksquare$)
+& \textit{$<$fichier$>$} : Le chemin du fichier sur lequel on veut travailler. Chaque fichier représentant un graphe.
+& \textit{$<$algorithme$>$} : L'algorithme que l'on veut utiliser : "ex" pour l'algorithme exhaustif, "grad" pour l'algorithme de descente de gradient, "recuit" pour l'algorithme du recuit simulé et “tabou” pour l’algorithme tabou.
+& \textit{$<$nbClasse$>$} : Le nombre de classes voulu pour le partitionnement.
+& \textit{$<$nbLancements$>$} : Le nombre de lancements l'algorithme choisi (avec les mêmes paramètres).
+& \textit{$<$option1$>$} : Représente le voisinage que l’on veut utiliser : “PnD” pour le voisinage Pick and Drop, “Swap” pour le voisinage swap. Cet argument n’est pas nécessaire pour lancer l’algorithme exhaustif mais obligatoire pour les autres.
+& \textit{$<$option2$>$} : Est lié à l’algorithme :
+&& La température initiale pour l’algorithme du Recuit Simulé (un double)
+&& La taille du tableau des mouvements tabou pour l’algorithme Tabou (int supérieur à 0).
+&& Inutile pour les autres algorithmes
+\end{easylist}
 
-\bigskip
-   Les deux derniers arguments ne sont nécessaires que dans certains cas, mais ne font pas planter le programme si ils sont présents.
-
-	\begin{itemize}
-   \item $<$fichier$>$ représente le fichier sur lequel on veut lancer le programme, chaque fichier représentant un graphe.
-
-  \item  $<$algorithme$>$ représente l'algorithme que l'on veut utiliser : "ex" pour l'algorithme d'exhaustion, "grad" pour l'algorithme de descente de gradient, "recuit" pour l'algorithme du recuit simulé, “tabou” pour l’algorithme tabou.
-
-   \item $<$nbClasse$>$ représente le nombre de classes de sommets voulu.
-
-	\item $<$nbLancements$>$ représente le nombre de lancements voulus de l'algorithme choisi (avec les mêmes paramètres).
-
-   \item $<$option1$>$ représente le voisinage que l’on veut utiliser : “PnD” pour le voisinage Pick and Drop, “Swap” pour le voisinage swap. Cet argument n’est pas nécessaire pour lancer l’algorithme exhaustif mais obligatoire pour les autres.
-
-   \item $<$option2$>$ Est lié à l’algorithme :
-		\begin{itemize}
-		\item pour l’algorithme du Recuit Simulé, $<$option2$>$ est la température initiale (c’est un double)
-		\item pour l’algorithme Tabou, cet argument est la taille du tableau des mouvements tabous (int supérieur à 0).
-    	\item pour les autres algorithmes, cet argument est inutile.
-    	\end{itemize}
-	\end{itemize}
-	
 \newpage	
 	
 \section{Choix généraux}

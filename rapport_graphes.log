@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  19 APR 2013 14:05
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  19 APR 2013 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -371,42 +371,64 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 )
+(/usr/share/texlive/texmf-dist/tex/latex/easylist/easylist.sty
+Package: easylist 2010/02/28 v.1.3 Numbered items with a single command.
+\el@CounterTotal=\count103
+\el@Scratch=\count104
+\el@ControlCounter=\count105
+\el@CounterLevel=\count106
+\c@List1=\count107
+\c@List2=\count108
+\c@List3=\count109
+\c@List4=\count110
+\c@List5=\count111
+\c@List6=\count112
+\c@List7=\count113
+\c@List8=\count114
+\c@List9=\count115
+\c@List10=\count116
+\el@ProgressiveDimension=\dimen117
+\el@CounterBox=\box28
+\el@ControlBox=\box29
+\el@TotalMargin=\dimen118
+\el@LeftMove=\dimen119
+)
 (./rapport_graphes.aux)
 \openout1 = `rapport_graphes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Info: Redefining \degres on input line 14.
-LaTeX Info: Redefining \dots on input line 14.
-LaTeX Info: Redefining \up on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Info: Redefining \degres on input line 15.
+LaTeX Info: Redefining \dots on input line 15.
+LaTeX Info: Redefining \up on input line 15.
 
 
 Package frenchb.ldf Warning: OT1 encoding should not be used for French. 
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(frenchb.ldf)                of your document, on input line 14.
+(frenchb.ldf)                of your document, on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
-\scratchdimen=\dimen117
-\scratchbox=\box28
-\nofMPsegments=\count104
-\nofMParguments=\count105
+\scratchcounter=\count117
+\scratchdimen=\dimen120
+\scratchbox=\box30
+\nofMPsegments=\count118
+\nofMParguments=\count119
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count106
-\MPscratchDim=\dimen118
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
+\MPscratchCnt=\count120
+\MPscratchDim=\dimen121
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
 \everyMPtoPDFconversion=\toks23
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -473,44 +495,59 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 \openout3 = `rapport_graphes.toc'.
 
  [2]
-Overfull \hbox (3.50648pt too wide) in paragraph at lines 50--51
-[]\OT1/cmr/m/n/12 Ce pro-gramme per-met d'u-tiliser diff^^Serents al-go-rithmes
- d'heuris-tique pour la r^^Sesolution
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
+
  []
 
-[3] [4] [5] [6] [7]
-Overfull \hbox (73.66774pt too wide) in paragraph at lines 229--255
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--92
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--92
+
+ []
+
+[3]
+Overfull \hbox (5.61385pt too wide) in paragraph at lines 110--111
+[] []\OT1/cmr/m/n/12 La taille du tableau des mou-ve-ments tabou pour l'al-go-r
+ithme Tabou (int sup^^Serieur
+ []
+
+[4] [5] [6] [7]
+Overfull \hbox (73.66774pt too wide) in paragraph at lines 230--256
 [][] 
  []
 
 [8] [9] [10] [11]
-Overfull \hbox (0.30765pt too wide) in paragraph at lines 437--439
+Overfull \hbox (0.30765pt too wide) in paragraph at lines 438--440
 []\OT1/cmr/m/n/12 Un mou-ve-ment est un ob-jet qui con-tient plusieurs champs :
  deux champs repr^^Sesentant
  []
 
 
-Overfull \hbox (21.13066pt too wide) in paragraph at lines 452--466
+Overfull \hbox (21.13066pt too wide) in paragraph at lines 453--467
 [][]
  []
 
 
-Overfull \hbox (21.13066pt too wide) in paragraph at lines 476--490
+Overfull \hbox (21.13066pt too wide) in paragraph at lines 477--491
 [][]
  []
 
 [12]
-Overfull \hbox (9.38078pt too wide) in paragraph at lines 524--537
+Overfull \hbox (9.38078pt too wide) in paragraph at lines 525--538
 [][] 
  []
 
 [13] [14] [15] (./rapport_graphes.aux) ) 
 Here is how much of TeX's memory you used:
- 3273 strings out of 495059
- 42529 string characters out of 3182030
- 109035 words of memory out of 3000000
- 6399 multiletter control sequences out of 15000+200000
- 10102 words of font info for 38 fonts, out of 3000000 for 9000
+ 3650 strings out of 495059
+ 46329 string characters out of 3182030
+ 116737 words of memory out of 3000000
+ 6770 multiletter control sequences out of 15000+200000
+ 10809 words of font info for 40 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,6n,24p,607b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/ty
@@ -518,11 +555,12 @@ pe1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y8.pfb>
-Output written on rapport_graphes.pdf (16 pages, 90134 bytes).
+y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on rapport_graphes.pdf (16 pages, 108650 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 84 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
