@@ -201,6 +201,14 @@ Nous avons choisis de tester (principalement) le PnD et de comparer avec quelque
 \section{Algorithme exhaustif - Enumération explicite}
 \subsection{Description}
 Cet algorithme va examiner toutes les solutions possibles. Nous avons choisi d'effectuer un parcours en profondeur.
+Nous avons considéré le tableau des sommets, avec pour valeur un entier représentant leur classes.
+~\par Nous l'avons ensuite initialisée à 0, et "compté" en base n (n étant le nombre de classe). Exemple pour 2 classes et 4 sommets :
+~\\ $[0, 0, 0, 0]$
+~\\ $[1, 0, 0, 0]$
+~\\ $[0, 1, 0, 0]$
+~\\ $[1, 1, 0, 0]$
+~\\ (...)
+~\par De cette manière nous somme sur de tout tester, nous pouvons cependant remarquer que nous testons des solutions équivalentes : [0, 0, 1, 1] $<=>$ [1, 1, 0, 0].
 
 \subsection{Paramètres}
 Il n’est donc pas nécessaire de choisir un voisinage. La solution initiale est une solution avec tous les sommets dans la première classe (0).
