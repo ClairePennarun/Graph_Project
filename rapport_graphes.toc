@@ -10,7 +10,6 @@
 \contentsline {subsection}{\numberline {2.5}Solution initiale}{6}
 \contentsline {subsection}{\numberline {2.6}Evaluation}{6}
 \contentsline {subsection}{\numberline {2.7}Lanceur}{6}
-<<<<<<< HEAD
 \contentsline {subsection}{\numberline {2.8}Tests}{7}
 \contentsline {section}{\numberline {3}Algorithme exhaustif - Enum\IeC {\'e}ration explicite}{8}
 \contentsline {subsection}{\numberline {3.1}Description}{8}
@@ -38,46 +37,11 @@
 \contentsline {paragraph}{Choix de la fonction g}{11}
 \contentsline {subsection}{\numberline {5.4}Tests effectu\IeC {\'e}s}{11}
 \contentsline {subsection}{\numberline {5.5}R\IeC {\'e}sultats}{12}
-=======
-\contentsline {subsection}{\numberline {2.8}Tests}{6}
-\contentsline {section}{\numberline {3}Algorithme exhaustif - Enum\IeC {\'e}ration explicite}{7}
-\contentsline {subsection}{\numberline {3.1}Description}{7}
-\contentsline {subsection}{\numberline {3.2}Param\IeC {\`e}tres}{7}
-\contentsline {subsection}{\numberline {3.3}Tests effectu\IeC {\'e}s}{7}
-\contentsline {subsubsection}{\numberline {3.3.1}Graphe \IeC {\`a} 5 sommets}{7}
-\contentsline {subsubsection}{\numberline {3.3.2}Graphe \IeC {\`a} 10 sommets}{7}
-\contentsline {subsubsection}{\numberline {3.3.3}Graphe \IeC {\`a} 15 sommets}{7}
-\contentsline {subsection}{\numberline {3.4}R\IeC {\'e}sultats}{7}
-\contentsline {section}{\numberline {4}Descente de gradient}{8}
-\contentsline {subsection}{\numberline {4.1}Description}{8}
-\contentsline {subsection}{\numberline {4.2}Param\IeC {\`e}tres}{8}
-\contentsline {subsection}{\numberline {4.3}Tests}{8}
-\contentsline {subsection}{\numberline {4.4}R\IeC {\'e}sultats}{8}
-\contentsline {section}{\numberline {5}Recuit simul\IeC {\'e}}{9}
-\contentsline {subsection}{\numberline {5.1}Description}{9}
-\contentsline {subsection}{\numberline {5.2}Param\IeC {\`e}tres}{9}
-\contentsline {subsection}{\numberline {5.3}Choix d'impl\IeC {\'e}mentation}{9}
-\contentsline {paragraph}{Taille du probl\IeC {\`e}me}{9}
-\contentsline {paragraph}{Solution initiale}{9}
-\contentsline {paragraph}{Temp\IeC {\'e}rature initiale}{9}
-\contentsline {paragraph}{Choix condition 1}{9}
-\contentsline {paragraph}{Choix condition 2}{9}
-\contentsline {paragraph}{Choix de la solution voisine}{10}
-\contentsline {paragraph}{Choix de la fonction g}{10}
-\contentsline {subsection}{\numberline {5.4}Tests effectu\IeC {\'e}s}{10}
-\contentsline {subsection}{\numberline {5.5}R\IeC {\'e}sultats}{11}
->>>>>>> 6172072... mise à jour tests
-\contentsline {section}{\numberline {6}Algorithme Tabou}{13}
-\contentsline {subsection}{\numberline {6.1}Description}{13}
-\contentsline {subsection}{\numberline {6.2}Param\IeC {\`e}tres}{13}
-\contentsline {subsection}{\numberline {6.3}Tests effectu\IeC {\'e}s}{13}
-\contentsline {subsection}{\numberline {6.4}R\IeC {\'e}sultats}{14}
-<<<<<<< HEAD
+\contentsline {section}{\numberline {6}Algorithme Tabou}{14}
+\contentsline {subsection}{\numberline {6.1}Description}{14}
+\contentsline {subsection}{\numberline {6.2}Param\IeC {\`e}tres}{14}
+\contentsline {subsection}{\numberline {6.3}Tests effectu\IeC {\'e}s}{14}
+\contentsline {subsection}{\numberline {6.4}R\IeC {\'e}sultats}{15}
 \contentsline {section}{\numberline {7}M\IeC {\'e}thode de travail}{16}
 \contentsline {subsection}{\numberline {7.1}Utilisation de git}{16}
 \contentsline {section}{\numberline {8}Conclusion}{16}
-=======
-\contentsline {section}{\numberline {7}M\IeC {\'e}thode de travail}{15}
-\contentsline {subsection}{\numberline {7.1}Utilisation de git}{15}
-\contentsline {section}{\numberline {8}Conclusion}{15}
->>>>>>> 6172072... mise à jour tests
