@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  19 APR 2013 14:31
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  19 APR 2013 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -393,40 +393,48 @@ Package: easylist 2010/02/28 v.1.3 Numbered items with a single command.
 \el@TotalMargin=\dimen118
 \el@LeftMove=\dimen119
 )
+(/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip46
+\fb@frw=\dimen120
+\fb@frh=\dimen121
+\FrameRule=\dimen122
+\FrameSep=\dimen123
+)
 (./rapport_graphes.aux)
 \openout1 = `rapport_graphes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Info: Redefining \degres on input line 15.
-LaTeX Info: Redefining \dots on input line 15.
-LaTeX Info: Redefining \up on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Info: Redefining \degres on input line 16.
+LaTeX Info: Redefining \dots on input line 16.
+LaTeX Info: Redefining \up on input line 16.
 
 
 Package frenchb.ldf Warning: OT1 encoding should not be used for French. 
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(frenchb.ldf)                of your document, on input line 15.
+(frenchb.ldf)                of your document, on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
-\scratchdimen=\dimen120
+\scratchdimen=\dimen124
 \scratchbox=\box30
 \nofMPsegments=\count118
 \nofMParguments=\count119
 \everyMPshowfont=\toks22
 \MPscratchCnt=\count120
-\MPscratchDim=\dimen121
+\MPscratchDim=\dimen125
 \MPnumerator=\count121
 \makeMPintoPDFobject=\count122
 \everyMPtoPDFconversion=\toks23
@@ -495,58 +503,58 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 \openout3 = `rapport_graphes.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--92
+Underfull \hbox (badness 10000) in paragraph at lines 90--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--92
+Underfull \hbox (badness 10000) in paragraph at lines 90--93
 
  []
 
 [3]
-Overfull \hbox (5.61385pt too wide) in paragraph at lines 110--111
+Overfull \hbox (5.61385pt too wide) in paragraph at lines 111--112
 [] []\OT1/cmr/m/n/12 La taille du tableau des mou-ve-ments tabou pour l'al-go-r
 ithme Tabou (int sup^^Serieur
  []
 
 [4] [5] [6] [7]
-Overfull \hbox (73.66774pt too wide) in paragraph at lines 230--256
+Overfull \hbox (73.66774pt too wide) in paragraph at lines 231--257
 [][] 
  []
 
 [8] [9] [10] [11]
-Overfull \hbox (0.30765pt too wide) in paragraph at lines 438--440
+Overfull \hbox (0.30765pt too wide) in paragraph at lines 439--441
 []\OT1/cmr/m/n/12 Un mou-ve-ment est un ob-jet qui con-tient plusieurs champs :
  deux champs repr^^Sesentant
  []
 
 
-Overfull \hbox (21.13066pt too wide) in paragraph at lines 453--467
+Overfull \hbox (21.13066pt too wide) in paragraph at lines 454--468
 [][]
  []
 
 
-Overfull \hbox (21.13066pt too wide) in paragraph at lines 477--491
+Overfull \hbox (21.13066pt too wide) in paragraph at lines 478--492
 [][]
  []
 
 [12]
-Overfull \hbox (9.38078pt too wide) in paragraph at lines 525--538
+Overfull \hbox (9.38078pt too wide) in paragraph at lines 526--539
 [][] 
  []
 
 [13] [14] [15] (./rapport_graphes.aux) ) 
 Here is how much of TeX's memory you used:
- 3650 strings out of 495059
- 46329 string characters out of 3182030
- 116737 words of memory out of 3000000
- 6770 multiletter control sequences out of 15000+200000
+ 3702 strings out of 495059
+ 47018 string characters out of 3182030
+ 118162 words of memory out of 3000000
+ 6818 multiletter control sequences out of 15000+200000
  10809 words of font info for 40 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,6n,24p,607b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
