@@ -3,31 +3,31 @@
 \contentsline {section}{\numberline {1}But}{3}
 \contentsline {section}{\numberline {2}Mode d'emploi du programme}{3}
 \contentsline {part}{II\hspace {1em}Choix g\IeC {\'e}n\IeC {\'e}raux}{5}
-\contentsline {section}{\numberline {3}Choix des algorithmes impl\IeC {\'e}ment\IeC {\'e}s}{5}
-\contentsline {section}{\numberline {4}Langage de programmation}{5}
-\contentsline {section}{\numberline {5}Structures de donn\IeC {\'e}es}{5}
-\contentsline {section}{\numberline {6}Voisinages impl\IeC {\'e}ment\IeC {\'e}s}{5}
-\contentsline {section}{\numberline {7}Solution initiale}{6}
-\contentsline {section}{\numberline {8}Evaluation}{6}
-\contentsline {section}{\numberline {9}Lanceur}{6}
-\contentsline {section}{\numberline {10}Tests}{7}
+\contentsline {section}{\numberline {1}Choix des algorithmes impl\IeC {\'e}ment\IeC {\'e}s}{5}
+\contentsline {section}{\numberline {2}Langage de programmation}{5}
+\contentsline {section}{\numberline {3}Structures de donn\IeC {\'e}es}{5}
+\contentsline {section}{\numberline {4}Voisinages impl\IeC {\'e}ment\IeC {\'e}s}{5}
+\contentsline {section}{\numberline {5}Solution initiale}{6}
+\contentsline {section}{\numberline {6}Evaluation}{6}
+\contentsline {section}{\numberline {7}Lanceur}{6}
+\contentsline {section}{\numberline {8}Tests}{7}
 \contentsline {part}{III\hspace {1em}Algorithme exhaustif - Enum\IeC {\'e}ration explicite}{8}
-\contentsline {section}{\numberline {11}Description}{8}
-\contentsline {section}{\numberline {12}Param\IeC {\`e}tres}{8}
-\contentsline {section}{\numberline {13}Tests effectu\IeC {\'e}s}{8}
-\contentsline {subsection}{\numberline {13.1}Graphe \IeC {\`a} 5 sommets}{8}
-\contentsline {subsection}{\numberline {13.2}Graphe \IeC {\`a} 10 sommets}{8}
-\contentsline {subsection}{\numberline {13.3}Graphe \IeC {\`a} 15 sommets}{8}
-\contentsline {section}{\numberline {14}R\IeC {\'e}sultats}{8}
+\contentsline {section}{\numberline {1}Description}{8}
+\contentsline {section}{\numberline {2}Param\IeC {\`e}tres}{8}
+\contentsline {section}{\numberline {3}Tests effectu\IeC {\'e}s}{8}
+\contentsline {subsection}{\numberline {3.1}Graphe \IeC {\`a} 5 sommets}{8}
+\contentsline {subsection}{\numberline {3.2}Graphe \IeC {\`a} 10 sommets}{8}
+\contentsline {subsection}{\numberline {3.3}Graphe \IeC {\`a} 15 sommets}{8}
+\contentsline {section}{\numberline {4}R\IeC {\'e}sultats}{8}
 \contentsline {part}{IV\hspace {1em}Descente de gradient}{10}
-\contentsline {section}{\numberline {15}Description}{10}
-\contentsline {section}{\numberline {16}Param\IeC {\`e}tres}{10}
-\contentsline {section}{\numberline {17}Tests}{10}
-\contentsline {section}{\numberline {18}R\IeC {\'e}sultats}{10}
+\contentsline {section}{\numberline {1}Description}{10}
+\contentsline {section}{\numberline {2}Param\IeC {\`e}tres}{10}
+\contentsline {section}{\numberline {3}Tests}{10}
+\contentsline {section}{\numberline {4}R\IeC {\'e}sultats}{10}
 \contentsline {part}{V\hspace {1em}Recuit simul\IeC {\'e}}{11}
-\contentsline {section}{\numberline {19}Description}{11}
-\contentsline {section}{\numberline {20}Param\IeC {\`e}tres}{11}
-\contentsline {section}{\numberline {21}Choix d'impl\IeC {\'e}mentation}{11}
+\contentsline {section}{\numberline {1}Description}{11}
+\contentsline {section}{\numberline {2}Param\IeC {\`e}tres}{11}
+\contentsline {section}{\numberline {3}Choix d'impl\IeC {\'e}mentation}{11}
 \contentsline {paragraph}{Taille du probl\IeC {\`e}me}{11}
 \contentsline {paragraph}{Solution initiale}{11}
 \contentsline {paragraph}{Temp\IeC {\'e}rature initiale}{11}
@@ -35,13 +35,13 @@
 \contentsline {paragraph}{Choix condition 2}{12}
 \contentsline {paragraph}{Choix de la solution voisine}{12}
 \contentsline {paragraph}{Choix de la fonction g}{12}
-\contentsline {section}{\numberline {22}Tests effectu\IeC {\'e}s}{12}
-\contentsline {section}{\numberline {23}R\IeC {\'e}sultats}{13}
-\contentsline {part}{VI\hspace {1em}Algorithme Tabou}{14}
-\contentsline {section}{\numberline {24}Description}{14}
-\contentsline {section}{\numberline {25}Param\IeC {\`e}tres}{14}
-\contentsline {section}{\numberline {26}Tests effectu\IeC {\'e}s}{14}
-\contentsline {section}{\numberline {27}R\IeC {\'e}sultats}{15}
-\contentsline {part}{VII\hspace {1em}M\IeC {\'e}thode de travail}{16}
-\contentsline {section}{\numberline {28}Utilisation de git}{16}
-\contentsline {part}{VIII\hspace {1em}Conclusion}{16}
+\contentsline {section}{\numberline {4}Tests effectu\IeC {\'e}s}{12}
+\contentsline {section}{\numberline {5}R\IeC {\'e}sultats}{14}
+\contentsline {part}{VI\hspace {1em}Algorithme Tabou}{15}
+\contentsline {section}{\numberline {1}Description}{15}
+\contentsline {section}{\numberline {2}Param\IeC {\`e}tres}{15}
+\contentsline {section}{\numberline {3}Tests effectu\IeC {\'e}s}{15}
+\contentsline {section}{\numberline {4}R\IeC {\'e}sultats}{16}
+\contentsline {part}{VII\hspace {1em}M\IeC {\'e}thode de travail}{18}
+\contentsline {section}{\numberline {1}Utilisation de git}{18}
+\contentsline {part}{VIII\hspace {1em}Conclusion}{18}
