@@ -296,14 +296,13 @@ Cet algorithme dépend du type de voisinage de la solution.
 
 \subsection{Résultats}
 
-Nous avons testé l’algorithme de gradient avec beaucoup plus de lancements que les deux algorithmes suivants (recuit simulé et tabou), car il était beaucoup plus rapide. En effet, il ne cherche pas à sortir des minima.
-% A COMPLETER
+Nous pouvons constater que la convergence de l'algorithme est extrêmement rapide. En revanche, la qualité des résultats trouvé est moindre. C'est pourquoi il faut, pour un nombre de sommet donnée, faire beaucoup de lancement. Malgrès cela, la rapidité et la faible efficacité restent des caractéristiques de la recherche de gradient.
 
 \newpage
 
 \section{Recuit simulé}
 \subsection{Description}
-Cet algorithme est basé sur la physique. On utilise la température comme paramètre. Pour chaque baisse de température, on cherche une solution courante optimale. A la température minimale, la solution trouvée doit être optimale.
+Cet algorithme s'est inspiré de la physique. Il utilise une température comme paramètre. Il est composé d'une grand boucle qui fait baisser ittérativement la température, jusqu'à un certain point, et d'une petite boucle. Le rôle de la petite boucle est de chercher, selon la température, une bonne solution courante. A la température minimale, la solution trouvée doit être optimale.
 
 \subsection{Paramètres}
 Cet algorithme dépend du voisinage. De plus, nous laissons à l’utilisateur le choix de la température initiale, c’est un double qui doit être supérieure à la température minimale.
@@ -311,7 +310,7 @@ Cet algorithme dépend du voisinage. De plus, nous laissons à l’utilisateur l
 \subsection{Choix d'implémentation}
 
 \paragraph{Taille du problème}
-Dans cet algorithme nous utilisons N, la taille du problème. Nous avons décidé de prendre le nombre d’arètes comme taille. Le nombre d’arêtes majore le nombre de sommets car nous sommes sur des graphes simples. Donc le nombre d’arêtes est plus représentatif des problèmes appliqués aux graphes simples.
+Dans cet algorithme nous utilisons N, la taille du problème. Nous avons décidé de prendre le nombre d'arêtes comme taille. Le nombre d’arêtes minore le nombre de sommets car nous sommes sur des graphes simples. En revanche, le nombre de sommet de minore pas le nombre d'arête. Nous pensons donc que le nombre d’arêtes est plus représentatif des problèmes appliqués aux graphes simples.
 
 \paragraph{Solution initiale} Comme pour les autres algorithmes, la solution initiale est aléatoire.
 
@@ -611,5 +610,9 @@ En changeant de voisinage (Swap au lieu de Pick'n'Drop), les temps de calcul moy
 Pour travailler sur ce projet, nous avons utilisé le logiciel de gestion de versions Git et sa plateforme d’hébergement web GitHub. Nous avons travaillé en mettant en place des branches de travail, qui étaient ensuite intégrées au code principal. Nous avons également utilisé le système des “issues” de GitHub, qui nous ont permis de lister les tâches à effectuer et donc d’avoir un suivi global du projet.
 
 \section{Conclusion}
+
+Ce projet nous a permis de tester la validé et l'efficacité des différents algorithmes. La partie test étant prépondérante, nous avons pu constater l'importance des réglages, et se rendre compte des différences de temps de calcul.
+~\par Nous avons, tout au long de notre implémentation, essayé de mettre un accent sur l'efficacité de l'architecture utilisée. En limitant les calculs et en utilisant le multi-threading, nous nous sommes à plusieurs reprisés penché sur certains problèmes d'optimisation.
+~\par Au sein de ce développement, nous avons acquis une expérience conséquente dans le problème du partitionnement des graphes. Cette introduction au méta-heuristiques nous a donné un avant goût des problèmes à optimisation.
 		
 \end{document}
