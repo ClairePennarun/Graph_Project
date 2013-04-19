@@ -268,9 +268,15 @@ Cet algorithme dépend du type de voisinage de la solution.
 	\hline
 	2 &  100  &  100  &     ms   &   s    ms    &     &     \\
 	\hline
+<<<<<<< HEAD
 	2 &  500  &  500  &      ms  &    s    ms   &     &     \\
 	\hline
 	2 &  1000  &  1000  &    ms    &   s    ms    &     &     \\
+=======
+	2 &  500  &  500  &   2 ms  &  1  s  84  ms   & 3522  & 242.06\\
+	\hline
+	2 &  1000  &  1000  &  4  ms & 4  s 953 ms & 4705 & 277.671 \\
+>>>>>>> 6172072... mise à jour tests
 	\hline
 	\hline
 	5 &  20  &  20  &     ms   &   s    ms    &     &     \\
@@ -279,9 +285,15 @@ Cet algorithme dépend du type de voisinage de la solution.
 	\hline
 	5 &  100  & 100   &     ms   &   s    ms    &     &     \\
 	\hline
+<<<<<<< HEAD
 	5 & 500   & 500   &     ms   &   s     ms   &     &     \\
 	\hline
 	5 &  1000  &  1000  &     ms   &   s    ms    &     &     \\
+=======
+	5 & 500 & 500 & 3 ms   &  2 s 332 ms   &   5811  & 186.864 \\
+	\hline
+	5 &  1000  &  1000  & 7 ms &  8 s 148 ms & 7718 & 230.805 \\
+>>>>>>> 6172072... mise à jour tests
 	\hline
 \end{tabular}
 
@@ -343,13 +355,15 @@ Nombre de classes : 2
 	\hline 
 	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
 	\hline
-	20 & 20 & 150 ms & 3 s 100 ms & 2 & 140 \\
+	20 & 20 & 22 ms & 500 ms & 2 & 140 \\
 	\hline
 	 50  &  50  &   130  ms   &   6 s  300  ms   &   6.26  &   315  \\
 	\hline
-	 100  &  75  &   423  ms   &  32 s  &  10   &   1025  \\
+	 100  &  75  &   430  ms   &  32 s  &  10   &   1025  \\
 	\hline
-	 500  &  100  &  2 min 40 s  &  3 min 30  s &  54   &   3635  \\
+	 500  &  100  & 2 s 100 ms  &  3 min 30  s &  41  &   3648  \\
+	\hline
+	1000  &  300  &  5 s 500 ms &  29 min &  42   &   4873  \\
 	\hline
 \end{tabular}
 \bigskip
@@ -380,7 +394,7 @@ Nombre de classes : 2
 
 \subsubsection*{Changement de la température}
 
-Température initiale : $40^\circ$C
+Température initiale : $60^\circ$C
 
 Voisinage : PnD
 
@@ -391,13 +405,13 @@ Nombre de classes : 2
 	\hline 
 	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
 	\hline
-	20 & 20 & 153 ms & 3 s 100 ms & 1 & 140 \\
+	20 & 20 & 40 ms & 809 ms & 1.45 & 140 \\
 	\hline
-	 50  &  50  & 138 ms   &  7  s  &   7  & 315\\
+	 50  &  50  & 221 ms   &  11 s 94 ms  &   6.88  & 315\\
 	\hline
-	 100  &  75  &   465  ms   &  35 s &   8  &  1028   \\
+	 100  &  75  &   500  ms   &  38 s &   18  &  1022   \\
 	\hline
-	 500  &  100  &      ms  &    s    ms   &     &     \\
+	 500  &  100  &   2 s 500   ms  & 4 min 15 s & 43  & 3653  \\
 	\hline
 \end{tabular}
 \bigskip
@@ -409,6 +423,8 @@ Température initiale : $20^\circ$C
 Nombre de sommets : 50 
 
 Voisinage : PnD
+
+Nombre de lancers : 50
 \bigskip
 
 \begin{tabular}{|c|c|c|c|c|}
@@ -432,6 +448,8 @@ Température initiale : $20^\circ$
 Nombre de sommets : 100 
 
 Voisinage : PnD
+
+Nombre de lancers : 75
 \bigskip
 
 \begin{tabular}{|c|c|c|c|c|}
@@ -450,12 +468,14 @@ Voisinage : PnD
 	\hline
 \end{tabular}
 
-\bigskip 
-(Ce dernier test a été effectué sur un autre ordinateur, c’est pour cela que les vitesses sont plus petites que les témoins)
 
 \subsection{Résultats}
 
-% A COMPLETER AVEC LA CONCLUSION
+Lorsque l’on change du voisinage Pick and Drop au voisinage Swap, les solutions trouvées sont bien meilleures. Cela provoque une augmentation de l'écart moyen.
+
+Lorsque l’on augmente la température, le temps d’exécution est à peine plus élevé. La solution minimale est à peu près la même mais l’écart entre les solutions est très faible avec un température élevée. Cela est due au fait qu’avec une plus grande température, la boucle externe dure plus longtemps.
+
+Lorsque l’on augmente le nombre de classes, le temps d'exécution augmente très peu. Cette augmentation se ressent à partir de graphes de 100 sommets.
 
 \newpage
 
@@ -485,13 +505,13 @@ Nombre de classes : 2
 	\hline 
 	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
 	\hline
-	20 & 20 & 31 ms & 75 ms & 1.2 & 140 \\
+	20 & 20 & 6 ms & 75 ms & 1.2 & 140 \\
 	\hline
-	 50 & 50 & 49 ms & 283 ms & 7.74 & 291 \\
+	 50 & 50 & 12 ms & 639 ms & 7.74 & 291 \\
 	\hline
-	 100 & 75 & 3 s 27 ms & 4 s 401 ms & 16.49 & 935 \\
+	 100 & 75 & 82 ms & 6 s 401 ms & 16.49 & 935 \\
 	\hline
-	 500 & 100 & 10 min 55 s 624 ms & 11 min 6 s 733 ms & 39.78 & 2952 \\
+	 500 & 100 & 2 s 467 ms & 11 min 6 s 733 ms & 39.78 & 2952 \\
 	\hline
 \end{tabular}
 \bigskip
@@ -509,13 +529,13 @@ Nombre de classes : 2
 	\hline 
 	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
 	\hline
-	20 & 20 & 73 ms & 131 ms & 1.05 & 140 \\
+	20 & 20 & 6 ms & 131 ms & 1.05 & 140 \\
 	\hline
-	 50  &  50  &   89  ms   &  365  ms   &  8.6   &   291  \\
+	 50  &  50  &   7  ms   &  365  ms   &  8.6   &   291  \\
 	\hline
-	 100  &  75  &  4 s 89   ms   &  4 s  856  ms    &  13.84   &   937  \\
+	 100  &  75  &  64  ms   &  4 s  856  ms    &  13.84   &   937  \\
 	\hline
-	 500 & 100 & 11 min 4 s 350 ms & 11 min 15 s 518 ms & 73.11 & 2923 \\
+	 500 & 100 & 6 s 755 ms & 11 min 15 s 518 ms & 73.11 & 2923 \\
 	\hline
 \end{tabular}
 \bigskip
@@ -533,14 +553,13 @@ Nombre de classes : 5
 	\hline 
 	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
 	\hline
-	20 & 20 & 105 ms & 180 ms & 2.1 & 172 \\
+	20 & 20 & 9 ms & 180 ms & 2.1 & 172 \\
 	\hline
-	 50  &  50  &   907  ms   &  1  s  262  ms   &   10.5  &   443  \\
+	 50  &  50  & 25 ms   &  1  s  262  ms   &   10.5  &   443  \\
 	\hline
-	 100  &  75  & 22 s 524  ms   &  24 s  351  ms    &  24.84   &   1519  \\
+	 100  &  75  & 324  ms   &  24 s  351  ms    &  24.84   &   1519  \\
 	\hline
-	 500  &  100  &     &      &     &     \\
-	\hline
+
 \end{tabular}
 \bigskip
 
@@ -557,37 +576,24 @@ Nombre de classes : 5
 	\hline 
 	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
 	\hline
-	20 & 20 & 46 ms & 172  ms & 12 & 206 \\
+	20 & 20 & 8 ms & 172  ms & 12 & 206 \\
 	\hline
-	 50  &  50  &   8 s 401  ms   &  9  s 591   ms   &  82.92   &   336  \\
+	 50  &  50  &   191 ms   &  9  s 591   ms   &  82.92   &   336  \\
 	\hline
-	 100  &  75  & 6 min 58 s 772    ms  & 7 min 8 s 746   ms   &  196.68   &   1092 \\
+	 100  &  75  & 5 s 716   ms  & 7 min 8 s 746   ms   &  196.68   &   1092 \\
 	\hline
-	 500  &  100  &    &   &   &  \\
-	\hline
+
 \end{tabular}
 
 \subsection{Résultats}
 
-En augmentant la taille du tableau Tabou, le temps de calcul augmente mais le pourcentage d'augmentation tend vers zéro avec l'augmentation de la taille du problème :
-\begin{itemize}
-\item 20 sommets / 20 lancers : 108 \% d'augmentation
-\item 50 sommets / 50 lancers : 81 \% d'augmentation
-\item 100 sommets / 75 lancers : 35 \% d'augmentation
-\item 500 sommets / 100 lancers : 1,3 \% d'augmentation
-\end{itemize}
+En augmentant la taille du tableau Tabou, le temps de calcul augmente, ce qui est normal car à chaque mouvement il y a plus de comparaisons à faire avec les mouvements présents dans le tableau.
 \bigskip
 
-En augmentant le nombre de classes, le temps de calcul moyen augmente fortement :
-\begin{itemize}
-\item 20 sommets / 20 lancers : 238 \% d'augmentation
-\item 50 sommets / 50 lancers : 1751 \% d'augmentation
-\item 100 sommets / 75 lancers : 644 \% d'augmentation
-\end{itemize}
-Ceci est normal, puisque la taille du voisinage augmente aussi considérablement.
+En augmentant le nombre de classes, le temps de calcul moyen augmente rapidement : peu perceptible pour 20 sommets, il double pour 50 sommets et quadruple pour 100 sommets.
 \bigskip 
 
-En changeant de voisinage (Swap au lieu de Pick'n'Drop), les temps de calcul moyens augmentent également, car la taille du voisinage est plus importante.
+En changeant de voisinage (Swap au lieu de Pick'n'Drop), les temps de calcul moyens augmentent également, car la taille du voisinage est de plus en plus importante.
 
 
 \newpage

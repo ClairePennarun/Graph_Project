@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  19 APR 2013 15:25
+=======
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.22)  19 APR 2013 15:27
+>>>>>>> 6172072... mise à jour tests
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,12 +532,18 @@ Overfull \hbox (73.66774pt too wide) in paragraph at lines 261--287
 [][] 
  []
 
+<<<<<<< HEAD
 [9] [10] [11] [12]
 Overfull \hbox (0.30765pt too wide) in paragraph at lines 469--471
+=======
+[3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
+Overfull \hbox (0.30765pt too wide) in paragraph at lines 455--457
+>>>>>>> 6172072... mise à jour tests
 []\OT1/cmr/m/n/12 Un mou-ve-ment est un ob-jet qui con-tient plusieurs champs :
  deux champs repr^^Sesentant
  []
 
+<<<<<<< HEAD
 
 Overfull \hbox (21.13066pt too wide) in paragraph at lines 484--498
 [][]
@@ -556,6 +566,15 @@ Here is how much of TeX's memory you used:
  118162 words of memory out of 3000000
  6818 multiletter control sequences out of 15000+200000
  10809 words of font info for 40 fonts, out of 3000000 for 9000
+=======
+[13] [14] [15] (./rapport_graphes.aux) ) 
+Here is how much of TeX's memory you used:
+ 3325 strings out of 495059
+ 43218 string characters out of 3182030
+ 109460 words of memory out of 3000000
+ 6447 multiletter control sequences out of 15000+200000
+ 10102 words of font info for 38 fonts, out of 3000000 for 9000
+>>>>>>> 6172072... mise à jour tests
  14 hyphenation exceptions out of 8191
  38i,6n,24p,607b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/ty
@@ -563,9 +582,14 @@ pe1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+<<<<<<< HEAD
 y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on rapport_graphes.pdf (17 pages, 113359 bytes).
+=======
+y8.pfb>
+Output written on rapport_graphes.pdf (16 pages, 90504 bytes).
+>>>>>>> 6172072... mise à jour tests
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)
  60 compressed objects within 1 object stream

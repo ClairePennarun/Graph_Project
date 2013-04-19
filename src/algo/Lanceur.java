@@ -28,7 +28,6 @@ public class Lanceur {
 		Solution sCourante;
 		int evalOpt;
 		int evalCourante;
-		int tempsTotalReel = 0;
 		double evalMoyenne = 0;
 		double tempsMoyen = 0;
 		List<Algorithme> algoList = new ArrayList<Algorithme>();
@@ -73,14 +72,13 @@ public class Lanceur {
 				sOpt = sCourante;
 				evalOpt = evalCourante;
 			}
-			tempsTotalReel += algo.temps;
 		}
 		
 		evalMoyenne = evalMoyenne / nbTours;
 		
 		System.out.println("-----------------------------------------------------------------------");
 		int tempsTotal = (int) (endTime-startTime);
-		tempsMoyen = tempsTotalReel / nbTours;
+		tempsMoyen = tempsTotal / nbTours;
 		System.out.println("Temps total d'execution : " + algo.convertirTemps(tempsTotal));
 		System.out.println("Temps moyen d'execution : " + algo.convertirTemps((int) tempsMoyen));
 		System.out.println("Evaluation moyenne " + evalMoyenne);
