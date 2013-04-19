@@ -18,6 +18,7 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Graphe \IeC {\`a} 5 sommets}{8}
 \contentsline {subsubsection}{\numberline {3.3.2}Graphe \IeC {\`a} 10 sommets}{8}
 \contentsline {subsubsection}{\numberline {3.3.3}Graphe \IeC {\`a} 15 sommets}{8}
+\contentsline {subsubsection}{\numberline {3.3.4}Autres graphes}{8}
 \contentsline {subsection}{\numberline {3.4}R\IeC {\'e}sultats}{9}
 \contentsline {section}{\numberline {4}Descente de gradient}{10}
 \contentsline {subsection}{\numberline {4.1}Description}{10}

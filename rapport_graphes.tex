@@ -49,7 +49,7 @@
 
 \subsection{But}
 
-Le but de notre projet est d'implémenter plusieurs algorithmes d’heuristiques pour la résolution du problème de partitionnement d’un graphe. Il faudra séparer en un nombre donné de classes de sommets en coupant en minimum d'arêtes et en ayant au maximum des classes de tailles équivalentes. 
+Le but de notre projet est d'implémenter plusieurs algorithmes d’heuristiques pour la résolution du problème de partitionnement d’un graphe. Il faudra séparer en un nombre donné de classes de sommets avec un minimum d'arêtes interclasses et en ayant au maximum des classes de tailles équivalentes. 
 ~\par Ce programme permet ainsi de faire des tests de rapidité et de comparer la vitesse des algorithmes en fonction du nombre de sommets du graphe et du nombre de classes.
 
 \subsection{Mode d'emploi du programme}
@@ -92,7 +92,7 @@ Le programme doit être utilisé sur des fichiers de la forme suivante :
 ~\\
 
 La dernière partie du fichier (qui donne les degrés de chaque sommet) n’est pas nécessaire car elle n’est pas utilisée par notre programme.
-~\par
+\bigskip
 
 Notre programme se lance avec les arguments suivants : ~\\
 \textit{$<$fichier$>$ $<$algorithme$>$ $<$nbClasse$>$ $<$nbLancements$>$ $<$option1$>$ $<$option2$>$}
@@ -104,7 +104,7 @@ Notre programme se lance avec les arguments suivants : ~\\
 & \textit{$<$fichier$>$} : Le chemin du fichier sur lequel on veut travailler. Chaque fichier représentant un graphe.
 & \textit{$<$algorithme$>$} : L'algorithme que l'on veut utiliser : "ex" pour l'algorithme exhaustif, "gradient" pour l'algorithme de descente de gradient, "recuit" pour l'algorithme du recuit simulé et “tabou” pour l’algorithme tabou.
 & \textit{$<$nbClasse$>$} : Le nombre de classes voulu pour le partitionnement.
-& \textit{$<$nbLancements$>$} : Le nombre de lancements l'algorithme choisi (avec les mêmes paramètres).
+& \textit{$<$nbLancements$>$} : Le nombre de lancements de l'algorithme choisi (avec les mêmes paramètres).
 & \textit{$<$option1$>$} : Représente le voisinage que l’on veut utiliser : “PnD” pour le voisinage Pick and Drop, “Swap” pour le voisinage swap. Cet argument n’est pas nécessaire pour lancer l’algorithme exhaustif mais obligatoire pour les autres.
 & \textit{$<$option2$>$} : Est lié à l’algorithme :
 && La température initiale pour l’algorithme du Recuit Simulé (un double)
@@ -123,6 +123,7 @@ Nous avons implémenté quatre algorithmes :
 	\item Algorithme de recuit simulé
 	\item Algorithme Tabou
 	\end{itemize}
+	
 Les trois premiers algorithmes étaient obligatoires, et nous avons choisi comme quatrième algorithme l’algorithme Tabou, car la gestion d’un tableau de mouvements interdits nous paraissait intéressante.
 Les trois derniers algorithmes sont lancés plusieurs fois sur plusieurs solutions initiales. Nous détaillons plus loin cette fonctionnalité.
 
@@ -142,7 +143,7 @@ Pour la solution initiale, chaque sommet du graphe est placé dans l’une des c
 
 \subsection{Evaluation}
 
-La fonction d’évaluation se présente en deux étapes. Notre démarche à été de calculer une première évaluation simpliste (on ajoute 1 par arrête interclasse) puis d'appliquer un malus correspondant au respect de l'égalité des classes.
+La fonction d’évaluation se présente en deux étapes. Notre démarche à été de calculer une première évaluation simpliste (on ajoute 1 par arête interclasse) puis d'appliquer un malus correspondant au respect de l'égalité des classes.
 ~\par Pour une première évaluation de x, si l'écart moyen des classes est de 13\%, on ajoutera a x ces 13\%. Ainsi :
 \begin{enumerate}
 \item  Calcul de I1 : La première évaluation est le nombre arêtes interclasses, cette étape ne sera effectuée qu’une seule fois. \textit{Cette évaluation sera ensuite mise à jour pour chaque sommet déplacé pour économiser du temps.}
@@ -170,20 +171,20 @@ Quand il est instancié, il aura comme paramètres :
 \item Le nombre de classes désirées
 \end{itemize}
 NB: On peut noter que ces paramètres sont les mêmes que ceux pour instancier un algorithme, le lanceur en aura besoin puisque qu'il créera des algorithmes en boucle.
-~\par Ensuite, on utilisera la fonction run() du lanceur pour démarrer les test. Cette dernière à plusieurs arguments :
+~\par Ensuite, on utilisera la fonction run() du lanceur pour démarrer les tests. Cette dernière a plusieurs arguments :
 \begin{itemize}
 \item Un string représentant le nom de l'algorithme à tester
 \item Le nombre de lancements à effectuer
 \item L'argument optionnel de l'algorithme. \textit{NB: Cet argument  est optionnel pour run(), et il sera ignoré s'il doit lancer la descente de gradient (qui n'a pas besoin d'argument)}
 \end{itemize}
-Il lance alors n fois algorithme en parallèle, et indiquera à la fin : 
+Il lance alors n algorithmes en parallèle, et indiquera à la fin : 
 \begin{easylist}[itemize]
 \ListProperties(Hide=100, Hang=true, Progressive=3ex, Style*=-- ,Style2*=$\circ$ ,Style3*=$\bullet$ ,Style4*=\tiny$\blacksquare$)
 & Chacun des algorithmes lancé avec :
-&& Leur solution initiale, et leur évaluation
+&& Leur solution initiale, et son évaluation
 && Leur temps d'exécution.
-&& Leur solution finale, et leur évaluation
-& La meilleur solution trouvée (et son évaluation)
+&& Leur solution finale, et son évaluation
+& La meilleure solution trouvée (et son évaluation)
 & L'évaluation moyenne
 & Le temps total d'exécution
 & Le temps moyen d'exécution d'un algorithme.
@@ -194,7 +195,7 @@ Pour un meilleur temps moyen approximatif, nous avons divisé le temps total par
 
 \subsection{Tests}
 
-Nous avons choisis de tester (principalement) le PnD et de comparer avec quelques résultats du swap. Nous avons fait varier les nombres de sommets, les nombres de classes et effectué une analyse critique des résultats. Nos tests ont été effectués sur les machines du Cremi, ce sont des machines 4 coeurs.
+Nous avons choisis de tester (principalement) le PnD et de comparer avec quelques résultats du Swap. Nous avons fait varier les nombres de sommets, les nombres de classes et effectué une analyse critique des résultats. Nos tests ont été effectués sur les machines du Cremi, ce sont des machines 4 coeurs.
 
 \newpage
 
@@ -208,10 +209,10 @@ Nous avons considéré le tableau des sommets, avec pour valeur un entier repré
 ~\\ $[0, 1, 0, 0]$
 ~\\ $[1, 1, 0, 0]$
 ~\\ (...)
-~\par De cette manière nous somme sur de tout tester, nous pouvons cependant remarquer que nous testons des solutions équivalentes : [0, 0, 1, 1] $<=>$ [1, 1, 0, 0].
+~\par De cette manière nous sommes sûrs de tout tester, nous pouvons cependant remarquer que nous testons des solutions équivalentes : $[0, 0, 1, 1] \Leftrightarrow [1, 1, 0, 0]$.
 
 \subsection{Paramètres}
-Il n’est donc pas nécessaire de choisir un voisinage. La solution initiale est une solution avec tous les sommets dans la première classe (0).
+Il n’est pas nécessaire de choisir un voisinage. La solution initiale est une solution avec tous les sommets dans la première classe (0).
 
 \subsection{Tests effectués}
 
@@ -245,13 +246,13 @@ Il n’est donc pas nécessaire de choisir un voisinage. La solution initiale es
 	\hline
 \end{tabular}
 
-\bigskip
+\subsubsection{Autres graphes}
 Graphe à 20 sommets / 2 classes : 17s
 
 Graphe à 22 sommets / 2 classes : 46s
 
 \subsection{Résultats}
-C'est un algorithme qui devient très rapidement long, mais qui donne toujours la meilleure solution pour les petits graphes.
+C'est un algorithme qui devient très rapidement long, mais qui donne toujours la meilleure solution. Il est donc préférable de l'utiliser sur des petits graphes.
 
 Il est utilisable quelque soit le nombre de classes jusqu’à 10 sommets et pour 2 classes jusqu’à 22 sommets.
 
@@ -268,28 +269,28 @@ Cet algorithme dépend du type de voisinage de la solution.
 
 \begin{tabular}{|c|c|c|c|c|c|c|}
 	\hline 
-	nb de classes & nb de Sommets & nb de lancers & tps moyen & tps total & eval min & ecart moyen \\
+	classes & sommets & lancers & tps moyen & tps total & eval min & ecart moyen \\
 	\hline
-	2 & 20 & 20 & 150 ms & 3 s 17 ms & 140 & 7.5 \\
+2 & 20 & 20 & 1 ms & 13 ms & 140 & 7.95 \\ 
 	\hline
-	2 &  50  &  50  &     ms   &    s    ms   &     &     \\
+2 &  50  &  50  &  1   ms   &  44 ms   &  321  & 21.86 \\ 
 	\hline
-	2 &  100  &  100  &     ms   &   s    ms    &     &     \\
+2 &  100  &  100  & 1  ms   &  115 ms    &  1010   & 63.94  \\ 
 	\hline
-	2 &  500  &  500  &      ms  &    s    ms   &     &     \\
+   2 &  500  &  500  &   2 ms  &  1  s  84  ms   & 3522  & 242.06\\
+   \hline
+   2 &  1000  &  1000  &  4  ms & 4  s 953 ms & 4705 & 277.671 \\ 
 	\hline
-	2 &  1000  &  1000  &    ms    &   s    ms    &     &     \\
 	\hline
+5 &  20  &  20  & 4 ms &  32 ms    &  140   & 7.5 \\
 	\hline
-	5 &  20  &  20  &     ms   &   s    ms    &     &     \\
+5 &  50  &  50  & 3 ms &  64 ms   & 308 & 33.2 \\ 
 	\hline
-	5 &  50  &  50  &     ms   &   s     ms   &     &     \\
+5 &  100  & 100   & 2  ms   &  148 ms    & 1641 & 56.16 \\
 	\hline
-	5 &  100  & 100   &     ms   &   s    ms    &     &     \\
-	\hline
-	5 & 500   & 500   &     ms   &   s     ms   &     &     \\
-	\hline
-	5 &  1000  &  1000  &     ms   &   s    ms    &     &     \\
+   5 & 500 & 500 & 3 ms   &  2 s 332 ms   &   5811  & 186.864 \\
+   \hline
+   5 &  1000  &  1000  & 7 ms &  8 s 148 ms & 7718 & 230.805 \\ 
 	\hline
 \end{tabular}
 
@@ -351,13 +352,15 @@ Nombre de classes : 2
 	\hline 
 	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
 	\hline
-	20 & 20 & 150 ms & 3 s 100 ms & 2 & 140 \\
+20 & 20 & 22 ms & 500 ms & 2 & 140 \\ 
 	\hline
 	 50  &  50  &   130  ms   &   6 s  300  ms   &   6.26  &   315  \\
 	\hline
-	 100  &  75  &   423  ms   &  32 s  &  10   &   1025  \\
+100  &  75  &   430  ms   &  32 s  &  10   &   1025  \\ 
 	\hline
-	 500  &  100  &  2 min 40 s  &  3 min 30  s &  54   &   3635  \\
+500  &  100  & 2 s 100 ms  &  3 min 30  s &  41  &   3648  \\
+	\hline
+	1000  &  300  &  5 s 500 ms &  29 min &  42   &   4873  \\ 
 	\hline
 \end{tabular}
 \bigskip
@@ -399,13 +402,13 @@ Nombre de classes : 2
 	\hline 
 	sommets & lancers & tps moyen & tps total & ecart moyen & eval min\\
 	\hline
-	20 & 20 & 153 ms & 3 s 100 ms & 1 & 140 \\
+20 & 20 & 40 ms & 809 ms & 1.45 & 140 \\ 
 	\hline
-	 50  &  50  & 138 ms   &  7  s  &   7  & 315\\
+50  &  50  & 221 ms   &  11 s 94 ms  &   6.88  & 315\\ 
 	\hline
-	 100  &  75  &   465  ms   &  35 s &   8  &  1028   \\
+100  &  75  &   500  ms   &  38 s &   18  &  1022   \\ 
 	\hline
-	 500  &  100  &      ms  &    s    ms   &     &     \\
+500  &  100  &   2 s 500   ms  & 4 min 15 s & 43  & 3653  \\
 	\hline
 \end{tabular}
 \bigskip
