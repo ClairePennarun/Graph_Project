@@ -43,13 +43,13 @@
 
 % A COMPLETER : tableaux / conclusions recuit
 
-\part{Présentation du programme}
+\section{Présentation du programme}
 
-\section{But}
+\subsection{But}
 
 Ce programme permet d’utiliser différents algorithmes d’heuristique pour la résolution d’un problème de partitionnement d’un graphe en un nombre donné de classes de sommets. Ce programme permet ainsi de faire des tests de rapidité et de comparer la vitesse des algorithmes en fonction du nombre de sommets du graphe et du nombre de classes.
 
-\section{Mode d'emploi du programme}
+\subsection{Mode d'emploi du programme}
 
 Le programme doit être utilisé sur des fichiers de la forme suivante :
 
@@ -112,9 +112,8 @@ Notre programme se lance avec les arguments suivants :
 	
 \newpage	
 	
-\part{Choix généraux}
-\setcounter{section}{0}
-\section{Choix des algorithmes implémentés}
+\section{Choix généraux}
+\subsection{Choix des algorithmes implémentés}
 Nous avons implémenté quatre algorithmes :
 	\begin{itemize}
     \item Algorithme exhaustif
@@ -125,21 +124,21 @@ Nous avons implémenté quatre algorithmes :
 Les trois premiers algorithmes étaient obligatoires, et nous avons choisi comme quatrième algorithme l’algorithme Tabou, car la gestion d’un tableau de mouvements interdits nous paraissait intéressante.
 Les trois derniers algorithmes sont lancés plusieurs fois sur plusieurs solutions initiales. Nous détaillons plus loin cette fonctionnalité.
 
-\section{Langage de programmation}
+\subsection{Langage de programmation}
     Nous avons choisi de programmer en Java, car c’est un langage que nous connaissons et qu’un langage objet nous paraissait pertinent pour gérer des objets comme des solutions ou des graphes. De plus, Java nous permet d’utiliser les fonctions liées à ses bibliothèques qui sont déjà optimisées. Nous savions donc que si un algorithme s’exécutait dans un temps supérieur à la normale, ce serait de la faute de l’algorithme et non des fonctions Java.
 
-\section{Structures de données}
+\subsection{Structures de données}
 Pour stocker le graphe en mémoire, nous avons choisi d’utiliser une liste d’adjacence qui est remplie à la lecture du fichier par le programme. Cette liste est ensuite traitée par le programme pour créer un premier partitionnement (stocké dans l’objet GraphePartition), qui est la base de notre programme et sur lequel toutes les méthodes seront appliquées. Cet objet GraphePartition représente un graphe partitionné et contient notamment le numéro de classe attribué à chaque sommet, le nombre de classes prévues et l’évaluation de la solution courante.
 
-\section{Voisinages implémentés}
+\subsection{Voisinages implémentés}
 Nous avons décidé d’implémenter deux voisinages, le Pick’n'Drop et le Swap. Ainsi l’utilisateur pourra choisir entre eux.
     Nous n’avons pas implémenté le voisinage par Sweep car il revient à effectuer plusieurs Swap d’affilée.
 
-\section{Solution initiale}
+\subsection{Solution initiale}
 
 Pour la solution initiale, chaque sommet du graphe est placé dans l’une des classes aléatoirement. Nous avons implémenté deux fonctions différentes suivant le voisinage utilisé : pour le voisinage Pick'n'Drop, on choisit un écart maximal pour le nombre de sommets par classe. Pour le voisinage Swap, la répartition des sommets dans les classes est totalement aléatoire.
 
-\section{Evaluation}
+\subsection{Evaluation}
 
 La fonction d’évaluation se présente en deux étapes.
 
@@ -156,28 +155,27 @@ En pourcentage cela donne : e =13.33/1000 = 0.013.
 L’évaluation finale sera donc : I2 = (100 + I1) * (1+e) = (100 + 712)*1.013 = 822.556.
 NB: Pour donner plus ou moins d’influence dans l’équilibre de la taille des classes, nous multiplions par un coefficient a fixé. Ainsi on aura : I2 = (I1 + 100) * (1+e*a)
 
-\section{Lanceur}
+\subsection{Lanceur}
 
 Ce module prend en paramètre le graphe initial, le type de voisinage et le nombre de classes désirées. Il implémente une fonction run() qui prend en paramètre le nom d’un algorithme, un nombre de tours n et les arguments de l’algorithme.
 Il lance alors n fois l’algorithme en parallèle (avec un système de multi-threading), et indique les résultats de chacun des lancers, l’évaluation moyenne, la meilleure des solutions et son évaluation.
 
-\section{Tests}
+\subsection{Tests}
 
 Nos tests ont été effectués sur les machines du Cremi, ce sont des machines 4 coeurs.
 
 \newpage
 
-\part{Algorithme exhaustif - Enumération explicite}
-\setcounter{section}{0}
-\section{Description}
+\section{Algorithme exhaustif - Enumération explicite}
+\subsection{Description}
 Cet algorithme va examiner toutes les solutions possibles. Nous avons choisi d'effectuer un parcours en profondeur.
 
-\section{Paramètres}
+\subsection{Paramètres}
 Il n’est donc pas nécessaire de choisir un voisinage. La solution initiale est une solution avec tous les sommets dans la première classe (0).
 
-\section{Tests effectués}
+\subsection{Tests effectués}
 
-\subsection{Graphe à 5 sommets}
+\subsubsection{Graphe à 5 sommets}
 
 \begin{tabular}{|c|c|c|c|}
 	\hline 
@@ -187,7 +185,7 @@ Il n’est donc pas nécessaire de choisir un voisinage. La solution initiale es
 	\hline
 \end{tabular}
 
-\subsection{Graphe à 10 sommets}
+\subsubsection{Graphe à 10 sommets}
 
 \begin{tabular}{|c|c|c|c|c|}
 	\hline 
@@ -197,7 +195,7 @@ Il n’est donc pas nécessaire de choisir un voisinage. La solution initiale es
 	\hline
 \end{tabular}
 
-\subsection{Graphe à 15 sommets}
+\subsubsection{Graphe à 15 sommets}
 
 \begin{tabular}{|c|c|c |}
 	\hline 
@@ -212,22 +210,21 @@ Graphe à 20 sommets / 2 classes : 17s
 
 Graphe à 22 sommets / 2 classes : 46s
 
-\section{Résultats}
+\subsection{Résultats}
 C'est un algorithme qui devient très rapidement long, mais qui donne toujours la meilleure solution pour les petits graphes.
 
 Il est utilisable quelque soit le nombre de classes jusqu’à 10 sommets et pour 2 classes jusqu’à 22 sommets.
 
 \newpage
 
-\part{Descente de gradient}
-\setcounter{section}{0}
-\section{Description}
+\section{Descente de gradient}
+\subsection{Description}
 Cet algorithme part d’une solution initiale aléatoire et tourne tant qu’une solution meilleure a été trouvée dans son voisinage. On cherche à chaque tour de boucle la meilleure solution voisine. Si celle-ci est meilleure que la solution courante, elle devient solution courante. Sinon, l’algorithme s’arrête.
 
-\section{Paramètres}
+\subsection{Paramètres}
 Cet algorithme dépend du type de voisinage de la solution. 
 
-\section{Tests}
+\subsection{Tests}
 
 \begin{tabular}{|c|c|c|c|c|c|c|}
 	\hline 
@@ -256,22 +253,21 @@ Cet algorithme dépend du type de voisinage de la solution.
 	\hline
 \end{tabular}
 
-\section{Résultats}
+\subsection{Résultats}
 
 Nous avons testé l’algorithme de gradient avec beaucoup plus de lancements que les deux algorithmes suivants (recuit simulé et tabou), car il était beaucoup plus rapide. En effet, il ne cherche pas à sortir des minima.
 % A COMPLETER
 
 \newpage
 
-\part{Recuit simulé}
-\setcounter{section}{0}
-\section{Description}
+\section{Recuit simulé}
+\subsection{Description}
 Cet algorithme est basé sur la physique. On utilise la température comme paramètre. Pour chaque baisse de température, on cherche une solution courante optimale. A la température minimale, la solution trouvée doit être optimale.
 
-\section{Paramètres}
+\subsection{Paramètres}
 Cet algorithme dépend du voisinage. De plus, nous laissons à l’utilisateur le choix de la température initiale, c’est un double qui doit être supérieure à la température minimale.
 
-\section{Choix d'implémentation}
+\subsection{Choix d'implémentation}
 
 \paragraph{Taille du problème}
 Dans cet algorithme nous utilisons N, la taille du problème. Nous avons décidé de prendre le nombre d’arètes comme taille. Le nombre d’arêtes majore le nombre de sommets car nous sommes sur des graphes simples. Donc le nombre d’arêtes est plus représentatif des problèmes appliqués aux graphes simples.
@@ -300,7 +296,7 @@ Ces trois conditions nous paraissaient nécessaires dans le cas des grands graph
 \paragraph{Choix de la solution voisine} La solution voisine doit être aléatoire. On effectue simplement un mouvement du voisinage en cours.
 \paragraph{Choix de la fonction g} La fonction g est la fonction de chute de la température. Celle-ci est simple : on multiplie la température actuelle par la raison r. Au début de l’algorithme, r est choisie au hasard entre 0.7 et 0.9 pour que l’algorithme de Métropolis puisse accepter suffisamment de solutions supérieures pour pouvoir sortir d’un minimum local. 
 
-\section{Tests effectués}
+\subsection{Tests effectués}
 Voici quelques tests effectués. Afin de les comparer nous utilisons un test témoin, le premier puis nous faisons varier un paramètre à la fois.
 
 \bigskip
@@ -326,7 +322,7 @@ Nombre de classes : 2
 \end{tabular}
 \bigskip
 
-\subsection*{Changement du voisinage}
+\subsubsection*{Changement du voisinage}
 
 Température initiale : $20^\circ$C
 
@@ -350,7 +346,7 @@ Nombre de classes : 2
 \end{tabular}
 \bigskip
 
-\subsection*{Changement de la température}
+\subsubsection*{Changement de la température}
 
 Température initiale : $40^\circ$C
 
@@ -374,7 +370,7 @@ Nombre de classes : 2
 \end{tabular}
 \bigskip
 
-\subsection*{Changement du nombre de classes}
+\subsubsection*{Changement du nombre de classes}
 
 Température initiale : $20^\circ$C
 
@@ -425,24 +421,23 @@ Voisinage : PnD
 \bigskip 
 (Ce dernier test a été effectué sur un autre ordinateur, c’est pour cela que les vitesses sont plus petites que les témoins)
 
-\section{Résultats}
+\subsection{Résultats}
 
 % A COMPLETER AVEC LA CONCLUSION
 
 \newpage
 
-\part{Algorithme Tabou}
-\setcounter{section}{0}
-\section{Description}
+\section{Algorithme Tabou}
+\subsection{Description}
 Cet algorithme est une heuristique qui utilise un tableau de mouvements interdits (ou tabous) pour pouvoir sortir des minima locaux. On stocke les mouvements interdits plutôt que les solutions interdites par souci d’économie de la mémoire.
 
-\section{Paramètres}
+\subsection{Paramètres}
 Le tableau de mouvements interdits (ou tableau tabou) est un tableau d’objets de type Mouvement. Sa taille est fixée par l’utilisateur à l’appel de l’algorithme.
 
 Un mouvement est un objet qui contient plusieurs champs : deux champs représentant des sommets, un champ représentant une classe et un champ représentant le timestamp associé à ce mouvement. Cette représentation permet de gérer des mouvements de type Pick’n’Drop (en instanciant seulement un des deux sommets et le numéro de la classe) et des mouvements de type swap (en instanciant les champs correspondant aux deux sommets à échanger).
 Le timestamp de chaque mouvement, qui correspond à la durée de présence du mouvement dans le tableau des mouvements tabous, est incrémenté à chaque tour de boucle et le mouvement est retiré du tableau quand son timestamp atteint la valeur de la taille du tableau.
 
-\section{Tests effectués}
+\subsection{Tests effectués}
 Pour effectuer les tests, nous avons pris comme témoin un tableau tabou de taille 5 et un partitionnement en deux classes.
 
 \bigskip
@@ -540,7 +535,7 @@ Nombre de classes : 5
 	\hline
 \end{tabular}
 
-\section{Résultats}
+\subsection{Résultats}
 
 En augmentant la taille du tableau Tabou, le temps de calcul augmente mais le pourcentage d'augmentation tend vers zéro avec l'augmentation de la taille du problème :
 \begin{itemize}
@@ -565,12 +560,10 @@ En changeant de voisinage (Swap au lieu de Pick'n'Drop), les temps de calcul moy
 
 \newpage
 
-\part{Méthode de travail}
-\setcounter{section}{0}
-\section{Utilisation de git}
+\section{Méthode de travail}
+\subsection{Utilisation de git}
 Pour travailler sur ce projet, nous avons utilisé le logiciel de gestion de versions Git et sa plateforme d’hébergement web GitHub. Nous avons travaillé en mettant en place des branches de travail, qui étaient ensuite intégrées au code principal. Nous avons également utilisé le système des “issues” de GitHub, qui nous ont permis de lister les tâches à effectuer et donc d’avoir un suivi global du projet.
 
-\part{Conclusion}
-\setcounter{section}{0}
+\section{Conclusion}
 		
 \end{document}
